@@ -1,0 +1,1469 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>the fØund4ŧ¹°n</title>
+    <link>https://the-foundation.is-a-p.ro.eu.org/</link>
+    <description>Recent content on the fØund4ŧ¹°n</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Mar 2023 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://the-foundation.is-a-p.ro.eu.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Exporting all layers of docker images with one command</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2023_03_22_exporting_all_layers_of_docker_images_with_one_command/</link>
+      <pubDate>Wed, 22 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2023_03_22_exporting_all_layers_of_docker_images_with_one_command/</guid>
+      <description>&lt;h2 id=&#34;creation-of-docker-images-from-a-filefolder&#34;&gt;Creation of Docker images from a file/folder&lt;/h2&gt;
+&lt;p&gt;It seemed to be an easy task to just use Docker Images as file archives,
+since you could simply create an image with a command like&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo tar cv buildcache_persist &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;docker import - &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;CICACHETAG&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; docker push &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;CICACHETAG&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;( in our examples we assume that we want to save/restore the folder &lt;code&gt;buildcache_persist&lt;/code&gt; )&lt;/p&gt;
+&lt;h3 id=&#34;extraction--and-the-trouble-&#34;&gt;Extraction ( and the trouble )&lt;/h3&gt;
+&lt;p&gt;But the extraction was a bit more complicated,
+dealing with tar archives should be not too complicated ,
+but it did&amp;rsquo;t instantly work on all machines..&lt;/p&gt;
+&lt;p&gt;( Do not use below code , it worked only on 1 out of 3 systems)&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    echo &amp;#34;REMOVING AND GETTING ${CICACHETAG} AGAIN ( MERGE )&amp;#34;
+    docker rmi ${CICACHETAG}
+    docker pull ${CICACHETAG} &amp;amp;&amp;amp;             (
+        cd /tmp/;docker save ${CICACHETAG} &amp;gt; /tmp/.importCI ;
+                                        tar xvf /tmp/.importCI --to-stdout   $(tar tf /tmp/.importCI|grep layer.tar) |tar xv
+    rm /tmp/.importCI
+    )
+    echo &amp;#34;SAVING ${CICACHETAG}&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;p&gt;In fact Murphys Law kicked in &amp;ldquo;again&amp;rdquo;,
+since everything went well in &amp;ldquo;real machines&amp;rdquo; but  CI-Runners failed with &amp;ldquo;famous&amp;rdquo; error:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;tar: invalid tar header checksum
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;the-internetz--or-better-stack-overflow-aka-crap-overloadposts2023_02_02_shittification_of_the_internetz-the_toxic_thingy_stack_overflow_became_and_why_it_is_so_annoying_to_even_ask_on_crap_overload--had-some-half-knowledge--false-positive-answer-again&#34;&gt;The internetz , or better &lt;a class=&#34;link&#34; href=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2023_02_02_shittification_of_the_internetz-the_toxic_thingy_stack_overflow_became_and_why_it_is_so_annoying_to_even_ask_on_crap_overload/&#34; &gt;Stack Overflow a.k.a. Crap Overload&lt;/a&gt;  had some half-knowledge + false-positive answer again&lt;/h2&gt;
+&lt;p&gt;Once more the &lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/questions/52272666/docker-how-to-extract-the-docker-image-into-local-system&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Stackoverflow thread&lt;/a&gt;
+was merely helpful ,&lt;/p&gt;
+&lt;p&gt;since &lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/a/69469657/18068312&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the answer closest to the simplest solution is lowest-voted, AND STILL FULL OF FAILS  &lt;/a&gt; ( that could be easily checked on a command line instead of sh*tloading half-knowledge)&lt;/p&gt;
+&lt;p&gt;But just for the lulz ( and not being downvoted on &lt;a class=&#34;link&#34; href=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2023_02_02_shittification_of_the_internetz-the_toxic_thingy_stack_overflow_became_and_why_it_is_so_annoying_to_even_ask_on_crap_overload/&#34; &gt;swag overload&lt;/a&gt; ) ,&lt;/p&gt;
+&lt;p&gt;here&amp;rsquo;s the wipe-*ss part for that answer line-by-line:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;StackOverflow answer of &lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/users/1531945/konstantin-pelepelin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Konstantin P.&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;Truth&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;id=$(docker create image:tag)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;does not work without command set for e.g. &lt;code&gt;FROM scratch&lt;/code&gt; containers&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;docker export $id -o image.tar&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;docker export accepts only ONE argument (&amp;hellip;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;docker rm $id&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;better quote &lt;code&gt;&amp;quot;$id&amp;quot;&lt;/code&gt; or curly-bracket &lt;code&gt;${id}&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;UNMENTIONED&lt;/td&gt;
+&lt;td&gt;The suggested solution extracts EVERYTHING including &lt;code&gt;/etc/&lt;/code&gt; &lt;code&gt;/dev/&lt;/code&gt; and so on ..&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;the-one-line--solution--extraction-of-specific-files-of-a-docker-container-without-single-layer-extraction&#34;&gt;The one-line  Solution : extraction of specific files of a docker container without single layer extraction&lt;/h2&gt;
+&lt;p&gt;To narrow it down :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;only extraction of specific files is possible  ( here only &lt;code&gt;buildcache_persist&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;there is no need to bloat up the filesystem with temporary &lt;code&gt;tar&lt;/code&gt; files&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here we go :&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; docker export $(docker create --name cicache docker.io/my-org/my-cicache-image:example-tag /bin/false ) |tar xv buildcache_persist ;docker rm cicache
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This command wil extract only the folder &lt;code&gt;buildcache_persist&lt;/code&gt; into the current directory&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Happy Coding&amp;hellip;&lt;/p&gt;
+</description> 
+    </item>
+    
+    <item>
+      <title>Github Actions could not parse as YAML: mapping values are not allowed in this context</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2023_03_04_github_actions_could_not_parse_as_yaml_mapping_values_are_not_allowed_in_this_context/</link>
+      <pubDate>Sat, 04 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2023_03_04_github_actions_could_not_parse_as_yaml_mapping_values_are_not_allowed_in_this_context/</guid>
+      <description>&lt;p&gt;===&lt;/p&gt;
+&lt;h2 id=&#34;github-actions-may-be-a-source-of-luck-and-fun-or-pain&#34;&gt;Github actions may be a source of luck and fun or pain.&lt;/h2&gt;
+&lt;p&gt;The moments &lt;strong&gt;when it does not accept your workflow file&lt;/strong&gt;
+are the the worst amongs them.&lt;/p&gt;
+&lt;h2 id=&#34;help-is-on-the-way&#34;&gt;Help is on the way&lt;/h2&gt;
+&lt;p&gt;Firstly , there is &lt;a class=&#34;link&#34; href=&#34;https://rhysd.github.io/actionlint/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub Action-LINT&lt;/a&gt; ,
+so there is no more push-check-push-check necessary anymore as it works instant in your browser.
+&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2023_03_04_github_actions_could_not_parse_as_yaml_mapping_values_are_not_allowed_in_this_context/imgs/github-actionlint.png&#34;
+	width=&#34;978&#34;
+	height=&#34;518&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;GitHub Action LINT with mapping values are not allowed error&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;188&#34;
+		data-flex-basis=&#34;453px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;In the current case, the indent of &lt;strong&gt;the beging of the words&lt;/strong&gt; need to be matched , so here is a line-by-line comparison&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Wrong&lt;/th&gt;
+&lt;th&gt;Correct&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2023_03_04_github_actions_could_not_parse_as_yaml_mapping_values_are_not_allowed_in_this_context/imgs/gh-lint-fail-mapping-values.png&#34;
+	width=&#34;476&#34;
+	height=&#34;71&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Failed Gitlab CI Indentation&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;670&#34;
+		data-flex-basis=&#34;1609px&#34;
+	
+&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2023_03_04_github_actions_could_not_parse_as_yaml_mapping_values_are_not_allowed_in_this_context/imgs/gh-lint-pass-mapping-values.png&#34;
+	width=&#34;459&#34;
+	height=&#34;80&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Working Gitlab CI Indentation&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;573&#34;
+		data-flex-basis=&#34;1377px&#34;
+	
+&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Action-LINT shows a dot next to the line ,&lt;!-- raw HTML omitted --&gt; since &lt;code&gt;run:&lt;/code&gt; is errnously placed one whitespace too much to the right. &lt;!-- raw HTML omitted --&gt;This often happens when the colons ( &lt;code&gt;:&lt;/code&gt; ) are placed directly over each other&lt;/td&gt;
+&lt;td&gt;Action LINT does not complain&lt;!-- raw HTML omitted --&gt; when &lt;code&gt;run:&lt;/code&gt; and &lt;code&gt;name:&lt;/code&gt;  have the proper indentation and the &lt;strong&gt;first characters&lt;/strong&gt; are directly above each other&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;you-are-using-gitlab-&#34;&gt;You are using gitlab ?&lt;/h2&gt;
+&lt;p&gt;Cool for you ,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.gitlab.com/ee/ci/pipeline_editor/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;there is a GitLab-CI LINTER &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;and even a &lt;a class=&#34;link&#34; href=&#34;https://marketplace.visualstudio.com/items?itemName=cstuder.gitlab-ci-validator&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;VS-Code Gitlab-CI Validator&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Happy Coding&lt;/p&gt;
+</description> 
+    </item>
+    
+    <item>
+      <title>MYSQL records of previous month</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2023_02_03_mysql_records_of_previous_month/</link>
+      <pubDate>Fri, 03 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2023_02_03_mysql_records_of_previous_month/</guid>
+      <description>&lt;h2 id=&#34;the-question-how-to-get-mysql-rows-of-last-month-&#34;&gt;The Question: &lt;code&gt;how to get MYSQL rows of last month ?&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;The &amp;ldquo;simple&amp;rdquo; question &amp;ldquo;how do i get MySQL records of previous month&amp;rdquo;
+unfolded many threads ,
+sometimes even giving false positive answers like:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;take the difference between now and now-1 month (DO NOT !)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;the-solution-two-mysql-timestamps-with-interval-calculated&#34;&gt;The Solution: Two MYSQL timestamps with INTERVAL calculated&lt;/h2&gt;
+&lt;p&gt;Ok, not only sometimes false postives are recommended ,
+in fact very often.. ,
+so here we go with a proper example:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SELECT o.row_a , o.row_b,
+WHERE row.something = `foo`
+AND (o.`date_add` &amp;gt;= DATE_FORMAT( CURRENT_DATE - INTERVAL 2 MONTH, &amp;#39;%Y/%m/01&amp;#39; ) )
+AND (o.`date_add`  &amp;lt; DATE_FORMAT( CURRENT_DATE - INTERVAL 1 MONTH, &amp;#39;%Y/%m/01&amp;#39; ) )
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;( only the part from &lt;code&gt;AND&lt;/code&gt; on is important to us )&lt;/p&gt;
+&lt;p&gt;To get other months ( or days or years), just modify the &lt;code&gt;INTERVAL 1 MONTH&lt;/code&gt; and the second &lt;code&gt;AND&lt;/code&gt; statement&lt;/p&gt;
+&lt;h2 id=&#34;addendum-current-month&#34;&gt;ADDENDUM: current month&lt;/h2&gt;
+&lt;p&gt;to have &amp;ldquo;nearly the same&amp;rdquo; query for the current month, do&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;AND (o.`date_add` &amp;gt;= DATE_FORMAT( CURRENT_DATE, &amp;#39;%Y/%m/01&amp;#39; ) )
+AND (o.`date_add`  &amp;lt; DATE_FORMAT( CURRENT_DATE + INTERVAL 1 MONTH, &amp;#39;%Y/%m/01&amp;#39; ) )
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2023_02_03_mysql_records_of_previous_month/imgs/sql-last-month.png&#34;
+	width=&#34;1037&#34;
+	height=&#34;228&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34; /etc/docker/daemon.json contents of custom setup &#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;454&#34;
+		data-flex-basis=&#34;1091px&#34;
+	
+&gt;&lt;/p&gt;
+</description> 
+    </item>
+    
+    <item>
+      <title>Shittification of the internetz - The toxic thingy Stack Overflow became and why it is so annoying to even ask on Crap Overload</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2023_02_02_shittification_of_the_internetz-the_toxic_thingy_stack_overflow_became_and_why_it_is_so_annoying_to_even_ask_on_crap_overload/</link>
+      <pubDate>Thu, 02 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2023_02_02_shittification_of_the_internetz-the_toxic_thingy_stack_overflow_became_and_why_it_is_so_annoying_to_even_ask_on_crap_overload/</guid>
+      <description>&lt;h2 id=&#34;stackoverflow----you-want-help--you-get-downvotes&#34;&gt;&lt;code&gt;Stackoverflow&lt;/code&gt; -  you want help ? you get downvotes&lt;/h2&gt;
+&lt;p&gt;Somehow people might be attracted by Stack Overflow ,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;maybe because it&amp;rsquo;s mostly top-ranked by Search Engines,&lt;/li&gt;
+&lt;li&gt;maybe because sometimes it really helps ,&lt;/li&gt;
+&lt;li&gt;maybe it keeps people in business that should better do stuff without brain-usage or something where they cannot harm people.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;But over the years it has become a dirt-pool &lt;strong&gt;that is quicker in instant-downvoting and duplicate-flagging&lt;/strong&gt; than answering.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2023_02_02_shittification_of_the_internetz-the_toxic_thingy_stack_overflow_became_and_why_it_is_so_annoying_to_even_ask_on_crap_overload/imgs/so_keyboard_Nisarg_Shah.twitter.Nisarg259.png&#34;
+	width=&#34;662&#34;
+	height=&#34;463&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Stack Overflow Keyboard  Screenshot from Twitter timeline of Nisarg259&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;142&#34;
+		data-flex-basis=&#34;343px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Maybe that is what happens when platforms tend to be &amp;ldquo;up/down-vote&amp;rdquo;-style places full of  Mr./Mrs.-always-right &amp;hellip;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;people that post and are downvoted just because of &amp;ldquo;how the answer was &amp;quot; just leave or don&amp;rsquo;t post anymore, leaving the self-confirming &amp;ldquo;crowd&amp;rdquo; to play their toxic games&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://uniquebusinessmodels.substack.com/p/31-how-does-stack-overflow-make-money&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;in fact the knowledge collected is turned into $$$ by StackOverflow&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=I_ZK0t9-llo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;There is a youtube Video that has some painful examples of what is going on over there&lt;/a&gt; , stories where people are &lt;strong&gt;rewarded to remove their questions&lt;/strong&gt; (WTF!)&lt;/p&gt;
+&lt;p&gt;In the description there is a &lt;strong&gt;very&lt;/strong&gt; true statement:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The Stack Overflow culture &lt;strong&gt;needs to be fixed&lt;/strong&gt;. The overall &lt;strong&gt;gatekeeping &amp;amp; elitism&lt;/strong&gt; in computer science &amp;amp; programming - as a whole - needs to be fixed. &lt;strong&gt;I just see it more on Stack Overflow than anywhere else&lt;/strong&gt; .&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;the internet is full of threads that ask why a bunch of bullies is dominating on SO&lt;/p&gt;
+&lt;p&gt;And to sum it up &lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/AskProgramming/comments/9pgc1a/why_is_asking_on_stackoverflow_so_horrible/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;there is a reddit that says it all &lt;/a&gt;, so here are some quotes ( of more than 1 user ) from that thread:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In return for my technical question, I get what &lt;strong&gt;amounts to a colonoscopy, by what appear to be 14 year old &amp;ldquo;engineers&amp;rdquo;, who racked up internet points asserting wrong information with brazen confidence&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Why is everyone &lt;strong&gt;responding in underhanded, condescending tone, under a thin veil of technical clarification?&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Why is it that people &lt;strong&gt;who don&amp;rsquo;t know the answer, nor care to even understand the question, need to comment, then upvote their incorrect comments, all meanwhile downvoting my question?&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;..  &lt;strong&gt;asking a question on SO is equivalent to giving up whatever dignity you have, or be downvoted&lt;/strong&gt; for &lt;em&gt;no logical reason&lt;/em&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;SO has always had a problem with toxicity. I think the &lt;strong&gt;main reason for this is that it&amp;rsquo;s not actually a Q&amp;amp;A platform. It&amp;rsquo;s a wiki under the guise of a Q&amp;amp;A platform&lt;/strong&gt;. This explains why people can edit your posts and why ++SO explicitly encourages users to post questions that they already have the answer to**.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;SO doesn&amp;rsquo;t want people to post questions asking for help. They want people to create Q&amp;amp;A-style wiki pages to add to their curated collection of knowledge. If your question doesn&amp;rsquo;t have a good answer of general use to the populous, then it&amp;rsquo;ll be downvoted and closed because it&amp;rsquo;s not useful to them&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Unfortunately, people innocently try to get help on the site and are subsequently berated and their questions torn apart&lt;/strong&gt;. SO has tried to address this issue, but it seems that they haven&amp;rsquo;t made any progress.
+&lt;strong&gt;The first rule of SO is NEVER EVER ask questions on it. It&amp;rsquo;ll get down voted and marked as duplicate immediately.&lt;/strong&gt;
+&lt;strong&gt;It&amp;rsquo;s a great reference. Absolutely terrible source of help.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/csharp/comments/tf7ec3/stackoverflow_has_too_many_selfrighteous/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;A reddit has some user-horror-stories and a lot of criticism&lt;/a&gt; about the self-righteous moderators and that they act as if they were the north-korean authorities, here are some excerpts:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Stackoverflow lives from the contribution of thousands contributors, &lt;strong&gt;but is controlled by a small band of moderators who have dictatorship like powers&lt;/strong&gt; &amp;hellip; Of course, it is good that Stackoverflow tries to enforce a certain level of quality for its content, but having this &amp;ldquo;police&amp;rdquo; punishing others leads to the same problem like any other police has: &lt;strong&gt;They feel they are omnipotent and always right, even if they are wrong&lt;/strong&gt;. I wish Stackoverflow would be more supporting of their content provider and help them to improve their contribution &lt;strong&gt;instead of removing content with wrong justifications and no easy way to challenge that&lt;/strong&gt; .&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;One tool these &lt;strong&gt;moderators like to use to suppress a discussion&lt;/strong&gt; is to &lt;strong&gt;mark a question as duplicate, which means the question/answers get closed, no further discussion is possible&lt;/strong&gt;. They &lt;strong&gt;just pretend that a many year old question sounds similar&lt;/strong&gt; . The worst example I have seen: A question asked why he gets a null reference in a specific WPF situation. The &lt;strong&gt;question got marked as duplicate&lt;/strong&gt;, because someone had posted 100 reasons why a null reference can happen, &lt;strong&gt;but with zero relevance for WPF&lt;/strong&gt;. There was a good reason why the null reference exception happened in this particular situation, &lt;strong&gt;but it was no longer possible to add an answer&lt;/strong&gt; explaining why the problem happen. And &lt;strong&gt;normal mortals have no chance to overturn the duplicate decision&lt;/strong&gt;, for that you need to have a tons of points on Stackoverflow.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;.. problem started when my answer got deleted with the reason &amp;quot; Code plagiarised without attribution&amp;rdquo;, which was wrong in my opinion . Since my original answer got deleted, you cannot see in that link, that&amp;rsquo;s how censorship works on Stackoverflow. I wrote all the content myself, except at the very end where I pasted some WPF source code. I made it clear that this was not my code and where it is coming from&amp;hellip; &lt;strong&gt;clearly stated that I could not write this code and that it is WPF source code&lt;/strong&gt;. How can this be plagiarism ?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I am using Stackoverflow since many years but I really could not figure out how to appeal this decision. So I tried to raise the issue on Meta: &lt;a class=&#34;link&#34; href=&#34;https://meta.stackoverflow.com/questions/416605/how-to-get-an-answer-deleted-by-a-moderator-because-of-code-plagiarized-withou&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://meta.stackoverflow.com/questions/416605/how-to-get-an-answer-deleted-by-a-moderator-because-of-code-plagiarized-withou&lt;/a&gt;. I did this reluctantly due to my earlier experience with self-righteous moderators, who usually react aggressively when anyone dares to mention that there was a problem on Stackoverflow. I wonder if they feel personally questioned and go into defense/attack mode automatically &amp;hellip; got there comments like &amp;ldquo;You don&amp;rsquo;t know how to quote and cite your sources when writing any professional document? I find that hard to believe.&amp;rdquo; Well, the truth is that I have never written a professional document citing sources. As it is common on Meta, &lt;strong&gt;many commenters do not consider if the case presented has any merit&lt;/strong&gt; (i.e. I did write in my answer that it is not my code and where I got it from). Instead they like to &lt;strong&gt;attack the person who dares to question their actions&lt;/strong&gt;&amp;hellip; To &lt;strong&gt;suppress any further discussion&lt;/strong&gt;, the &lt;strong&gt;moderators&lt;/strong&gt; used their preferred weapon and &lt;strong&gt;marked my Meta post as duplicate, even the other question had completely different circumstances&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Since they didn&amp;rsquo;t like me raising my question on Meta, &lt;strong&gt;they also marked my original question as duplicate&lt;/strong&gt;. Please note that my &lt;strong&gt;question had gone already through a review process and was accepted as proper. Only after I raised it on Meta my original question was closed&lt;/strong&gt; because of &amp;ldquo;This question needs details or clarity&amp;rdquo;. Again, &lt;strong&gt;no easy option to appeal the decision&lt;/strong&gt;. The &lt;strong&gt;only action they allow is that I change my question&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In the replies, users have &lt;strong&gt;more horrific stories&lt;/strong&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;.. once asked a question &lt;strong&gt;that took hours to write and referenced 5 different approaches to the problem&lt;/strong&gt;, and all I got was a &lt;strong&gt;downvote without explanation&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;stack overflow has at this point &lt;strong&gt;deleted as much useful content as it currently contains&lt;/strong&gt;&amp;hellip; there were always attitude issues amongst the power users, I wouldn&amp;rsquo;t expect anything less, &lt;strong&gt;but when they started getting militant about the definition of subjective and combining loosely related topics as duplicate&lt;/strong&gt; then later *&lt;strong&gt;deleting the question the defined as the original as low quality&lt;/strong&gt; it started to go downhill pretty fast&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;SO has become a place where dictatorship is rife, people are unfriendly and there is too much moderation going on.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;StackOverflow has become a slightly less spammy version of Experts Exchange. &lt;strong&gt;It&amp;rsquo;s woefully out of date on most things, gives bad and/or conflicting advice on everything else&lt;/strong&gt;, and generally has become a useless pile of junk. And most of the reason is what you&amp;rsquo;ve described here. The &lt;strong&gt;moderator fiefdoms result in petty turf wars and bad comments rise to the top because of political reasons&lt;/strong&gt; rather than technical ones.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;Someone read your answer&amp;rdquo;, no they did not read it, they &lt;strong&gt;just posted competitive answer and after they realized they need a little bit more reputation&lt;/strong&gt; (for what?!) and my answer is already upvoted (more important to them then to me), they &lt;strong&gt;started plagiarism story&lt;/strong&gt;. Couple hour later, &lt;strong&gt;moderator that also did not check ANYTHING (answer, profile, links&amp;hellip;) deleted my post&lt;/strong&gt;. There is no reason for any kind of &amp;ldquo;we are just trying to protect our company&amp;rdquo; action, but on the contrary: people are decreasing SO reputation because they need just to distinguish themselves, not to help people.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Fyi Stack overflow is really old &amp;hellip;  Is &lt;strong&gt;still uses Windows Server and MSSQL&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.quora.com/What-is-bad-about-Stack-Overflow&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;On Quora .. different place , same story&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To also cite the &amp;ldquo;highlights&amp;rdquo;(dark spots) of SO from there:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;It’s the dumbest web-site I’ve ever seen. They should help people but they kept closing my questions for no reason, even banned me from asking more.&lt;/strong&gt; I am asking BECAUSE I am not a pro. I always tried to be concise and clear, &lt;strong&gt;their stupid bots just closed many of my questions&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;the &lt;strong&gt;voting system on Stack Overflow is that it penalizes users&lt;/strong&gt;. It only takes &lt;strong&gt;a few negative votes to get you banned from asking questions&lt;/strong&gt;, taking part on the platform. In my experience, &lt;strong&gt;rarely do downvotes get removed&lt;/strong&gt; from questions that have been improved through editing. &lt;strong&gt;Even &amp;ldquo;deleting&amp;rdquo; questions will not remove their negative score on one&amp;rsquo;s account.&lt;/strong&gt; &amp;hellip; ** the strict gamification** of Stackoverflow, &lt;strong&gt;turning users into winners and losers&lt;/strong&gt;, creates an &lt;strong&gt;overall unwelcoming, precarious attitude towards beginner programmers&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;it’s sh*t&lt;/strong&gt;, and I will use the word &lt;strong&gt;totalitarian&lt;/strong&gt;, Stack Overflow (regarding its coding forums side) &lt;strong&gt;is a totalitarian place&lt;/strong&gt;, the totalitarianism is &lt;strong&gt;first handled by the people who run SO&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.quora.com/What-is-bad-about-Stack-Overflow&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;In the mentioned Quora thread&lt;/a&gt; &amp;hellip;.&lt;/p&gt;
+&lt;p&gt;the &lt;a class=&#34;link&#34; href=&#34;https://www.quora.com/profile/Quora-Question-Details-Bot&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt; &lt;code&gt;Quora Question Details Bot&lt;/code&gt;&lt;/a&gt; seems to have a good sense of humour, since it replies to the Question&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;What is bad about Stack Overflow?&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;with the balls-of-steel answer&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;...if you&#39;re using their service.&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2023_02_02_shittification_of_the_internetz-the_toxic_thingy_stack_overflow_became_and_why_it_is_so_annoying_to_even_ask_on_crap_overload/imgs/quora-bot-hates-stack-overflow.png&#34;
+	width=&#34;819&#34;
+	height=&#34;179&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Stack-overflow-fake-programmers image by industan.com &#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;457&#34;
+		data-flex-basis=&#34;1098px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;final-statement&#34;&gt;Final statement&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://meta.stackexchange.com/questions/223176/how-to-exit-stack-overflow&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;In the end there is no need to delete your Crap-Overload account, just don&amp;rsquo;t ask if you don&amp;rsquo;t want to loose your dignity  , there is even an answer how to log out :D&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;But to be honest : &lt;strong&gt;Windows Server and MSSQL Stack&lt;/strong&gt; in 2022 ?&lt;/p&gt;
+&lt;p&gt;They could just ask on their platform why and how to not do that ..
+Basically when reading CVE&amp;rsquo;s on a regular basis , nobody should put personal data there&amp;hellip;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2023_02_02_shittification_of_the_internetz-the_toxic_thingy_stack_overflow_became_and_why_it_is_so_annoying_to_even_ask_on_crap_overload/imgs/so_fake_programmer-techindustan.com.png&#34;
+	width=&#34;651&#34;
+	height=&#34;347&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Stack-overflow-fake-programmers image by industan.com &#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;187&#34;
+		data-flex-basis=&#34;450px&#34;
+	
+&gt;&lt;/p&gt;
+</description> 
+    </item>
+    
+    <item>
+      <title>apt-get update fails with Unknown error executing apt-key</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2022_04_29_apt-get_update_fails_with_unknown_error_executing_apt-key/</link>
+      <pubDate>Fri, 29 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2022_04_29_apt-get_update_fails_with_unknown_error_executing_apt-key/</guid>
+      <description>&lt;h2 id=&#34;note&#34;&gt;Note&lt;/h2&gt;
+&lt;p&gt;In &amp;ldquo;earlier&amp;rdquo; days you could easily add missing GPG keys with a command like:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D68FA50FEA312927&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;BUT&lt;/strong&gt; most modern distributions will tell you&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;apt-key is deprecated. manage keyring files in trusted.gpg.d instead
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So you should stop using it and use gpg directly ,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;you might export the old keys by issuing
+&lt;code&gt;apt-key list&lt;/code&gt;
+and then using the last 8 characters like this&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo apt-key export 3A798D29 | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/mysql-key.gpg&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For external GPG Pubkeys ( new repos e.g. ) from now on add them like this :&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;KEYRING=/usr/share/keyrings/yourpackagename.gpg
+curl -fsSL https://server.lan/key-path-to-download | gpg --dearmor | sudo tee &amp;#34;$KEYRING&amp;#34; &amp;gt;/dev/null
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;error-indicators&#34;&gt;Error indicators&lt;/h2&gt;
+&lt;p&gt;Obviously apt/apt-get update will output&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;apt-get update fails with Unknown error executing apt-key&lt;/code&gt; ,&lt;/p&gt;
+&lt;p&gt;Errors you might face when trying to manually run &lt;code&gt;apt-key&lt;/code&gt; look like:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    /usr/bin/apt-key: 710: touch: Too many levels of symbolic links
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;solutions-for-failing-apt-key&#34;&gt;Solutions for failing apt-key&lt;/h2&gt;
+&lt;h5 id=&#34;hint-if-your-system-or-package-registry-is-heavily-damaged--you-might-manually-search-for-the-deb-packages-and-install-them&#34;&gt;Hint: if your system or package registry is heavily damaged , you might manually search for the &lt;code&gt;.deb&lt;/code&gt; packages and install them&lt;/h5&gt;
+&lt;h3 id=&#34;solution-1--coreutils-reinstallation&#34;&gt;Solution 1:  Coreutils reinstallation&lt;/h3&gt;
+&lt;p&gt;If you see &lt;code&gt;/usr/bin/touch&lt;/code&gt; exists but not &lt;code&gt;/bin/touch&lt;/code&gt;,&lt;/p&gt;
+&lt;p&gt;Installing the latter using &lt;code&gt;sudo apt-get install --reinstall coreutils&lt;/code&gt; might help.&lt;/p&gt;
+&lt;h3 id=&#34;solution-2-gpg-reinstallation&#34;&gt;Solution 2: GPG reinstallation&lt;/h3&gt;
+&lt;p&gt;Your GPG installation might be updated or outdated&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt reinstall gpg
+sudo ldconfig $(which /usr/bin/gpg)
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;references&#34;&gt;References&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;info&lt;/th&gt;
+&lt;th&gt;resource&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;2022-04-28 @ stackoverflow.com →&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/questions/72037705/w-gpg-error-unknown-error-executing-apt-key&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt; gnupg - W: GPG error: Unknown error executing apt-key - Stack Overflow&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2022-03-17 @ unix.stackexchange.com →&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://unix.stackexchange.com/questions/694788/apt-get-gpg-error-when-i-try-to-update&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt; linux - apt-get gpg error when i try to update - Unix &amp;amp; Linux Stack Exchange&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2021-11-15 @ unix.stackexchange.com →&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://unix.stackexchange.com/questions/677666/i-am-suddenly-getting-unknown-error-executing-apt-key-when-attempting-to-upda&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt; apt key - I am suddenly getting &amp;quot; Unknown error executing apt-key&amp;quot; when attempting to update my system - Unix &amp;amp; Linux Stack Exchange&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2022_04_29_apt-get_update_fails_with_unknown_error_executing_apt-key/imgs/apt-key-deprecated.jpg&#34;
+	width=&#34;1093&#34;
+	height=&#34;130&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;apt-key deprecation screenshot&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;840&#34;
+		data-flex-basis=&#34;2017px&#34;
+	
+&gt;&lt;/p&gt;
+</description> 
+    </item>
+    
+    <item>
+      <title>Oh OctoberCMS and the leading slash again</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_21_oh_octobercms_and_the_leading_slash_again/</link>
+      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_21_oh_octobercms_and_the_leading_slash_again/</guid>
+      <description>&lt;h2 id=&#34;failed-code-500-again--ocotobercms-refuses-to-load-and-you-might-be-out-of-guesees-again&#34;&gt;//failed: Code 500 again .. Ocotobercms refuses to load and you might be out of guesees again&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s first review the possible Problems known:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Problem&lt;/th&gt;
+&lt;th&gt;Measure&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;cache and config not reloaded during deployment&lt;/td&gt;
+&lt;td&gt;issue &lt;code&gt;php artisan config:cache;php artisan cache:clear&lt;/code&gt; first when working on pages&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;resources include begin with &lt;code&gt;/&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;you changed all the asset includes under &lt;code&gt;themes/YOURTHEME/partials&lt;/code&gt; to &lt;strong&gt;NOT&lt;/strong&gt; begin with slashes like &lt;code&gt;/   storage&lt;/code&gt; since that confuses many webservers , especially &lt;code&gt;chroot()&lt;/code&gt;-ed ones like Plesk&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;resources/views&lt;/code&gt; missing&lt;/td&gt;
+&lt;td&gt;you created the empty folder &lt;code&gt;resources/views&lt;/code&gt; since it might lead to the open_basedir message&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;.htaccess woes&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;you checked your &lt;code&gt;.htaccess&lt;/code&gt; to have  a proper &lt;code&gt;RewriteBase&lt;/code&gt; and the correct webroot if you set it fixed&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;but-the-almost-beloved--open_basedir-restriction--message-pops-up-again&#34;&gt;But the almost &amp;ldquo;beloved&amp;rdquo;  &lt;code&gt;open_basedir restriction &lt;/code&gt; message pops up again&lt;/h2&gt;
+&lt;p&gt;Dowtime hurts and if you did not setup some monitoring you not notice since may be cleared &lt;code&gt;randomly&lt;/code&gt; ..&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h3 id=&#34;it-is-always-a-good-idea-to-check-storagelogssystemlog&#34;&gt;it is always a good idea to check &lt;code&gt;storage/logs/system.log&lt;/code&gt;&lt;/h3&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;since your webserver-log does not tell everything and it&amp;rsquo;s log might be cut due to php-fpm, check the file logs or maybe the database as well for potential errors&lt;/p&gt;
+&lt;h3 id=&#34;fixed&#34;&gt;&lt;code&gt;//fixed&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_21_oh_octobercms_and_the_leading_slash_again/imgs/octoslash-fix.png&#34;
+	width=&#34;885&#34;
+	height=&#34;334&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;No slash for OctoberCMS favicon partial  &amp;hellip; pain arises again&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;264&#34;
+		data-flex-basis=&#34;635px&#34;
+	
+&gt;&lt;/p&gt;
+</description> 
+    </item>
+    
+    <item>
+      <title>Restoring lost data from Docker volumes</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_19_restoring_lost_data_from_docker_volumes/</link>
+      <pubDate>Tue, 18 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_19_restoring_lost_data_from_docker_volumes/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Many things might have gone wrong&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;failed Synology update&lt;/li&gt;
+&lt;li&gt;upgraded openWRT/friendlywrt changed the place&lt;/li&gt;
+&lt;li&gt;disk restoration from failed root&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;unless you did start your container with &amp;ldquo;&lt;code&gt;--rm&lt;/code&gt;&amp;rdquo; and delete it , &lt;strong&gt;there is hope&lt;/strong&gt;
+( and even if not you may pull the brake, power off and engage e.g. testdisk )&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;SETUP&lt;/th&gt;
+&lt;th&gt;approx. Date&lt;/th&gt;
+&lt;th&gt;Place&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&lt;em&gt;old&lt;/em&gt;&lt;/strong&gt;-friendlyWRT(openwrt)&lt;/td&gt;
+&lt;td&gt;2020&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/opt/volumes&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;new&lt;/strong&gt;-friendlyWRT(openwrt)&lt;/td&gt;
+&lt;td&gt;2020&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/opt/docker/volumes/&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;standard deployment&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;2021&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/var/lib/docker/volumes/&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;synology VOLUME&lt;/td&gt;
+&lt;td&gt;2022&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/volume1/\@docker/volumes/&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;synology BTRFS&lt;/td&gt;
+&lt;td&gt;2020&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/opt/&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;custom setup&lt;/td&gt;
+&lt;td&gt;****&lt;/td&gt;
+&lt;td&gt;refer to &lt;code&gt;/etc/docker/daemon.json&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_19_restoring_lost_data_from_docker_volumes/imgs/daemon.json-red.png&#34;
+	width=&#34;1286&#34;
+	height=&#34;416&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34; /etc/docker/daemon.json contents of custom setup &#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;309&#34;
+		data-flex-basis=&#34;741px&#34;
+	
+&gt;&lt;/p&gt;
+</description> 
+    </item>
+    
+    <item>
+      <title>Synology DSM changes calDAV port</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_10_synology_dsm_changes_caldav_port/</link>
+      <pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_10_synology_dsm_changes_caldav_port/</guid>
+      <description>&lt;p&gt;So your previous config might have looked like:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;###### CARDDAV
+upstream syno_carddav {
+  # The keepalive parameter sets the maximum number of idle keepalive connections
+  # to upstream servers that are preserved in the cache of each worker process. When
+  # this number is exceeded, the least recently used connections are closed.
+  keepalive 50;
+  server w.x.y.z:5008;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;h2 id=&#34;the-newer-dsm-70-has-the-caldav-endpoint-httpswxyz5001well-knowncarddav&#34;&gt;The newer DSM-7.0 has the calDAV endpoint &lt;code&gt;https://w.x.y.z:5001/.well-known/carddav&lt;/code&gt;&lt;/h2&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;however-this-is-not-the-full-story&#34;&gt;However this is not the full story&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&#34;the-well-known-will-redirect-to-carddavweb&#34;&gt;the &lt;code&gt;/.well-known&lt;/code&gt; will redirect to &lt;code&gt;/carddav/.web&lt;/code&gt;&lt;/h2&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;when-you-call-it-in-the-webinterface-you-will-see-&#34;&gt;When you call it in the Webinterface you will see :&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;Radicale works!&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;![caldav curl](imgs/caldav.png)
+&lt;/code&gt;&lt;/pre&gt;</description> 
+    </item>
+    
+    <item>
+      <title>Creating a GDPR compliant google fonts or CDN proxy</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/</guid>
+      <description>&lt;h1 id=&#34;it-is-time-to-build-your-fonts-proxy---now-&#34;&gt;It is time to build your fonts proxy - now !&lt;/h1&gt;
+&lt;p&gt;Your may ask why ..&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Since Google does not  even cache the fonts anymore&lt;/li&gt;
+&lt;li&gt;and it is not GDPR-compliant&lt;/li&gt;
+&lt;li&gt;also because google may track your users at least on the level of a matomo-instance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;you can do better.&lt;/p&gt;
+&lt;p&gt;With the simple nuster-nginx combination ( tested on aarch64 and x86_64  ) ,
+one can&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;anonymize the IP-Adress&lt;/li&gt;
+&lt;li&gt;anonymize the User-Agent&lt;/li&gt;
+&lt;li&gt;serve custom 404 pages that are also anoymously passed
+for all requests through that instance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;get the nuster-cache-proxy files:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;create a .env-File&lt;/strong&gt; ( like below, &lt;strong&gt;change&lt;/strong&gt; at least the &lt;strong&gt;domain and the letsencrypt mai&lt;/strong&gt;l address)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;echo &amp;#39;
+VIRTUAL_PORT=80
+VIRTUAL_PROTO=http
+
+VIRTUAL_HOST=fonts.your-domain.lan
+LETSENCRYPT_EMAIL=no@body.lan
+LETSENCRYPT_HOST=fonts.your-domain.lan
+CACHED_PATH=/
+CACHED_HOST=fonts.gstatic.com
+COMPOSE_POJECT_NAME=myservicename
+RETURN_UNAUTH=false
+ACCESS_LOG=false
+
+##optional
+REDIRECT_FAVICON=false
+CACHEMB=512
+CACHETIME=90d
+TIMEOUT=15s
+HIDECLIENT=true
+EXPIREHEADER=7d
+LOCALPORT=65080
+NGINX_NETWORK=nginx-proxy
+CUSTOMFOUROFOUR=https://statuspages.gitlab.io/404
+CUSTOMENDPOINTS=/css:fonts.googleapis.com
+REPLACESTRING=fonts.gstatic.com:fonts.your-domain.lan,fonts.googleapis.com:fonts.fonts.your-domain.lan
+&amp;#39; &amp;gt; .env
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;create the named network ( &lt;code&gt;docker network create nginx-proxy&lt;/code&gt; ) or adjust &lt;code&gt;.env&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;run &lt;code&gt;docker-compose up -d&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;replace the domains &lt;code&gt;fonts.googleapis.com&lt;/code&gt; and &lt;code&gt;fonts.gstatic.com&lt;/code&gt; to your domain ( in example here fonts.your-domain.lan ) in all your webpages and themes, example result:&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;link&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;rel&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;shortcut icon&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;favicon.ico&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;link&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;//fonts.mydomain.lan/css?family=Open+Sans:300,400,600,700&amp;#39;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;rel&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;stylesheet&amp;#39;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;text/css&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c&#34;&gt;&amp;lt;!-- Global CSS --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id=&#34;use-the-font-proxy-in-your-firefox-or-chrome--with-any-domain-when-sufing-the-web&#34;&gt;Use the font-proxy in your Firefox or Chrome  with any domain when sufing the web&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;install a header/request changing Plugin ( in ths Example &lt;a class=&#34;link&#34; href=&#34;https://github.com/jiacai2050/gooreplacer&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GooReplacer&lt;/a&gt; )&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a class=&#34;link&#34; href=&#34;https://chrome.google.com/webstore/detail/gooreplacer/jnlkjeecojckkigmchmfoigphmgkgbip&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Chrome&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a class=&#34;link&#34; href=&#34;https://addons.mozilla.org/firefox/addon/gooreplacer/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Firefox&lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;( if the gooreplacer does not load &lt;a class=&#34;link&#34; href=&#34;/assets/at_alicdn_com/t/font_148784_v4ggb6wrjmkotj4i.woff&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;/assets/at_alicdn_com/t/font_148784_v4ggb6wrjmkotj4i.woff&lt;/a&gt; from the settings page , you may rewrite it as well )&lt;/li&gt;
+&lt;li&gt;setup a replacement like below (there is a trailing slash at the target url )
+&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/imgs/gooreplacer-fonts.jpg&#34;
+	width=&#34;1593&#34;
+	height=&#34;340&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Gooreplacer FontsProxy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;468&#34;
+		data-flex-basis=&#34;1124px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description> 
+    </item>
+    
+    <item>
+      <title>Synology synoshare create Error: share create failed.[0x0D00 share_is_acl_share.c:49]</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2021_08_23_synology_synoshare_create_error_share_create_failed_0x0d00_share_is_acl_share/</link>
+      <pubDate>Mon, 23 Aug 2021 13:37:42 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2021_08_23_synology_synoshare_create_error_share_create_failed_0x0d00_share_is_acl_share/</guid>
+      <description>&lt;h2 id=&#34;oh-no--synology-share-creation-failed-&#34;&gt;Oh no,  synology share creation failed ..&lt;/h2&gt;
+&lt;h3 id=&#34;trying-to-create-a-share--here-with-no-users-directly-on-the-top-of-your-volume-with-eg&#34;&gt;Trying to create a share ( here with no users) DIRECTLY on the top of your volume with e.g.&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;/usr/syno/sbin/synoshare --add docker-volumes &amp;quot;Docker volumes on diskstation&amp;quot; /volume1/ &amp;quot;&amp;quot; &amp;quot;&amp;quot; &amp;quot;&amp;quot; 1 0&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;will-yield-the-following-error&#34;&gt;Will yield the following error,&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Error: share create failed.[0x0D00 share_is_acl_share.c:49]&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;but-why-&#34;&gt;but why ?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&#34;you-cannot-create-shared-volumes-that-are-the-volume-itself--just-append-another-directory-name-to-your-path--usrsynosbinsynoshare---add-docker-volumes-docker-volumes-on-diskstation-volume1-myvolume---1-0&#34;&gt;You cannot create shared volumes that are the Volume itself , just append another directory name to your path  &lt;code&gt;/usr/syno/sbin/synoshare --add docker-volumes &amp;quot;Docker volumes on diskstation&amp;quot; /volume1/ &amp;quot;myvolume&amp;quot; &amp;quot;&amp;quot; &amp;quot;&amp;quot; 1 0&lt;/code&gt;&lt;/h2&gt;
+&lt;/blockquote&gt;
+</description> 
+    </item>
+    
+    <item>
+      <title>Deleting old restic snapshots</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2021_08_13_deleting_old_restic_entries/</link>
+      <pubDate>Fri, 13 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2021_08_13_deleting_old_restic_entries/</guid>
+      <description>&lt;blockquote&gt;
+&lt;h2 id=&#34;sometimes-restic-does-not-correctly-apply-the-forget-policy&#34;&gt;Sometimes restic does not correctly apply the forget policy&lt;/h2&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And that might waste&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;tons of space ..&lt;/li&gt;
+&lt;li&gt;computation time during backup &amp;hellip;&lt;/li&gt;
+&lt;li&gt;clarity since terminal goes a bit crazy with 3000+ lines&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&#34;the-fix-is-not-so-easy&#34;&gt;The fix is not so easy&amp;hellip;&lt;/h2&gt;
+&lt;/blockquote&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;forgetlist=&amp;#34;&amp;#34;;restic unlock;
+restic snapshots|grep &amp;#34;[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]&amp;#34;|sed &amp;#39;s/ \+/ /g&amp;#39;|cut -d&amp;#34; &amp;#34; -f1-3|while read line;do 
+   id=${line/ *};
+   shotdate=$(echo &amp;#34;$line&amp;#34;|cut -d&amp;#34; &amp;#34; -f2,3) ; 
+   shotepoch=$(date -u -d &amp;#34;$shotdate&amp;#34; +%s) ;
+   shotagesec=$(($(date -u +%s )-$shotepoch));
+   echo -n &amp;#34;SNAP: $shotdate ( $shotagesec ) &amp;#34;; 
+   [[ $shotagesec -ge $((86400*90))  ]] &amp;amp;&amp;amp; { echo -n &amp;#34;forget $id |&amp;#34; ;forgetlist=&amp;#34;$forgetlist $id&amp;#34; ; echo &amp;#34;$forgetlist&amp;#34; &amp;gt; /dev/shm/.restic_forget_list ; } ;
+   [[ $(echo $forgetlist|wc -w ) -ge 30 ]] &amp;amp;&amp;amp; { restic forget $forgetlist |sed &amp;#39;s/$/|/g&amp;#39; |tr -d &amp;#39;\n&amp;#39; ;forgetlist=&amp;#34;&amp;#34; ; }  ; 
+echo;done;
+restic forget $forgetlist |sed &amp;#39;s/$/|/g&amp;#39; |tr -d &amp;#39;\n&amp;#39; ;forgetlist=&amp;#34;&amp;#34; ;time restic prune
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;Oh wow ..&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2021_08_13_deleting_old_restic_entries/imgs/resticprune.png&#34;
+	width=&#34;1901&#34;
+	height=&#34;1023&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34; sequental restic prune for 90 days &#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;185&#34;
+		data-flex-basis=&#34;445px&#34;
+	
+&gt;&lt;/p&gt;
+</description> 
+    </item>
+    
+    <item>
+      <title>The Google Blackhole: Forced renewal of certificates with nginx-letsencrypt-docker</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2021_03_21_docker_nginx_force_renew_letsencrypt/</link>
+      <pubDate>Thu, 11 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2021_03_21_docker_nginx_force_renew_letsencrypt/</guid>
+      <description>&lt;p&gt;So when somebody believes his or her favourite scam site,&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;e.g   &lt;!-- raw HTML omitted --&gt;LinkedIn.___ does not index my page&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;and they ask op to renew a certificate &amp;hellip; but the only thing known
+is that docker-nginx-letsencrypt (jwilder) does a renewal for all &amp;ldquo;due&amp;rdquo; certificates ( 21 days or less left )&lt;/p&gt;
+&lt;p&gt;it is one of this &amp;ldquo;0 hits on google.com&amp;rdquo; days ..&lt;/p&gt;
+&lt;p&gt;until now &amp;hellip;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it nginx-letsencrypt /bin/bash /app/force_renew
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;is your friend  in that case ;)&lt;/p&gt;
+</description> 
+    </item>
+    
+    <item>
+      <title>[HowTo] send Uptime-Robot notifications to Telegram groups or how to GET-request anything via Telegram</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2021_02_12_send_uptime_robot_notifications_to_telegram_groups_or_howo_to_get_request_anything_via_tg/</link>
+      <pubDate>Fri, 12 Feb 2021 13:37:42 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2021_02_12_send_uptime_robot_notifications_to_telegram_groups_or_howo_to_get_request_anything_via_tg/</guid>
+      <description>&lt;p&gt;Since there was no chance , not even adding uptime-robot&amp;rsquo;s TG bot to a a group and sed the start token.&lt;/p&gt;
+&lt;p&gt;And it came in handy , you could monitor everything also from node.js or other languages.&lt;/p&gt;
+&lt;p&gt;With this method you could basically let everything send Messages to telegram ( although  you should not hand out your bot credentials and use some intermediate Message-Router , you can even use node-red or n8n )&lt;/p&gt;
+&lt;h1 id=&#34;sample-setup&#34;&gt;Sample Setup&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Create a new contact ( here we use Alerts since the time is not given in DOWN messages)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2021_02_12_send_uptime_robot_notifications_to_telegram_groups_or_howo_to_get_request_anything_via_tg/imgs/uptime_alerts.png&#34;
+	width=&#34;717&#34;
+	height=&#34;188&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Alert contacts for UptimeRobot to Telegram&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;381&#34;
+		data-flex-basis=&#34;915px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&#34;the-up-notification--you-can-use-this-for-both-up--down-events-&#34;&gt;&lt;strong&gt;The UP notification&lt;/strong&gt; ( you can use this for both &lt;code&gt;UP&lt;/code&gt; &amp;amp; &lt;code&gt;DOWN&lt;/code&gt; events )&lt;/h2&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Setting&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;URL&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;https://api.telegram.org/bot1234:BOTTOKEN/sendMessage?chat_id=-987654321&amp;amp;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Message&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;{&amp;quot;chat_id&amp;quot;:-987654321,&amp;quot;text&amp;quot;:&amp;quot; &amp;lt;u&amp;gt;&amp;lt;b&amp;gt;UpTimeRbot:&amp;lt;/b&amp;gt;&amp;lt;/u&amp;gt; &amp;lt;a href=\&amp;quot;*monitorURL*\&amp;quot;&amp;gt;  *monitorFriendlyName* &amp;lt;/a&amp;gt; I status: &amp;lt;b&amp;gt; *alertTypeFriendlyName* &amp;lt;/b&amp;gt;  I detail: &amp;lt;code&amp;gt;*alertDetails*&amp;lt;/code&amp;gt; I changed after:  *alertDuration*  s &amp;quot;,&amp;quot;disable_web_page_preview&amp;quot;:true,&amp;quot;parse_mode&amp;quot;:&amp;quot;HTML&amp;quot;}&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&#34;the-down-notification&#34;&gt;&lt;strong&gt;The DOWN notification&lt;/strong&gt;&lt;/h2&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Setting&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;URL&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;https://api.telegram.org/bot1234:BOTTOKEN/sendMessage?chat_id=-987654321&amp;amp;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Message&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;{&amp;quot;chat_id&amp;quot;:-987654321,&amp;quot;text&amp;quot;:&amp;quot; &amp;lt;u&amp;gt;&amp;lt;b&amp;gt;UpTimeRbot:&amp;lt;/b&amp;gt;&amp;lt;/u&amp;gt; &amp;lt;a href=\&amp;quot;*monitorURL*\&amp;quot;&amp;gt;  *monitorFriendlyName* &amp;lt;/a&amp;gt; I status: &amp;lt;b&amp;gt; *alertTypeFriendlyName* &amp;lt;/b&amp;gt;  I detail: &amp;lt;code&amp;gt;*alertDetails*&amp;lt;/code&amp;gt; I &amp;quot;,&amp;quot;disable_web_page_preview&amp;quot;:true,&amp;quot;parse_mode&amp;quot;:&amp;quot;HTML&amp;quot;}&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2021_02_12_send_uptime_robot_notifications_to_telegram_groups_or_howo_to_get_request_anything_via_tg/imgs/uptime_groups.png&#34;
+	width=&#34;1437&#34;
+	height=&#34;538&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Alert contacts for UptimeRobot to Telegram&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;267&#34;
+		data-flex-basis=&#34;641px&#34;
+	
+&gt;&lt;/p&gt;
+</description> 
+    </item>
+    
+    <item>
+      <title>Running a dockerproxy only accesible via specific reverse hosts or subnets</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2020_05_12_running_a_dockerproxy_only_accesible_via_specific_reverse_hosts_or_subnet/</link>
+      <pubDate>Tue, 12 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2020_05_12_running_a_dockerproxy_only_accesible_via_specific_reverse_hosts_or_subnet/</guid>
+      <description>&lt;p&gt;Since Registry consumes a lot of data and may be rate limited in the future , you might run your own proxy ,
+but you should secure it properly..&lt;/p&gt;
+&lt;p&gt;Example docker-compose.yml&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;version: &amp;#39;3&amp;#39;
+
+services:
+  dockerproxy:
+    build: .
+    container_name: ${APP_URL}
+    hostname: ${APP_URL}
+    restart: unless-stopped
+    networks:
+      - default
+      - dockerproxy
+    volumes:
+      - ./apache-block.conf:/etc/apache2/conf.d/apache-block.conf
+#      - ./store.php:/var/www/html/store.php:consistent
+#      - ./wiki/:/var/www/html:consistent
+    ports:
+      - 5000:80
+    environment:
+      - LETSENCRYPT_EMAIL=${MAIL_ADMINISTRATOR}
+      - LETSENCRYPT_HOST=${APP_URL}
+      - VIRTUAL_HOST=${APP_URL}
+      - VIRTUAL_PORT=80
+      - VIRTUAL_PROTO=http
+
+
+  dockerproxyregistry:
+    image: registry:2.6.2
+##UNCOMMENT THE ABOVE WHEN NO CLIENT SENDS /v1/ anymore
+#    image: registry:2
+#    build:
+#      context: ./build
+#      dockerfile: Dockerfile-tiddlywiki-php7-nginx-alpine
+    container_name: dockerregistryproxy
+    hostname: dockerregistryproxy
+    restart: unless-stopped
+    networks:
+      - dockerproxy
+    volumes:
+      - /storage_global/machine.hq.mydomain.systems/dockerproxy:/var/lib/registry
+
+    environment:
+      - GITURL
+      - GITNAME
+      - GITEMAIL
+      - BASICUSER
+      - BASICPASS
+      - REGISTRY_PROXY_REMOTEURL=https://registry-1.docker.io
+      - REGISTRY_PROXY_USERNAME=${UPSTREAM_USER}
+      - REGISTRY_PROXY_PASSWORD=${UPSTREAM_PASS}
+
+#      - REGISTRY_HTTP_SECRET=${HTTPSECRET}
+
+networks:
+    dockerproxy:
+    default:
+       external:
+         name: nginx-proxy
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Example Dockerfile:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;FROM alpine
+RUN apk add apache2 apache2-proxy bash 
+RUN sed &amp;#39;s/#LoadModule remoteip_module/LoadModule remoteip_module/g&amp;#39; /etc/apache2/httpd.conf -i
+EXPOSE 80
+CMD  /usr/sbin/httpd -DFOREGROUND
+#cmd /bin/bash -c &amp;#34;which apachectl ;which apache ;which apache2 ;sleep 6000&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Example Apache-block.conf&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;VirtualHost *:80 &amp;gt;
+ServerName _default
+ServerAlias &amp;#34;*&amp;#34;
+#RemoteIPHeader X-Forwarded-For
+#RemoteIPHeader X-Client-IP
+RemoteIPHeader X-Real-IP
+#RemoteIPHeader X-Forwarded-For
+RemoteIPTrustedProxy 172.0.0.0 192.168.178.52
+ErrorDocument 403 &amp;#34;You are not in my Friend list 403&amp;#34;
+ErrorDocument 401 &amp;#34;Unauthorized 401&amp;#34;
+ErrorDocument 404 &amp;#34;Not Found 404&amp;#34;
+
+&amp;lt;Location /&amp;gt;
+
+Require ip 127.0.0.0/8 192.168.0.0/16 10.12.13.14 10.1.2.1
+Require local
+Require host .mydomain.eu .yourdomain.de .yourdomain.systems .uptimerobot.com nginx.nginx-proxy
+Require forward-dns myhosta.mydomain.eu myhostb.mydomain.eu
+
+&amp;lt;/Location&amp;gt;
+&amp;lt;Directory /&amp;gt;
+&amp;lt;Limit GET POST PUT HEAD&amp;gt;
+       Order deny,allow
+       Deny from all
+       Allow from localhost
+       Allow from 24.134.39.209
+       Allow from 37.120.175.232
+       Allow from *\.mydomain.eu
+       Allow from *\.yourdomain\.de
+       Allow from *\.yourdomain\.systems
+       Allow from 192.168\.*\.*
+       Allow from 172\.15\.*\.*
+       Allow from 172\.16\.*\.*
+       Allow from 172\.17\.*\.*
+       Allow from 172\.18\.*\.*
+       Allow from 172\.19\.*\.*
+       Allow from 172\.2*\.*\.*
+       Allow from 127\.*\.*\.*
+
+&amp;lt;/Limit&amp;gt;
+&amp;lt;/Directory&amp;gt;
+
+    ErrorLog /dev/stderr
+    CustomLog /dev/stdout common
+    LogFormat &amp;#34;%h %l %u %t \&amp;#34;%r\&amp;#34; %&amp;gt;s %b \&amp;#34;%{Referer}i\&amp;#34; \&amp;#34;%{User-Agent}i\&amp;#34;&amp;#34; combined
+    LogFormat &amp;#34;%{X-Forwarded-For}i %l %u %t \&amp;#34;%r\&amp;#34; %&amp;gt;s %b \&amp;#34;%{Referer}i\&amp;#34; \&amp;#34;%{User-Agent}i\&amp;#34;&amp;#34; proxy
+        SetEnvIf X-Forwarded-For &amp;#34;^.*\..*\..*\..*&amp;#34; forwarded
+        CustomLog &amp;#34;logs/access_log&amp;#34; combined env=!forwarded
+        CustomLog &amp;#34;logs/access_log&amp;#34; proxy env=forwarded
+    Header set Host &amp;#34;dockerproxy.hq.kosmoskosmos.systems&amp;#34;
+    Header set &amp;#34;Docker-Distribution-Api-Version&amp;#34; &amp;#34;registry/2.0&amp;#34;
+    RequestHeader set X-Forwarded-Proto &amp;#34;https&amp;#34;
+
+    ProxyRequests off
+    ProxyPreserveHost on
+
+    ProxyPass           /       http://dockerregistryproxy:5000/
+    ProxyPassReverse    /       http://dockerregistryproxy:5000/
+
+#    &amp;lt;Location /registry&amp;gt;
+#        Order deny,allow
+#        Allow from all
+
+#        AuthName &amp;#34;Registry Authentication&amp;#34;
+#        AuthType basic
+#        AuthUserFile &amp;#34;/auth/htpasswd&amp;#34;
+#        Require valid-user
+#    &amp;lt;/Location&amp;gt;
+&amp;lt;/VirtualHost&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</description> 
+    </item>
+    
+    <item>
+      <title>Mastering Hugo template whitespaces on external scripts integrity tags</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2020_03_15_mastering_hugo_template_whitespaces_on_external_scripts_integrity_tags/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2020_03_15_mastering_hugo_template_whitespaces_on_external_scripts_integrity_tags/</guid>
+      <description>&lt;p&gt;Since SRI(Subresource Integrity)-Checks are used more and more , Hugo also supports this,
+but unfortunately the space character can become a problem in multi-line template files.&lt;/p&gt;
+&lt;p&gt;you may find your template having a file themes/THEMENAME/data/external.yaml
+that looks like e.g.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Vibrant:
+    - src: /assets/cdn_jsdelivr_net/npm/node-vibrant_VERSION_3.1.5/dist/vibrant.min.js
+      integrity: sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=
+      type: script
+
+PhotoSwipe:
+    - src: /assets/cdn_jsdelivr_net/npm/photoswipe_VERSION_4.1.3/dist/photoswipe.min.js
+      integrity: sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=
+      type: script
+      defer: true
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;the-problem---no-space-between-attributes&#34;&gt;The Problem - &lt;code&gt;no Space between attributes&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;The Problem  arising with the renderer not rendering spaces looks like a complain from Firefox &lt;code&gt;no Space between attributes&lt;/code&gt; in source code view, or external javascript failing to load ..&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2020_03_15_mastering_hugo_template_whitespaces_on_external_scripts_integrity_tags/imgs/hugospaceFAIL.png&#34;
+	width=&#34;768&#34;
+	height=&#34;136&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Failed Renderer&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;564&#34;
+		data-flex-basis=&#34;1355px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;so the resulting html is &lt;code&gt;invalid&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;     &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;            &lt;span class=&#34;na&#34;&gt;integrity&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=&amp;#34;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/assets/cdn_jsdelivr_net/npm/node-vibrant_VERSION_3.1.5/dist/vibrant.min.js&amp;#34;&lt;/span&gt;            &lt;span class=&#34;na&#34;&gt;crossorigin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;anonymous&amp;#34;&lt;/span&gt;   &lt;span class=&#34;na&#34;&gt;defer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;false&amp;#34;&lt;/span&gt;   &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;            &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;text/javascript&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/ts/main.js&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;defer&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;( you clearly see that e.g. the &lt;code&gt;src=&lt;/code&gt; part is missing spaces )&lt;/p&gt;
+&lt;p&gt;Here  the trick was to create the file &lt;code&gt;layouts/partials/helper/external.html&lt;/code&gt; and use  a &lt;code&gt;&amp;quot;&lt;/code&gt; after the &lt;code&gt;{{- with .integrity -}}&lt;/code&gt; and leave the tag before &amp;ldquo;unclosed&amp;rdquo;:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{{- $List := index .Context.Site.Data.external .Namespace -}}
+{{- with $List -}}
+    {{- range . -}}
+        {{- if eq .type &amp;#34;script&amp;#34; -}}
+        &amp;lt;script   src=&amp;#34;{{ .src }}&amp;#34; defer=&amp;#34;{{ default false .defer }}
+          {{- with .integrity -}}&amp;#34;   integrity=&amp;#34;{{ . }}&amp;#34;  crossorigin=&amp;#34;anonymous&amp;#34;      &amp;gt; &amp;lt;/script&amp;gt;
+          {{- else -}}&amp;#34;  crossorigin=&amp;#34;anonymous&amp;#34;      &amp;gt;            &amp;lt;/script&amp;gt;
+          {{- end -}}
+        {{- else if eq .type &amp;#34;style&amp;#34; -}}
+            &amp;lt;link rel=&amp;#34;stylesheet&amp;#34;                 href=&amp;#34;{{ .src }}
+            {{- with .integrity -}}&amp;#34;                 integrity=&amp;#34;{{ . }}&amp;#34;     crossorigin=&amp;#34;anonymous&amp;#34;  &amp;gt;
+            {{- else -}}&amp;#34;   crossorigin=&amp;#34;anonymous&amp;#34;  &amp;gt;
+            {{- end -}}
+        {{- else -}}
+            {{- errorf &amp;#34;Error: unknown external resource type: %s&amp;#34; .type -}}
+        {{- end -}}
+    {{- end -}}
+{{- else -}}
+    {{- errorf &amp;#34;Error: external resource &amp;#39;%s&amp;#39; is not found&amp;#34; .Namespace -}}
+{{- end -}}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;So the renderer does what it should and finally puts the right spaces:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;   &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/assets/cdn_jsdelivr_net/npm/node-vibrant_VERSION_3.1.5/dist/vibrant.min.js&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;defer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;false&amp;#34;&lt;/span&gt;   &lt;span class=&#34;na&#34;&gt;integrity&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=&amp;#34;&lt;/span&gt;  &lt;span class=&#34;na&#34;&gt;crossorigin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;anonymous&amp;#34;&lt;/span&gt;      &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;text/javascript&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/ts/main.js&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;defer&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2020_03_15_mastering_hugo_template_whitespaces_on_external_scripts_integrity_tags/imgs/hugospaceOK.png&#34;
+	width=&#34;1838&#34;
+	height=&#34;168&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;OK Renderer&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1094&#34;
+		data-flex-basis=&#34;2625px&#34;
+	
+&gt;&lt;/p&gt;
+</description> 
+    </item>
+    
+    <item>
+      <title>Adding webdav to docker-compose grafana stack for image previews</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2019_06_23_adding_webdav_to_docker_grafana_for_image_previews/</link>
+      <pubDate>Sun, 23 Jun 2019 23:50:42 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2019_06_23_adding_webdav_to_docker_grafana_for_image_previews/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s quite easy since Grafana containers already have the respecting parameters
+you only need 3 files and 1 crontab entry.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2019_06_23_adding_webdav_to_docker_grafana_for_image_previews/imgs/graf_msg.png&#34;
+	width=&#34;720&#34;
+	height=&#34;1280&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Grafana CPU Graph example with webDAV-Rendering&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;56&#34;
+		data-flex-basis=&#34;135px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;modify your docker-compose.yml like this&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;  grafana-render:
+    hostname: grafana-render
+    image: grafana/grafana-image-renderer:latest
+    ports:
+      - &amp;#34;127.0.0.1:8081:8081&amp;#34;
+
+#        - ./data/graphite.htpasswd:/etc/nginx/.htpasswd
+  grafana:
+#    image: grafana/grafana:4.2.0
+    image: grafana/grafana:4.6.5
+    ports:
+      - &amp;#34;127.0.0.1:3000:3000&amp;#34;
+    volumes:
+      - ./data/grafana:/var/lib/grafana
+#    links:
+#        - graphite
+    environment:
+      - GF_EXTERNAL_IMAGE_STORAGE_PROVIDER=webdav
+      - GF_EXTERNAL_IMAGE_STORAGE_PUBLIC_URL=https://my.domain.lan/grafana-uploads/media
+      - GF_EXTERNAL_IMAGE_STORAGE_PUBLICURL=https://my.domain.lan/grafana-uploads/media
+      - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_PUBLICURL=https://my.domain.lan/grafana-uploads/media
+      - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_PUBLIC_URL=https://my.domain.lan/grafana-uploads/media
+      - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_URL=http://webdav.my.domain.lan/media
+      - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_USERNAME=grafana
+      - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_PASSWORD=PassSharedGrafanaWebdav_CHANGE_ME
+      - GF_RENDERING_SERVER_URL=http://grafana-render:8081/render
+      - GF_SERVER_ROOT_URL=https://my.domain.lan
+      - GF_SECURITY_ADMIN_PASSWORD=N0B0dyKnows_You_SHOULD_CHANGE_ME
+      - GF_SMTP_ENABLED=true
+      - GF_SMTP_HOST=smtp.mydomain.lan
+      - GF_SMTP_USER=sensors@mydomain.lan
+      - GF_SMTP_PASSWORD=mySMTP_PASSWORD_You_SHOULD_CHANGE_ME
+      - GF_LOG_FILTERS=rendering:debug
+
+    restart: unless-stopped
+
+  webdav.my.domain.lan:
+    restart: unless-stopped
+    hostname: webdav.my.domain.lan
+    container_name: webdav.my.domain.lan
+    build:
+      context: ./
+#      dockerfile: Dockerfile-alternate
+      dockerfile: Dockerfile.webdav
+    ports:
+      - &amp;#34;127.0.0.1:8008:80&amp;#34;
+    volumes:
+      - &amp;#34;/opt/docker-compose/general/myproject_services/my.domain.lan/uploads/grafana-uploads/:/media&amp;#34;
+    environment:
+      USERNAME: grafana
+      PASSWORD: PassSharedGrafanaWebdav_CHANGE_ME
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;create  Dockerfile.webdav&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;FROM thefoundation/upgraded-operating-systems:ubuntu-bionic
+RUN ln -s /usr/share/zoneinfo/Europe/Berlin
+RUN apt-get update &amp;amp;&amp;amp; apt-get install -y nginx nginx-extras apache2-utils
+
+VOLUME /media
+EXPOSE 80
+COPY webdav.conf /etc/nginx/conf.d/default.conf
+RUN rm /etc/nginx/sites-enabled/*
+
+COPY entrypoint-webdav.sh /
+RUN chmod +x entrypoint-webdav.sh
+CMD /entrypoint-webdav.sh &amp;amp;&amp;amp; nginx -g &amp;#34;daemon off;&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;create entrypoint-webdav.sh&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#!/bin/bash
+
+if [[ -n &amp;#34;$USERNAME&amp;#34; ]] &amp;amp;&amp;amp; [[ -n &amp;#34;$PASSWORD&amp;#34; ]]
+then
+    htpasswd -bc /etc/nginx/htpasswd $USERNAME $PASSWORD
+    echo Done.
+else
+    echo Using no auth.
+    sed -i &amp;#39;s%auth_basic &amp;#34;Restricted&amp;#34;;% %g&amp;#39; /etc/nginx/conf.d/default.conf
+    sed -i &amp;#39;s%auth_basic_user_file htpasswd;% %g&amp;#39; /etc/nginx/conf.d/default.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;find the folder of your webdav-images ( &lt;code&gt;docker-compose config&lt;/code&gt; ) and add a cron entry&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#Grafana webDAV cleanup
+15 */2  * * *   find /opt/docker-compose/general/my_services/my.grafana.lan/uploads/grafana-uploads/media -type f -name &amp;#34;*.png&amp;#34; -mtime +2 -delete &amp;amp;&amp;gt;/dev/null || true
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;setup your grafana to include the images&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;have fun
+&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2019_06_23_adding_webdav_to_docker_grafana_for_image_previews/imgs/grafna_cpu.png&#34;
+	width=&#34;717&#34;
+	height=&#34;419&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Grafana CPU Graph example with webDAV-Rendering&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;171&#34;
+		data-flex-basis=&#34;410px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description> 
+    </item>
+    
+    <item>
+      <title>Archives</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/archives/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/archives/</guid>
+      <description></description> 
+    </item>
+    
+    <item>
+      <title>Hokus CMS for Hugo - Tags in Post Editor</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2021_04_13_hokus_cms_for_hugo_tags_in_post_editor/</link>
+      <pubDate>Sat, 13 Apr 2019 13:23:42 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2021_04_13_hokus_cms_for_hugo_tags_in_post_editor/</guid>
+      <description>&lt;blockquote&gt;
+&lt;h2 id=&#34;in-your-config--here-with-toml---change-&#34;&gt;in your config ( here with toml ) , change :&lt;/h2&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;[[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;collections&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;fields&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;key&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;pubdate&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;title&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Pub Date&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;date&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;default&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;now&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;h2 id=&#34;to-look-like-this&#34;&gt;to look like this:&lt;/h2&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;[[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;collections&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;fields&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;key&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;pubdate&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;title&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Pub Date&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;date&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;default&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;now&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;[[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;collections&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;fields&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;key&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;tags&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;title&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Tags&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;chips&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;h2 id=&#34;result&#34;&gt;Result:&lt;/h2&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2021_04_13_hokus_cms_for_hugo_tags_in_post_editor/imgs/hokustaggs.png&#34;
+	width=&#34;390&#34;
+	height=&#34;345&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Hokus Tags Chips field&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;113&#34;
+		data-flex-basis=&#34;271px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;regards-&#34;&gt;regards :)&lt;/h3&gt;
+</description> 
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/about/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/about/</guid>
+      <description>&lt;h1 id=&#34;hugo&#34;&gt;Hugo&lt;/h1&gt;
+&lt;p&gt;Written in Go, Hugo is an open source static site generator available under the &lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio/hugo/blob/master/LICENSE&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Apache Licence 2.0.&lt;/a&gt; Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.&lt;/p&gt;
+&lt;p&gt;Hugo makes use of a variety of open source projects including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/yuin/goldmark&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/yuin/goldmark&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/alecthomas/chroma&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/alecthomas/chroma&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/muesli/smartcrop&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/muesli/smartcrop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/spf13/cobra&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/spf13/cobra&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/spf13/viper&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/spf13/viper&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.&lt;/p&gt;
+&lt;p&gt;Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.&lt;/p&gt;
+&lt;p&gt;Websites built with Hugo are extremelly fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.&lt;/p&gt;
+&lt;p&gt;Learn more and contribute on &lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;using-links-in-hugo&#34;&gt;Using Links in hugo&lt;/h1&gt;
+&lt;p&gt;To use this feature, add &lt;code&gt;links&lt;/code&gt; section to frontmatter.&lt;/p&gt;
+&lt;p&gt;Example page&amp;rsquo;s frontmatter:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;links&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;GitHub&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;GitHub is the world&amp;#39;s largest software development platform.&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;website&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;https://github.com&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;/assets/github_githubassets_com/images/modules/logos_page/GitHub-Mark.png&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;TypeScript&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;website&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;https://www.typescriptlang.org&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;ts-logo-128.jpg&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;image&lt;/code&gt; field accepts both local and external images.&lt;/p&gt;
+</description> 
+    </item>
+    
+    <item>
+      <title>( Soundtrack from Kate nash )</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/0000_soundtrack/</link>
+      <pubDate>Mon, 18 Jun 2007 13:37:42 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/0000_soundtrack/</guid>
+      <description>
+
+&lt;br&gt;&lt;div id=&#34;target&#34;&gt; &lt;img  src=&#34;/assets/i_ytimg_com/vi_webp/ryH5cga0yUI/sddefault.webp&#34; width=&#34;560&#34; height=&#34;315&#34;  &gt; &lt;/div&gt;
+&lt;br&gt;alternatives:
+&lt;br&gt;http://www.myvideo.de/musik/kate-nash/foundations-video-m-4610518
+&lt;br&gt;https://de.screen.yahoo.com/musik/foundations-044634217.html
+&lt;br&gt;
+&lt;br&gt;
+&lt;script&gt;
+ 
+window.setTimeout(function() {
+    console.log(&#39;..&#39;) ;
+document.getElementById(&#34;target&#34;).innerHTML=&#39;&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/ryH5cga0yUI&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;&#39;; } ,423);
+
+
+//document.getElementsByTagName(&#34;iframe&#34;)[0].parentNode.innerHTML = &#39;&lt;img src=&#34;/assets/i_ytimg_com/vi_webp/ryH5cga0yUI/sddefault.webp&#34; width=&#34;560&#34; height=&#34;315&#34;  &gt; &#39;
+console.log(&#39;#TheFoundation , Nit3 R1d4z Undah Cowabanga&#39;)
+&lt;/script&gt;
+
+&lt;div hidden style=&#34;visibility: hidden&#34;&gt;
+&lt;!-- webmention.rocks tests --&gt;
+&lt;a href=&#34;https://webmention.rocks/test/1&#34;&gt;Test 1&lt;/a&gt;
+&lt;a href=&#34;https://webmention.rocks/test/2&#34;&gt;Test 2&lt;/a&gt;
+&lt;a href=&#34;https://webmention.rocks/test/3&#34;&gt;Test 3&lt;/a&gt;
+&lt;a href=&#34;https://webmention.rocks/test/4&#34;&gt;Test 4&lt;/a&gt;
+&lt;a href=&#34;https://webmention.rocks/test/5&#34;&gt;Test 5&lt;/a&gt;
+&lt;a href=&#34;https://webmention.rocks/test/6&#34;&gt;Test 6&lt;/a&gt;
+&lt;a href=&#34;https://webmention.rocks/test/7&#34;&gt;Test 7&lt;/a&gt;
+&lt;a href=&#34;https://webmention.rocks/test/8&#34;&gt;Test 8&lt;/a&gt;
+&lt;a href=&#34;https://webmention.rocks/test/9&#34;&gt;Test 9&lt;/a&gt;
+&lt;a href=&#34;https://webmention.rocks/test/10&#34;&gt;Test 10&lt;/a&gt;
+&lt;a href=&#34;https://webmention.rocks/test/11&#34;&gt;Test 11&lt;/a&gt;
+&lt;a href=&#34;https://webmention.rocks/test/12&#34;&gt;Test 12&lt;/a&gt;
+&lt;a href=&#34;https://webmention.rocks/test/13&#34;&gt;Test 13&lt;/a&gt;
+&lt;a href=&#34;https://webmention.rocks/test/14&#34;&gt;Test 14&lt;/a&gt;
+&lt;a href=&#34;https://webmention.rocks/test/15&#34;&gt;Test 15&lt;/a&gt;
+&lt;a href=&#34;https://webmention.rocks/test/16&#34;&gt;Test 16&lt;/a&gt;
+&lt;a href=&#34;https://webmention.rocks/test/17&#34;&gt;Test 17&lt;/a&gt;
+&lt;a href=&#34;https://webmention.rocks/test/18&#34;&gt;Test 18&lt;/a&gt;
+&lt;a href=&#34;https://webmention.rocks/test/19&#34;&gt;Test 19&lt;/a&gt;
+&lt;a href=&#34;https://webmention.rocks/test/20&#34;&gt;Test 20&lt;/a&gt;
+&lt;a href=&#34;https://webmention.rocks/test/21&#34;&gt;Test 21&lt;/a&gt;
+&lt;a href=&#34;https://webmention.rocks/test/22&#34;&gt;Test 22&lt;/a&gt;
+&lt;a href=&#34;https://webmention.rocks/test/23/page&#34;&gt;Test 23&lt;/a&gt;
+
+&lt;/div&gt;
+
+
+</description> 
+    </item>
+    
+    <item>
+      <title>Links</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/links/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/links/</guid>
+      <description>&lt;p&gt;Link Section ..&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    {{- $Generator := `&amp;lt;a href=&amp;quot;https://gohugo.io/&amp;quot; target=&amp;quot;_blank&amp;quot; rel=&amp;quot;noopener&amp;quot;&amp;gt;Hugo&amp;lt;/a&amp;gt;` -}}
+    {{- $Theme := printf `&amp;lt;b&amp;gt;&amp;lt;a href=&amp;quot;https://github.com/CaiJimmy/hugo-theme-stack&amp;quot; target=&amp;quot;_blank&amp;quot; rel=&amp;quot;noopener&amp;quot; data-version=&amp;quot;%s&amp;quot;&amp;gt;Stack&amp;lt;/a&amp;gt;&amp;lt;/b&amp;gt;` $ThemeVersion -}}
+    {{- $DesignedBy := `&amp;lt;a href=&amp;quot;https://jimmycai.com&amp;quot; target=&amp;quot;_blank&amp;quot; rel=&amp;quot;noopener&amp;quot;&amp;gt;Jimmy&amp;lt;/a&amp;gt;` -}}
+    {{ T &amp;quot;footer.builtWith&amp;quot; (dict &amp;quot;Generator&amp;quot; $Generator) | safeHTML }} ( asd (hugo : PageRelermalink: {{ .Page.RelPermalink }} | URL {{ .URL }} |RelPermalink: {{ .RelPermalink }} | Permalink {{ .Permalink }}   )  &amp;lt;br /&amp;gt;
+    {{ T &amp;quot;footer.designedBy&amp;quot; (dict &amp;quot;Theme&amp;quot; $Theme &amp;quot;DesignedBy&amp;quot; $DesignedBy) | safeHTML }}
+&lt;/code&gt;&lt;/pre&gt;
+</description> 
+    </item>
+    
+    <item>
+      <title>Search</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/search/</guid>
+      <description></description> 
+    </item>
+    
+  </channel>
+</rss>

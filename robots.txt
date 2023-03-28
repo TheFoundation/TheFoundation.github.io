@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /assets/
+Disallow: /*.xml$
+Allow: /index.xml
+Allow: /sitemaps.xml
+Sitemap: https://the-foundation.is-a-p.ro.eu.org/index.xml

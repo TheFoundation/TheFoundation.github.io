@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker-image on the fØund4ŧ¹°n</title>
+    <link>https://the-foundation.is-a-p.ro.eu.org/tags/docker-image/</link>
+    <description>Recent content in docker-image on the fØund4ŧ¹°n</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Mar 2023 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://the-foundation.is-a-p.ro.eu.org/tags/docker-image/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Exporting all layers of docker images with one command</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2023_03_22_exporting_all_layers_of_docker_images_with_one_command/</link>
+      <pubDate>Wed, 22 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2023_03_22_exporting_all_layers_of_docker_images_with_one_command/</guid>
+      <description>&lt;h2 id=&#34;creation-of-docker-images-from-a-filefolder&#34;&gt;Creation of Docker images from a file/folder&lt;/h2&gt;
+&lt;p&gt;It seemed to be an easy task to just use Docker Images as file archives,
+since you could simply create an image with a command like&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo tar cv buildcache_persist &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;docker import - &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;CICACHETAG&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; docker push &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;CICACHETAG&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;( in our examples we assume that we want to save/restore the folder &lt;code&gt;buildcache_persist&lt;/code&gt; )&lt;/p&gt;
+&lt;h3 id=&#34;extraction--and-the-trouble-&#34;&gt;Extraction ( and the trouble )&lt;/h3&gt;
+&lt;p&gt;But the extraction was a bit more complicated,
+dealing with tar archives should be not too complicated ,
+but it did&amp;rsquo;t instantly work on all machines..&lt;/p&gt;
+&lt;p&gt;( Do not use below code , it worked only on 1 out of 3 systems)&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    echo &amp;#34;REMOVING AND GETTING ${CICACHETAG} AGAIN ( MERGE )&amp;#34;
+    docker rmi ${CICACHETAG}
+    docker pull ${CICACHETAG} &amp;amp;&amp;amp;             (
+        cd /tmp/;docker save ${CICACHETAG} &amp;gt; /tmp/.importCI ;
+                                        tar xvf /tmp/.importCI --to-stdout   $(tar tf /tmp/.importCI|grep layer.tar) |tar xv
+    rm /tmp/.importCI
+    )
+    echo &amp;#34;SAVING ${CICACHETAG}&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;p&gt;In fact Murphys Law kicked in &amp;ldquo;again&amp;rdquo;,
+since everything went well in &amp;ldquo;real machines&amp;rdquo; but  CI-Runners failed with &amp;ldquo;famous&amp;rdquo; error:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;tar: invalid tar header checksum
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;the-internetz--or-better-stack-overflow-aka-crap-overloadposts2023_02_02_shittification_of_the_internetz-the_toxic_thingy_stack_overflow_became_and_why_it_is_so_annoying_to_even_ask_on_crap_overload--had-some-half-knowledge--false-positive-answer-again&#34;&gt;The internetz , or better &lt;a class=&#34;link&#34; href=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2023_02_02_shittification_of_the_internetz-the_toxic_thingy_stack_overflow_became_and_why_it_is_so_annoying_to_even_ask_on_crap_overload/&#34; &gt;Stack Overflow a.k.a. Crap Overload&lt;/a&gt;  had some half-knowledge + false-positive answer again&lt;/h2&gt;
+&lt;p&gt;Once more the &lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/questions/52272666/docker-how-to-extract-the-docker-image-into-local-system&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Stackoverflow thread&lt;/a&gt;
+was merely helpful ,&lt;/p&gt;
+&lt;p&gt;since &lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/a/69469657/18068312&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the answer closest to the simplest solution is lowest-voted, AND STILL FULL OF FAILS  &lt;/a&gt; ( that could be easily checked on a command line instead of sh*tloading half-knowledge)&lt;/p&gt;
+&lt;p&gt;But just for the lulz ( and not being downvoted on &lt;a class=&#34;link&#34; href=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2023_02_02_shittification_of_the_internetz-the_toxic_thingy_stack_overflow_became_and_why_it_is_so_annoying_to_even_ask_on_crap_overload/&#34; &gt;swag overload&lt;/a&gt; ) ,&lt;/p&gt;
+&lt;p&gt;here&amp;rsquo;s the wipe-*ss part for that answer line-by-line:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;StackOverflow answer of &lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/users/1531945/konstantin-pelepelin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Konstantin P.&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;Truth&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;id=$(docker create image:tag)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;does not work without command set for e.g. &lt;code&gt;FROM scratch&lt;/code&gt; containers&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;docker export $id -o image.tar&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;docker export accepts only ONE argument (&amp;hellip;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;docker rm $id&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;better quote &lt;code&gt;&amp;quot;$id&amp;quot;&lt;/code&gt; or curly-bracket &lt;code&gt;${id}&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;UNMENTIONED&lt;/td&gt;
+&lt;td&gt;The suggested solution extracts EVERYTHING including &lt;code&gt;/etc/&lt;/code&gt; &lt;code&gt;/dev/&lt;/code&gt; and so on ..&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;the-one-line--solution--extraction-of-specific-files-of-a-docker-container-without-single-layer-extraction&#34;&gt;The one-line  Solution : extraction of specific files of a docker container without single layer extraction&lt;/h2&gt;
+&lt;p&gt;To narrow it down :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;only extraction of specific files is possible  ( here only &lt;code&gt;buildcache_persist&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;there is no need to bloat up the filesystem with temporary &lt;code&gt;tar&lt;/code&gt; files&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here we go :&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; docker export $(docker create --name cicache docker.io/my-org/my-cicache-image:example-tag /bin/false ) |tar xv buildcache_persist ;docker rm cicache
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This command wil extract only the folder &lt;code&gt;buildcache_persist&lt;/code&gt; into the current directory&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Happy Coding&amp;hellip;&lt;/p&gt;
+</description> 
+    </item>
+    
+  </channel>
+</rss>

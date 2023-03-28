@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on the fØund4ŧ¹°n</title>
+    <link>https://the-foundation.is-a-p.ro.eu.org/tags/docker/</link>
+    <description>Recent content in docker on the fØund4ŧ¹°n</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Mar 2023 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://the-foundation.is-a-p.ro.eu.org/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Exporting all layers of docker images with one command</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2023_03_22_exporting_all_layers_of_docker_images_with_one_command/</link>
+      <pubDate>Wed, 22 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2023_03_22_exporting_all_layers_of_docker_images_with_one_command/</guid>
+      <description>&lt;h2 id=&#34;creation-of-docker-images-from-a-filefolder&#34;&gt;Creation of Docker images from a file/folder&lt;/h2&gt;
+&lt;p&gt;It seemed to be an easy task to just use Docker Images as file archives,
+since you could simply create an image with a command like&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo tar cv buildcache_persist &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;docker import - &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;CICACHETAG&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; docker push &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;CICACHETAG&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;( in our examples we assume that we want to save/restore the folder &lt;code&gt;buildcache_persist&lt;/code&gt; )&lt;/p&gt;
+&lt;h3 id=&#34;extraction--and-the-trouble-&#34;&gt;Extraction ( and the trouble )&lt;/h3&gt;
+&lt;p&gt;But the extraction was a bit more complicated,
+dealing with tar archives should be not too complicated ,
+but it did&amp;rsquo;t instantly work on all machines..&lt;/p&gt;
+&lt;p&gt;( Do not use below code , it worked only on 1 out of 3 systems)&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    echo &amp;#34;REMOVING AND GETTING ${CICACHETAG} AGAIN ( MERGE )&amp;#34;
+    docker rmi ${CICACHETAG}
+    docker pull ${CICACHETAG} &amp;amp;&amp;amp;             (
+        cd /tmp/;docker save ${CICACHETAG} &amp;gt; /tmp/.importCI ;
+                                        tar xvf /tmp/.importCI --to-stdout   $(tar tf /tmp/.importCI|grep layer.tar) |tar xv
+    rm /tmp/.importCI
+    )
+    echo &amp;#34;SAVING ${CICACHETAG}&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;p&gt;In fact Murphys Law kicked in &amp;ldquo;again&amp;rdquo;,
+since everything went well in &amp;ldquo;real machines&amp;rdquo; but  CI-Runners failed with &amp;ldquo;famous&amp;rdquo; error:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;tar: invalid tar header checksum
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;the-internetz--or-better-stack-overflow-aka-crap-overloadposts2023_02_02_shittification_of_the_internetz-the_toxic_thingy_stack_overflow_became_and_why_it_is_so_annoying_to_even_ask_on_crap_overload--had-some-half-knowledge--false-positive-answer-again&#34;&gt;The internetz , or better &lt;a class=&#34;link&#34; href=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2023_02_02_shittification_of_the_internetz-the_toxic_thingy_stack_overflow_became_and_why_it_is_so_annoying_to_even_ask_on_crap_overload/&#34; &gt;Stack Overflow a.k.a. Crap Overload&lt;/a&gt;  had some half-knowledge + false-positive answer again&lt;/h2&gt;
+&lt;p&gt;Once more the &lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/questions/52272666/docker-how-to-extract-the-docker-image-into-local-system&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Stackoverflow thread&lt;/a&gt;
+was merely helpful ,&lt;/p&gt;
+&lt;p&gt;since &lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/a/69469657/18068312&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the answer closest to the simplest solution is lowest-voted, AND STILL FULL OF FAILS  &lt;/a&gt; ( that could be easily checked on a command line instead of sh*tloading half-knowledge)&lt;/p&gt;
+&lt;p&gt;But just for the lulz ( and not being downvoted on &lt;a class=&#34;link&#34; href=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2023_02_02_shittification_of_the_internetz-the_toxic_thingy_stack_overflow_became_and_why_it_is_so_annoying_to_even_ask_on_crap_overload/&#34; &gt;swag overload&lt;/a&gt; ) ,&lt;/p&gt;
+&lt;p&gt;here&amp;rsquo;s the wipe-*ss part for that answer line-by-line:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;StackOverflow answer of &lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/users/1531945/konstantin-pelepelin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Konstantin P.&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;Truth&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;id=$(docker create image:tag)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;does not work without command set for e.g. &lt;code&gt;FROM scratch&lt;/code&gt; containers&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;docker export $id -o image.tar&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;docker export accepts only ONE argument (&amp;hellip;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;docker rm $id&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;better quote &lt;code&gt;&amp;quot;$id&amp;quot;&lt;/code&gt; or curly-bracket &lt;code&gt;${id}&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;UNMENTIONED&lt;/td&gt;
+&lt;td&gt;The suggested solution extracts EVERYTHING including &lt;code&gt;/etc/&lt;/code&gt; &lt;code&gt;/dev/&lt;/code&gt; and so on ..&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;the-one-line--solution--extraction-of-specific-files-of-a-docker-container-without-single-layer-extraction&#34;&gt;The one-line  Solution : extraction of specific files of a docker container without single layer extraction&lt;/h2&gt;
+&lt;p&gt;To narrow it down :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;only extraction of specific files is possible  ( here only &lt;code&gt;buildcache_persist&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;there is no need to bloat up the filesystem with temporary &lt;code&gt;tar&lt;/code&gt; files&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here we go :&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; docker export $(docker create --name cicache docker.io/my-org/my-cicache-image:example-tag /bin/false ) |tar xv buildcache_persist ;docker rm cicache
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This command wil extract only the folder &lt;code&gt;buildcache_persist&lt;/code&gt; into the current directory&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Happy Coding&amp;hellip;&lt;/p&gt;
+</description> 
+    </item>
+    
+    <item>
+      <title>Restoring lost data from Docker volumes</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_19_restoring_lost_data_from_docker_volumes/</link>
+      <pubDate>Tue, 18 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_19_restoring_lost_data_from_docker_volumes/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Many things might have gone wrong&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;failed Synology update&lt;/li&gt;
+&lt;li&gt;upgraded openWRT/friendlywrt changed the place&lt;/li&gt;
+&lt;li&gt;disk restoration from failed root&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;unless you did start your container with &amp;ldquo;&lt;code&gt;--rm&lt;/code&gt;&amp;rdquo; and delete it , &lt;strong&gt;there is hope&lt;/strong&gt;
+( and even if not you may pull the brake, power off and engage e.g. testdisk )&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;SETUP&lt;/th&gt;
+&lt;th&gt;approx. Date&lt;/th&gt;
+&lt;th&gt;Place&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&lt;em&gt;old&lt;/em&gt;&lt;/strong&gt;-friendlyWRT(openwrt)&lt;/td&gt;
+&lt;td&gt;2020&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/opt/volumes&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;new&lt;/strong&gt;-friendlyWRT(openwrt)&lt;/td&gt;
+&lt;td&gt;2020&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/opt/docker/volumes/&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;standard deployment&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;2021&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/var/lib/docker/volumes/&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;synology VOLUME&lt;/td&gt;
+&lt;td&gt;2022&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/volume1/\@docker/volumes/&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;synology BTRFS&lt;/td&gt;
+&lt;td&gt;2020&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/opt/&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;custom setup&lt;/td&gt;
+&lt;td&gt;****&lt;/td&gt;
+&lt;td&gt;refer to &lt;code&gt;/etc/docker/daemon.json&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_19_restoring_lost_data_from_docker_volumes/imgs/daemon.json-red.png&#34;
+	width=&#34;1286&#34;
+	height=&#34;416&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34; /etc/docker/daemon.json contents of custom setup &#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;309&#34;
+		data-flex-basis=&#34;741px&#34;
+	
+&gt;&lt;/p&gt;
+</description> 
+    </item>
+    
+    <item>
+      <title>The Google Blackhole: Forced renewal of certificates with nginx-letsencrypt-docker</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2021_03_21_docker_nginx_force_renew_letsencrypt/</link>
+      <pubDate>Thu, 11 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2021_03_21_docker_nginx_force_renew_letsencrypt/</guid>
+      <description>&lt;p&gt;So when somebody believes his or her favourite scam site,&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;e.g   &lt;!-- raw HTML omitted --&gt;LinkedIn.___ does not index my page&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;and they ask op to renew a certificate &amp;hellip; but the only thing known
+is that docker-nginx-letsencrypt (jwilder) does a renewal for all &amp;ldquo;due&amp;rdquo; certificates ( 21 days or less left )&lt;/p&gt;
+&lt;p&gt;it is one of this &amp;ldquo;0 hits on google.com&amp;rdquo; days ..&lt;/p&gt;
+&lt;p&gt;until now &amp;hellip;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it nginx-letsencrypt /bin/bash /app/force_renew
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;is your friend  in that case ;)&lt;/p&gt;
+</description> 
+    </item>
+    
+    <item>
+      <title>Adding webdav to docker-compose grafana stack for image previews</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2019_06_23_adding_webdav_to_docker_grafana_for_image_previews/</link>
+      <pubDate>Sun, 23 Jun 2019 23:50:42 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2019_06_23_adding_webdav_to_docker_grafana_for_image_previews/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s quite easy since Grafana containers already have the respecting parameters
+you only need 3 files and 1 crontab entry.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2019_06_23_adding_webdav_to_docker_grafana_for_image_previews/imgs/graf_msg.png&#34;
+	width=&#34;720&#34;
+	height=&#34;1280&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Grafana CPU Graph example with webDAV-Rendering&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;56&#34;
+		data-flex-basis=&#34;135px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;modify your docker-compose.yml like this&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;  grafana-render:
+    hostname: grafana-render
+    image: grafana/grafana-image-renderer:latest
+    ports:
+      - &amp;#34;127.0.0.1:8081:8081&amp;#34;
+
+#        - ./data/graphite.htpasswd:/etc/nginx/.htpasswd
+  grafana:
+#    image: grafana/grafana:4.2.0
+    image: grafana/grafana:4.6.5
+    ports:
+      - &amp;#34;127.0.0.1:3000:3000&amp;#34;
+    volumes:
+      - ./data/grafana:/var/lib/grafana
+#    links:
+#        - graphite
+    environment:
+      - GF_EXTERNAL_IMAGE_STORAGE_PROVIDER=webdav
+      - GF_EXTERNAL_IMAGE_STORAGE_PUBLIC_URL=https://my.domain.lan/grafana-uploads/media
+      - GF_EXTERNAL_IMAGE_STORAGE_PUBLICURL=https://my.domain.lan/grafana-uploads/media
+      - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_PUBLICURL=https://my.domain.lan/grafana-uploads/media
+      - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_PUBLIC_URL=https://my.domain.lan/grafana-uploads/media
+      - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_URL=http://webdav.my.domain.lan/media
+      - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_USERNAME=grafana
+      - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_PASSWORD=PassSharedGrafanaWebdav_CHANGE_ME
+      - GF_RENDERING_SERVER_URL=http://grafana-render:8081/render
+      - GF_SERVER_ROOT_URL=https://my.domain.lan
+      - GF_SECURITY_ADMIN_PASSWORD=N0B0dyKnows_You_SHOULD_CHANGE_ME
+      - GF_SMTP_ENABLED=true
+      - GF_SMTP_HOST=smtp.mydomain.lan
+      - GF_SMTP_USER=sensors@mydomain.lan
+      - GF_SMTP_PASSWORD=mySMTP_PASSWORD_You_SHOULD_CHANGE_ME
+      - GF_LOG_FILTERS=rendering:debug
+
+    restart: unless-stopped
+
+  webdav.my.domain.lan:
+    restart: unless-stopped
+    hostname: webdav.my.domain.lan
+    container_name: webdav.my.domain.lan
+    build:
+      context: ./
+#      dockerfile: Dockerfile-alternate
+      dockerfile: Dockerfile.webdav
+    ports:
+      - &amp;#34;127.0.0.1:8008:80&amp;#34;
+    volumes:
+      - &amp;#34;/opt/docker-compose/general/myproject_services/my.domain.lan/uploads/grafana-uploads/:/media&amp;#34;
+    environment:
+      USERNAME: grafana
+      PASSWORD: PassSharedGrafanaWebdav_CHANGE_ME
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;create  Dockerfile.webdav&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;FROM thefoundation/upgraded-operating-systems:ubuntu-bionic
+RUN ln -s /usr/share/zoneinfo/Europe/Berlin
+RUN apt-get update &amp;amp;&amp;amp; apt-get install -y nginx nginx-extras apache2-utils
+
+VOLUME /media
+EXPOSE 80
+COPY webdav.conf /etc/nginx/conf.d/default.conf
+RUN rm /etc/nginx/sites-enabled/*
+
+COPY entrypoint-webdav.sh /
+RUN chmod +x entrypoint-webdav.sh
+CMD /entrypoint-webdav.sh &amp;amp;&amp;amp; nginx -g &amp;#34;daemon off;&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;create entrypoint-webdav.sh&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#!/bin/bash
+
+if [[ -n &amp;#34;$USERNAME&amp;#34; ]] &amp;amp;&amp;amp; [[ -n &amp;#34;$PASSWORD&amp;#34; ]]
+then
+    htpasswd -bc /etc/nginx/htpasswd $USERNAME $PASSWORD
+    echo Done.
+else
+    echo Using no auth.
+    sed -i &amp;#39;s%auth_basic &amp;#34;Restricted&amp;#34;;% %g&amp;#39; /etc/nginx/conf.d/default.conf
+    sed -i &amp;#39;s%auth_basic_user_file htpasswd;% %g&amp;#39; /etc/nginx/conf.d/default.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;find the folder of your webdav-images ( &lt;code&gt;docker-compose config&lt;/code&gt; ) and add a cron entry&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#Grafana webDAV cleanup
+15 */2  * * *   find /opt/docker-compose/general/my_services/my.grafana.lan/uploads/grafana-uploads/media -type f -name &amp;#34;*.png&amp;#34; -mtime +2 -delete &amp;amp;&amp;gt;/dev/null || true
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;setup your grafana to include the images&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;have fun
+&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2019_06_23_adding_webdav_to_docker_grafana_for_image_previews/imgs/grafna_cpu.png&#34;
+	width=&#34;717&#34;
+	height=&#34;419&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Grafana CPU Graph example with webDAV-Rendering&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;171&#34;
+		data-flex-basis=&#34;410px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description> 
+    </item>
+    
+  </channel>
+</rss>

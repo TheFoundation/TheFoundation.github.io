@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fonts.googleapis.com on the fØund4ŧ¹°n</title>
+    <link>https://the-foundation.is-a-p.ro.eu.org/tags/fonts.googleapis.com/</link>
+    <description>Recent content in fonts.googleapis.com on the fØund4ŧ¹°n</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://the-foundation.is-a-p.ro.eu.org/tags/fonts.googleapis.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Creating a GDPR compliant google fonts or CDN proxy</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/</guid>
+      <description>&lt;h1 id=&#34;it-is-time-to-build-your-fonts-proxy---now-&#34;&gt;It is time to build your fonts proxy - now !&lt;/h1&gt;
+&lt;p&gt;Your may ask why ..&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Since Google does not  even cache the fonts anymore&lt;/li&gt;
+&lt;li&gt;and it is not GDPR-compliant&lt;/li&gt;
+&lt;li&gt;also because google may track your users at least on the level of a matomo-instance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;you can do better.&lt;/p&gt;
+&lt;p&gt;With the simple nuster-nginx combination ( tested on aarch64 and x86_64  ) ,
+one can&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;anonymize the IP-Adress&lt;/li&gt;
+&lt;li&gt;anonymize the User-Agent&lt;/li&gt;
+&lt;li&gt;serve custom 404 pages that are also anoymously passed
+for all requests through that instance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;get the nuster-cache-proxy files:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;create a .env-File&lt;/strong&gt; ( like below, &lt;strong&gt;change&lt;/strong&gt; at least the &lt;strong&gt;domain and the letsencrypt mai&lt;/strong&gt;l address)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;echo &amp;#39;
+VIRTUAL_PORT=80
+VIRTUAL_PROTO=http
+
+VIRTUAL_HOST=fonts.your-domain.lan
+LETSENCRYPT_EMAIL=no@body.lan
+LETSENCRYPT_HOST=fonts.your-domain.lan
+CACHED_PATH=/
+CACHED_HOST=fonts.gstatic.com
+COMPOSE_POJECT_NAME=myservicename
+RETURN_UNAUTH=false
+ACCESS_LOG=false
+
+##optional
+REDIRECT_FAVICON=false
+CACHEMB=512
+CACHETIME=90d
+TIMEOUT=15s
+HIDECLIENT=true
+EXPIREHEADER=7d
+LOCALPORT=65080
+NGINX_NETWORK=nginx-proxy
+CUSTOMFOUROFOUR=https://statuspages.gitlab.io/404
+CUSTOMENDPOINTS=/css:fonts.googleapis.com
+REPLACESTRING=fonts.gstatic.com:fonts.your-domain.lan,fonts.googleapis.com:fonts.fonts.your-domain.lan
+&amp;#39; &amp;gt; .env
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;create the named network ( &lt;code&gt;docker network create nginx-proxy&lt;/code&gt; ) or adjust &lt;code&gt;.env&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;run &lt;code&gt;docker-compose up -d&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;replace the domains &lt;code&gt;fonts.googleapis.com&lt;/code&gt; and &lt;code&gt;fonts.gstatic.com&lt;/code&gt; to your domain ( in example here fonts.your-domain.lan ) in all your webpages and themes, example result:&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;link&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;rel&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;shortcut icon&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;favicon.ico&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;link&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;//fonts.mydomain.lan/css?family=Open+Sans:300,400,600,700&amp;#39;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;rel&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;stylesheet&amp;#39;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;text/css&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c&#34;&gt;&amp;lt;!-- Global CSS --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id=&#34;use-the-font-proxy-in-your-firefox-or-chrome--with-any-domain-when-sufing-the-web&#34;&gt;Use the font-proxy in your Firefox or Chrome  with any domain when sufing the web&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;install a header/request changing Plugin ( in ths Example &lt;a class=&#34;link&#34; href=&#34;https://github.com/jiacai2050/gooreplacer&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GooReplacer&lt;/a&gt; )&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a class=&#34;link&#34; href=&#34;https://chrome.google.com/webstore/detail/gooreplacer/jnlkjeecojckkigmchmfoigphmgkgbip&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Chrome&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a class=&#34;link&#34; href=&#34;https://addons.mozilla.org/firefox/addon/gooreplacer/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Firefox&lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;( if the gooreplacer does not load &lt;a class=&#34;link&#34; href=&#34;/assets/at_alicdn_com/t/font_148784_v4ggb6wrjmkotj4i.woff&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;/assets/at_alicdn_com/t/font_148784_v4ggb6wrjmkotj4i.woff&lt;/a&gt; from the settings page , you may rewrite it as well )&lt;/li&gt;
+&lt;li&gt;setup a replacement like below (there is a trailing slash at the target url )
+&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/imgs/gooreplacer-fonts.jpg&#34;
+	width=&#34;1593&#34;
+	height=&#34;340&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Gooreplacer FontsProxy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;468&#34;
+		data-flex-basis=&#34;1124px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description> 
+    </item>
+    
+  </channel>
+</rss>

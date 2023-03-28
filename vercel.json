@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/favicon.ico",
+      "destination": "https://hcxi2.2ix.ch/the-foundation.is-a-p.ro.eu.org/favicon/logo.jpg", 
+      "statusCode": 301
+    }
+  ]
+}

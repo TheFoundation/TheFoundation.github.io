@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mysql on the fØund4ŧ¹°n</title>
+    <link>https://the-foundation.is-a-p.ro.eu.org/tags/mysql/</link>
+    <description>Recent content in mysql on the fØund4ŧ¹°n</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Feb 2023 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://the-foundation.is-a-p.ro.eu.org/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MYSQL records of previous month</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2023_02_03_mysql_records_of_previous_month/</link>
+      <pubDate>Fri, 03 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2023_02_03_mysql_records_of_previous_month/</guid>
+      <description>&lt;h2 id=&#34;the-question-how-to-get-mysql-rows-of-last-month-&#34;&gt;The Question: &lt;code&gt;how to get MYSQL rows of last month ?&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;The &amp;ldquo;simple&amp;rdquo; question &amp;ldquo;how do i get MySQL records of previous month&amp;rdquo;
+unfolded many threads ,
+sometimes even giving false positive answers like:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;take the difference between now and now-1 month (DO NOT !)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;the-solution-two-mysql-timestamps-with-interval-calculated&#34;&gt;The Solution: Two MYSQL timestamps with INTERVAL calculated&lt;/h2&gt;
+&lt;p&gt;Ok, not only sometimes false postives are recommended ,
+in fact very often.. ,
+so here we go with a proper example:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SELECT o.row_a , o.row_b,
+WHERE row.something = `foo`
+AND (o.`date_add` &amp;gt;= DATE_FORMAT( CURRENT_DATE - INTERVAL 2 MONTH, &amp;#39;%Y/%m/01&amp;#39; ) )
+AND (o.`date_add`  &amp;lt; DATE_FORMAT( CURRENT_DATE - INTERVAL 1 MONTH, &amp;#39;%Y/%m/01&amp;#39; ) )
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;( only the part from &lt;code&gt;AND&lt;/code&gt; on is important to us )&lt;/p&gt;
+&lt;p&gt;To get other months ( or days or years), just modify the &lt;code&gt;INTERVAL 1 MONTH&lt;/code&gt; and the second &lt;code&gt;AND&lt;/code&gt; statement&lt;/p&gt;
+&lt;h2 id=&#34;addendum-current-month&#34;&gt;ADDENDUM: current month&lt;/h2&gt;
+&lt;p&gt;to have &amp;ldquo;nearly the same&amp;rdquo; query for the current month, do&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;AND (o.`date_add` &amp;gt;= DATE_FORMAT( CURRENT_DATE, &amp;#39;%Y/%m/01&amp;#39; ) )
+AND (o.`date_add`  &amp;lt; DATE_FORMAT( CURRENT_DATE + INTERVAL 1 MONTH, &amp;#39;%Y/%m/01&amp;#39; ) )
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2023_02_03_mysql_records_of_previous_month/imgs/sql-last-month.png&#34;
+	width=&#34;1037&#34;
+	height=&#34;228&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34; /etc/docker/daemon.json contents of custom setup &#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;454&#34;
+		data-flex-basis=&#34;1091px&#34;
+	
+&gt;&lt;/p&gt;
+</description> 
+    </item>
+    
+  </channel>
+</rss>

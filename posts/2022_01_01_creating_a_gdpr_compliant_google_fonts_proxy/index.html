@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='It is time to build your fonts proxy - now ! Your may ask why ..
+Since Google does not even cache the fonts anymore and it is not GDPR-compliant also because google may track your users at least on the level of a matomo-instance. you can do better.
+With the simple nuster-nginx combination ( tested on aarch64 and x86_64 ) , one can
+anonymize the IP-Adress anonymize the User-Agent serve custom 404 pages that are also anoymously passed for all requests through that instance.'>
+<title>Creating a GDPR compliant google fonts or CDN proxy</title>
+
+<link rel='canonical' href='https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Creating a GDPR compliant google fonts or CDN proxy'>
+<meta property='og:description' content='It is time to build your fonts proxy - now ! Your may ask why ..
+Since Google does not even cache the fonts anymore and it is not GDPR-compliant also because google may track your users at least on the level of a matomo-instance. you can do better.
+With the simple nuster-nginx combination ( tested on aarch64 and x86_64 ) , one can
+anonymize the IP-Adress anonymize the User-Agent serve custom 404 pages that are also anoymously passed for all requests through that instance.'>
+<meta property='og:url' content='https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/'>
+<meta property='og:site_name' content='the fØund4ŧ¹°n'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='GDPR' /><meta property='article:tag' content='Font' /><meta property='article:tag' content='Proxy' /><meta property='article:tag' content='fonts.gstatic.com' /><meta property='article:tag' content='fonts.googleapis.com' /><meta property='article:tag' content='GooReplacer' /><meta property='article:tag' content='anonymize' /><meta property='article:published_time' content='2022-01-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-01-01T00:00:00&#43;00:00'/><meta property='og:image' content='https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/imgs/fontscss.png' />
+<meta name="twitter:title" content="Creating a GDPR compliant google fonts or CDN proxy">
+<meta name="twitter:description" content="It is time to build your fonts proxy - now ! Your may ask why ..
+Since Google does not even cache the fonts anymore and it is not GDPR-compliant also because google may track your users at least on the level of a matomo-instance. you can do better.
+With the simple nuster-nginx combination ( tested on aarch64 and x86_64 ) , one can
+anonymize the IP-Adress anonymize the User-Agent serve custom 404 pages that are also anoymously passed for all requests through that instance."><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content='https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/imgs/fontscss.png' />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+
+<script >
+console.log('( init.renderinfo.(hugo : URLs:  PageRelermalink: /posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/ | RelPermalink: /posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/ | Permalink https://thefoundation.github.io/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/   )  | FullURL: //posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/ ');
+
+
+var boot_endpoint="https://comments.thefoundation.cloudns.ph/ping"
+function pingBoot() {
+const xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+console.log("boot.status: " + xmlhttp.responseText);
+}
+if (xmlhttp.readyState == 4 && xmlhttp.status != 200)  { console.log("boot.status: FAILED");  }
+}
+xmlhttp.open("GET", boot_endpoint , true);
+xmlhttp.send();
+}
+function pingBootTrigger() { setTimeout(pingBoot,1);  }
+setInterval(pingBootTrigger,23542);
+</script>
+
+<style type="text/css">
+.webmention-div {
+border-collapse: collapse;
+margin: 25px 0;
+font-size: 0.9em;
+font-family: sans-serif;
+min-width: 400px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+color: #ffffff;
+}
+.webmention-table {
+border-collapse: collapse;
+margin: 25px 0;
+font-size: 0.9em;
+font-family: sans-serif;
+min-width: 400px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.webmention-table thead tr {
+background-color: #009879;
+color: #ffffff;
+text-align: left;
+}
+.webmention-table th,
+.webmention-table td {
+padding: 12px 15px;
+}
+.webmention-table th,
+.webmention-table td {
+padding: 12px 15px;
+}
+.webmention-table tbody tr.active-row {
+font-weight: bold;
+color: #009879;
+}
+</style>
+
+
+<link rel="webmention" href="https://comments.thefoundation.cloudns.ph/webmentions/receive" />
+
+
+<link rel="pingback" href="https://comments.thefoundation.cloudns.ph/webmentions/pingback" />
+
+
+
+<div class="microformat" style="visibility:hidden ; height: 1px" >
+<div class="h-card">
+<img src="https://hcxi2.2ix.ch/thefoundation.github.io/static/img/vcard.jpg" alt="The Foundation VCARD Logo" />
+<span class="p-name">The Foundation</span>
+<span class="p-honorific-prefix">_</span>
+<span class="p-given-name">The</span>
+<abbr class="p-additional-name">_</abbr>
+<span class="p-family-name">Foundation</span>
+<span class="p-honorific-suffix">←→</span>,
+<span class="p-nickname">thefoundation</span> (GITLAB)
+<div class="p-org">thefoundation.github.io</div>
+<img class="u-photo" src="https://hcxi2.2ix.ch/thefoundation.github.io/static/img/vcard-user.jpg" alt="The Foundation VCARD USER Logo" />
+<a  rel="me" class="u-url" href="https://thefoundation.github.io">thefoundation.github.io</a>,
+<a class="u-email" href="mailto:do-not-send-mail@here.thefoundation.cloudns.ph">e</a>
+<div class="p-tel">+123456</div>
+<div class="p-street-address">000 Redacted</div>
+<span class="p-locality">WORLD</span>,
+<abbr class="p-region" title="globE">CA</abbr>,
+<span class="p-postal-code">0000</span>
+<div class="p-country-name">INTERNAtionAL</div>
+<time class="dt-bday">1970-01-01</time> birthday
+<div class="p-category">tech</div>
+<div class="p-note">Hello and welcome.</div>
+</div>
+</div>
+
+
+<script type="text/javascript" >function redirect () { setTimeout("go_now()",111) ; } ;function go_now ()   { window.location.href = "https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/"; } ; </script><meta http-equiv="Refresh" content="0; url=//the-foundation.is-a-p.ro.eu.org/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/" /></head>
+<body onLoad="redirect()" class="
+article-page
+">
+<script>
+(function() {
+const colorSchemeKey = 'StackColorScheme';
+if(!localStorage.getItem(colorSchemeKey)){
+localStorage.setItem(colorSchemeKey, "dark");
+}
+})();
+</script><script>
+(function() {
+const colorSchemeKey = 'StackColorScheme';
+const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+
+
+document.documentElement.dataset.scheme = 'dark';
+} else {
+document.documentElement.dataset.scheme = 'light';
+}
+})();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky">
+<button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+<span class="hamburger-box">
+<span class="hamburger-inner"></span>
+</span>
+</button>
+
+<header class="site-info">
+
+
+<figure class="site-avatar">
+
+<img src="https://hcxi2.2ix.ch/thefoundation.github.io/static/img/logo.jpg" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+
+
+
+<span class="emoji">🐿</span>
+
+</figure>
+
+
+
+<h1 class="site-name"><a href="/">the fØund4ŧ¹°n</a></h1>
+<h2 class="site-description">💽📡🔬🔭🗺🗜</h2><ol class="social-menu">
+
+<li>
+<a
+href='https://github.com/thefoundation'
+target="_blank"
+title="GitHub"
+>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+<path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+
+</a>
+</li>
+
+<li>
+<a
+href='https://gitlab.com/the-foundation'
+target="_blank"
+title="GitLab"
+>
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+viewBox="0 0 586 559" style="enable-background:new 0 0 586 559;" xml:space="preserve">
+<style type="text/css">
+.st0{fill:#FAFAFA;}
+.st1{fill:#F0F0F0;}
+.st2{fill:#FFFFFF;}
+.st3{fill:#E24329;}
+.st4{fill:#FCA326;}
+.st5{fill:#FC6D26;}
+.st6{fill:#8C929D;}
+.st7{fill:#2E2E2E;}
+.st8{fill:none;stroke:#FCA326;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+.st9{fill:none;stroke:#FC6D26;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+.st10{fill:none;stroke:#E24329;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+.st11{fill:none;stroke:#F0F0F0;stroke-miterlimit:10;}
+.st12{fill:#231F20;}
+.st13{fill:none;stroke:#231F20;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+.st14{display:none;}
+.st15{display:inline;opacity:0.1;fill:#E828E3;}
+.st16{display:inline;}
+.st17{opacity:0.1;fill:#E828E3;}
+.st18{font-family:'SourceSansPro-Semibold';}
+.st19{font-size:24px;}
+.st20{display:inline;fill:#DB3B21;}
+.st21{display:inline;fill:#FC6D26;}
+.st22{display:inline;fill:#2E2E2E;}
+.st23{display:inline;fill:#6E49CB;}
+.st24{display:inline;fill:#380D75;}
+.st25{display:inline;fill:#FCA121;}
+.st26{opacity:0.6;fill:none;stroke:#231F20;stroke-width:2;stroke-miterlimit:10;stroke-dasharray:12,6;}
+.st27{fill:none;stroke:#444444;stroke-width:1.5339;stroke-miterlimit:10;}
+</style>
+<g id="logo_art">
+<path class="st2" d="M461.514,298.355l-18.049-55.587c0.008,0.025,0.011,0.051,0.019,0.076c-0.009-0.029-0.014-0.058-0.022-0.087
+c-0.001-0.002-0.001-0.003-0.001-0.005c0-0.001,0-0.002,0-0.002l-35.83-110.31c-1.96-5.811-7.353-9.711-13.536-9.663
+c-6.201,0.032-11.446,3.857-13.364,9.748L346.721,237.23H239.408l-34.074-104.712c-1.916-5.886-7.162-9.71-13.362-9.742
+c-0.025,0-0.049,0-0.075,0c-6.105,0-11.509,3.876-13.49,9.752l-35.732,110.211l-0.005,0.014c0,0.001,0,0.002,0,0.003
+c-0.009,0.028-0.013,0.056-0.022,0.084c0.008-0.025,0.011-0.051,0.019-0.076l-18.115,55.591c-2.725,8.392,0.232,17.512,7.36,22.697
+L288.328,434.7c0.023,0.017,0.049,0.027,0.072,0.044c0.067,0.048,0.132,0.097,0.2,0.142c-0.064-0.043-0.124-0.09-0.187-0.134
+c0,0,0-0.001-0.001-0.001c0.01,0.008,0.022,0.013,0.033,0.02c0.009,0.006,0.018,0.01,0.027,0.016
+c0.001,0.001,0.002,0.002,0.004,0.003c0.242,0.168,0.493,0.322,0.753,0.463c0.036,0.02,0.068,0.045,0.104,0.064
+c0.001,0,0.001,0.001,0.002,0.001c0.022,0.011,0.042,0.025,0.064,0.036c0.017,0.008,0.035,0.013,0.051,0.021
+c0.012,0.006,0.025,0.01,0.037,0.015c0.029,0.014,0.061,0.023,0.09,0.038c0.136,0.065,0.279,0.118,0.419,0.175
+c0.131,0.054,0.258,0.117,0.392,0.164c0.006,0.002,0.011,0.005,0.017,0.007c0.022,0.008,0.042,0.019,0.065,0.027
+c0.028,0.01,0.055,0.021,0.083,0.03c0.011,0.003,0.022,0.005,0.033,0.008c0.035,0.011,0.073,0.016,0.108,0.026
+c0.013,0.004,0.028,0.006,0.042,0.01c0.188,0.057,0.383,0.098,0.577,0.141c0.076,0.017,0.149,0.041,0.226,0.055
+c0.011,0.002,0.021,0.006,0.033,0.008c0.025,0.005,0.048,0.014,0.074,0.018c0.041,0.007,0.081,0.02,0.123,0.026
+c0.033,0.005,0.067,0.003,0.1,0.008c0.006,0.001,0.011,0,0.017,0.001c0.002,0,0.003,0,0.005,0c0.369,0.053,0.743,0.09,1.124,0.09
+c0.002,0,0.004,0,0.007,0l0,0c0.001,0,0.002,0,0.002,0c0,0,0.001,0,0.001,0c0.001,0,0.002,0,0.003,0
+c0.382,0,0.756-0.037,1.126-0.09c0.001,0,0.003,0,0.004,0c0.006-0.001,0.012,0,0.018-0.001c0.033-0.005,0.068-0.003,0.101-0.008
+c0.042-0.007,0.082-0.019,0.124-0.026c0.025-0.004,0.048-0.013,0.073-0.018c0.011-0.002,0.021-0.006,0.032-0.008
+c0.078-0.015,0.153-0.039,0.231-0.056c0.191-0.042,0.383-0.083,0.57-0.139c0.013-0.004,0.026-0.005,0.039-0.009
+c0.037-0.011,0.075-0.016,0.112-0.027c0.011-0.004,0.023-0.005,0.034-0.008c0.029-0.009,0.057-0.021,0.085-0.031
+c0.022-0.008,0.042-0.019,0.064-0.027c0.006-0.002,0.011-0.005,0.017-0.007c0.142-0.05,0.276-0.116,0.415-0.173
+c0.129-0.054,0.261-0.102,0.387-0.162c0.031-0.015,0.064-0.024,0.094-0.039c0.012-0.006,0.026-0.01,0.038-0.016
+c0.017-0.008,0.035-0.013,0.052-0.022c0.023-0.012,0.045-0.026,0.067-0.037c0,0,0.001,0,0.001-0.001
+c0.037-0.019,0.07-0.046,0.107-0.066c0.258-0.14,0.508-0.293,0.749-0.46c0.019-0.013,0.041-0.023,0.061-0.037
+c0.005-0.004,0.011-0.006,0.016-0.01c0.023-0.017,0.05-0.028,0.073-0.045l156.44-113.65
+C461.282,315.867,464.239,306.747,461.514,298.355z M394.194,142.774l30.68,94.456h-61.36L394.194,142.774z M419.501,253.202
+l-12.519,16.041L314.648,387.55l43.677-134.348H419.501z M285.428,430.707C285.428,430.707,285.428,430.707,285.428,430.707
+c0.008,0.024,0.021,0.046,0.029,0.071C285.449,430.753,285.436,430.731,285.428,430.707z M271.42,387.558L166.624,253.202l0,0
+h61.18L271.42,387.558z M191.875,142.773l30.737,94.457h-61.36L191.875,142.773z M141.304,308.133
+c-1.516-1.103-2.144-3.05-1.563-4.838l13.466-41.325l98.67,126.502L141.304,308.133z M288.053,434.489
+c-0.031-0.025-0.061-0.052-0.091-0.078c-0.006-0.005-0.012-0.012-0.019-0.017c-0.06-0.05-0.119-0.101-0.177-0.153
+c-0.114-0.099-0.226-0.2-0.333-0.306c0.009,0.008,0.019,0.015,0.028,0.023c0.012,0.011,0.025,0.02,0.037,0.031
+c0.229,0.219,0.47,0.425,0.722,0.615c0.003,0.002,0.005,0.005,0.008,0.007c0.012,0.009,0.022,0.02,0.034,0.03
+C288.193,434.591,288.121,434.543,288.053,434.489z M293.028,402.392l-25.665-79.059l-22.766-70.131h96.933L293.028,402.392z
+M298.281,434.241c-0.06,0.052-0.118,0.104-0.179,0.154c-0.007,0.006-0.014,0.013-0.021,0.019c-0.031,0.025-0.06,0.052-0.09,0.077
+c-0.066,0.053-0.138,0.101-0.207,0.152c0.012-0.009,0.022-0.021,0.035-0.029c0.002-0.002,0.004-0.004,0.006-0.006
+c0.252-0.19,0.492-0.394,0.719-0.613c0.009-0.009,0.02-0.016,0.029-0.024c0.012-0.011,0.025-0.02,0.036-0.031
+C298.503,434.043,298.392,434.143,298.281,434.241z M444.766,308.13l-110.557,80.317l98.703-126.467l13.412,41.307
+C446.906,305.083,446.279,307.03,444.766,308.13z"/>
+</g>
+<g id="spacing_guides" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" class="st14">
+<path id="path40_63_" sketch:type="MSShapeGroup" class="st15" d="M0,0.5v124h586V0.5H0L0,0.5z"/>
+<path id="path40_36_" sketch:type="MSShapeGroup" class="st15" d="M0,435.5v124h586v-124H0L0,435.5z"/>
+<path id="path40_25_" sketch:type="MSShapeGroup" class="st15" d="M462.2,560h124V0h-124V560L462.2,560z"/>
+<g class="st16">
+<text transform="matrix(1 0 0 1 511.2881 283.332)" class="st18 st19">1x</text>
+</g>
+<g class="st16">
+<text transform="matrix(1 0 0 1 281.2881 500.9979)" class="st18 st19">1x</text>
+</g>
+<g class="st16">
+<text transform="matrix(1 0 0 1 281.2881 65.9981)" class="st18 st19">1x</text>
+</g>
+<path id="path40_24_" sketch:type="MSShapeGroup" class="st15" d="M0,560h124V0H0V560L0,560z"/>
+<g class="st16">
+<text transform="matrix(1 0 0 1 51.2881 283.332)" class="st18 st19">1x</text>
+</g>
+</g>
+</svg>
+
+
+</a>
+</li>
+
+<li>
+<a
+href='https://twitter.com'
+target="_blank"
+title="Twitter"
+>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+<path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+
+</a>
+</li>
+
+</ol></header>
+
+<ol class="menu" id="main-menu">
+
+
+
+
+<li >
+<a href='/' target="_blank">
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path stroke="none" d="M0 0h24v24H0z"/>
+<polyline points="5 12 3 12 12 3 21 12 19 12" />
+<path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+<path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+
+<span>Home</span>
+</a>
+</li>
+
+
+
+<li >
+<a href='/about/' >
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path stroke="none" d="M0 0h24v24H0z"/>
+<circle cx="12" cy="7" r="4" />
+<path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+
+<span>About</span>
+</a>
+</li>
+
+
+
+<li >
+<a href='/archives/' >
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path stroke="none" d="M0 0h24v24H0z"/>
+<rect x="3" y="4" width="18" height="4" rx="2" />
+<path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+<line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+
+<span>Archives</span>
+</a>
+</li>
+
+
+
+<li >
+<a href='/search/' >
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path stroke="none" d="M0 0h24v24H0z"/>
+<circle cx="10" cy="10" r="7" />
+<line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+
+<span>Search</span>
+</a>
+</li>
+
+
+
+<li >
+<a href='/links/' >
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path stroke="none" d="M0 0h24v24H0z"/>
+<path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+<path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+
+<span>Links</span>
+</a>
+</li>
+
+
+
+<li id="dark-mode-toggle">
+<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path stroke="none" d="M0 0h24v24H0z"/>
+<circle cx="8" cy="12" r="2" />
+<rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path stroke="none" d="M0 0h24v24H0z"/>
+<circle cx="16" cy="12" r="2" />
+<rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+<span>Dark Mode</span>
+</li>
+
+</ol>
+</aside>
+
+
+
+<main class="main full-width">
+<article class="has-image main-article">
+<header class="article-header">
+<div class="article-image">
+<a href="/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/">
+<img src="/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/imgs/fontscss.png"
+
+width="1302"
+height="276"
+loading="lazy"
+alt="Featured image of post Creating a GDPR compliant google fonts or CDN proxy" />
+
+</a>
+</div>
+
+
+<div class="article-details">
+
+
+<div class="article-title-wrapper">
+<h2 class="article-title">
+<a href="/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/">Creating a GDPR compliant google fonts or CDN proxy</a>
+</h2>
+
+
+</div>
+
+
+
+
+
+<footer class="article-time">
+
+<div>
+<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path stroke="none" d="M0 0h24v24H0z"/>
+<path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+<circle cx="18" cy="18" r="4" />
+<path d="M15 3v4" />
+<path d="M7 3v4" />
+<path d="M3 11h16" />
+<path d="M18 16.496v1.504l1 1" />
+</svg>
+<time class="article-time--published">Jan 01, 2022</time>
+</div>
+
+
+
+<div>
+<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path stroke="none" d="M0 0h24v24H0z"/>
+<circle cx="12" cy="12" r="9" />
+<polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+<time class="article-time--reading">
+2 minute read
+</time>
+</div>
+
+</footer>
+
+
+
+</div>
+
+</header>
+
+<section class="article-content">
+
+
+<h1 id="it-is-time-to-build-your-fonts-proxy---now-">It is time to build your fonts proxy - now !</h1>
+<p>Your may ask why ..</p>
+<ul>
+<li>Since Google does not  even cache the fonts anymore</li>
+<li>and it is not GDPR-compliant</li>
+<li>also because google may track your users at least on the level of a matomo-instance.</li>
+</ul>
+<p>you can do better.</p>
+<p>With the simple nuster-nginx combination ( tested on aarch64 and x86_64  ) ,
+one can</p>
+<ul>
+<li>anonymize the IP-Adress</li>
+<li>anonymize the User-Agent</li>
+<li>serve custom 404 pages that are also anoymously passed
+for all requests through that instance.</li>
+</ul>
+<ul>
+<li>
+<p>get the nuster-cache-proxy files:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone <span class="p">;</span> <span class="nb">cd</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>create a .env-File</strong> ( like below, <strong>change</strong> at least the <strong>domain and the letsencrypt mai</strong>l address)</p>
+</li>
+</ul>
+<pre tabindex="0"><code>echo &#39;
+VIRTUAL_PORT=80
+VIRTUAL_PROTO=http
+
+VIRTUAL_HOST=fonts.your-domain.lan
+LETSENCRYPT_EMAIL=no@body.lan
+LETSENCRYPT_HOST=fonts.your-domain.lan
+CACHED_PATH=/
+CACHED_HOST=fonts.gstatic.com
+COMPOSE_POJECT_NAME=myservicename
+RETURN_UNAUTH=false
+ACCESS_LOG=false
+
+##optional
+REDIRECT_FAVICON=false
+CACHEMB=512
+CACHETIME=90d
+TIMEOUT=15s
+HIDECLIENT=true
+EXPIREHEADER=7d
+LOCALPORT=65080
+NGINX_NETWORK=nginx-proxy
+CUSTOMFOUROFOUR=https://statuspages.gitlab.io/404
+CUSTOMENDPOINTS=/css:fonts.googleapis.com
+REPLACESTRING=fonts.gstatic.com:fonts.your-domain.lan,fonts.googleapis.com:fonts.fonts.your-domain.lan
+&#39; &gt; .env
+</code></pre><ul>
+<li><strong>create the named network ( <code>docker network create nginx-proxy</code> ) or adjust <code>.env</code></strong></li>
+<li><strong>run <code>docker-compose up -d</code></strong></li>
+<li><strong>replace the domains <code>fonts.googleapis.com</code> and <code>fonts.gstatic.com</code> to your domain ( in example here fonts.your-domain.lan ) in all your webpages and themes, example result:</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;shortcut icon&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;favicon.ico&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;//fonts.mydomain.lan/css?family=Open+Sans:300,400,600,700&#39;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#39;stylesheet&#39;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text/css&#39;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!-- Global CSS --&gt;</span>
+</span></span></code></pre></div><hr>
+<h1 id="use-the-font-proxy-in-your-firefox-or-chrome--with-any-domain-when-sufing-the-web">Use the font-proxy in your Firefox or Chrome  with any domain when sufing the web</h1>
+<ul>
+<li>install a header/request changing Plugin ( in ths Example <a class="link" href="https://github.com/jiacai2050/gooreplacer"  target="_blank" rel="noopener"
+>GooReplacer</a> )</li>
+</ul>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th><a class="link" href="https://chrome.google.com/webstore/detail/gooreplacer/jnlkjeecojckkigmchmfoigphmgkgbip"  target="_blank" rel="noopener"
+>Chrome</a></th>
+<th><a class="link" href="https://addons.mozilla.org/firefox/addon/gooreplacer/"  target="_blank" rel="noopener"
+>Firefox</a></th>
+</tr>
+</thead>
+</table></div>
+<ul>
+<li>( if the gooreplacer does not load <a class="link" href="/assets/at_alicdn_com/t/font_148784_v4ggb6wrjmkotj4i.woff"  target="_blank" rel="noopener"
+>/assets/at_alicdn_com/t/font_148784_v4ggb6wrjmkotj4i.woff</a> from the settings page , you may rewrite it as well )</li>
+<li>setup a replacement like below (there is a trailing slash at the target url )
+<img src="/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/imgs/gooreplacer-fonts.jpg"
+width="1593"
+height="340"
+
+loading="lazy"
+
+alt="Gooreplacer FontsProxy"
+
+
+class="gallery-image"
+data-flex-grow="468"
+data-flex-basis="1124px"
+
+></li>
+</ul>
+
+</section>
+
+
+<footer class="article-footer">
+
+<section class="article-tags">
+
+<a href="/tags/gdpr/">GDPR</a>
+
+<a href="/tags/font/">Font</a>
+
+<a href="/tags/proxy/">Proxy</a>
+
+<a href="/tags/fonts.gstatic.com/">fonts.gstatic.com</a>
+
+<a href="/tags/fonts.googleapis.com/">fonts.googleapis.com</a>
+
+<a href="/tags/gooreplacer/">GooReplacer</a>
+
+<a href="/tags/anonymize/">anonymize</a>
+
+</section>
+
+
+
+<section class="article-copyright">
+<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path stroke="none" d="M0 0h24v24H0z"/>
+<circle cx="12" cy="12" r="9" />
+<path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+<span>Licensed under CC BY-NC-SA 4.0</span>
+</section>
+</footer>
+
+
+
+</article>
+
+
+
+
+
+
+
+
+
+
+<div id="remark42" style="min-height: 200px;min-width: 150px"></div>
+<script>
+var remark_config = {
+host: 'https://comments.thefoundation.cloudns.ph',
+site_id: 'thefoundation',
+components: ['embed'],
+url: 'https://thefoundation.github.io/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/',
+max_shown_comments:  15 ,
+theme: document.documentElement.dataset.scheme,
+page_title: 'Creating a GDPR compliant google fonts or CDN proxy',
+locale: 'en',
+show_email_subscription:  true ,
+show_rss_subscription:  true ,
+simple_view:  false ,
+no_footer:  true ,
+
+};
+
+
+
+
+
+</script>
+<script>!function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);</script>
+
+
+
+
+<center><div class="webmention-div" > <ul id="webmentionHeading"></ul> <ul id="webmentionList"></ul></div> </center>
+<script >
+console.log('( renderinfo.(hugo : URLs: PageRelermalink: /posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/ | RelPermalink: /posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/ | Permalink https://thefoundation.github.io/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/   )  | FullURL: //posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/ ');
+
+try {
+let linklist=document.getElementsByTagName("link");
+for (let m=0;m<linklist.length;m++) {
+if(linklist[m].rel  == "webmention" ) {
+console.log("found mention_endpoint with javascript")
+}
+}
+} catch (e) {
+
+console.log("get_self_webmention_endpoint: "+e);
+}
+
+
+var webmentiond_endpoint="https://comments.thefoundation.cloudns.ph/webmentions"
+function loadJSONDoc() {
+const xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+var obj = JSON.parse(xmlhttp.responseText);
+if (  Object.keys(obj).length > 0 ) {
+document.getElementById("webmentionHeading").innerHTML = "<hr>"
+var output = '<center><div class="webmention-main"><h3> Pingbacks/webmentions </h3><table style="max-width: 95%;min-width: 60%;" class="webmention-table"><thead><tr><th>Icon</th><th>Title</th><th>Content</th><th>Author</th><th>Time</th></tr></thead>';
+console.log(obj);
+
+for (var idx in obj) {
+
+if(!obj[idx].hasOwnProperty("status")) {
+console.log("no status for entry "+idx)
+}
+if(obj[idx].hasOwnProperty("status")) {
+if(obj[idx].status == "approved") {
+
+output += "<tr><td>";
+if(obj[idx].hasOwnProperty("favicon")) {
+output=output+'<img style="max-width: 99px;max-height: 99px;" src="'+obj[idx].favicon +'">';
+}
+output=output+ ' </td> <td> <a href="'
+output=output+obj[idx].source +'" > '
+if(obj[idx].hasOwnProperty("title")) {
+output=output + obj[idx].title ;
+} else {
+output=output + "NO TITLE FOR" + obj[idx].source;
+}
+output=output+" </a> </td> <td>  "+ '<a href="'+obj[idx].source +'" >'
+if(obj[idx].hasOwnProperty("content")) {
+output=output + obj[idx].content ;
+} else {
+output=output + "NO CONTENT FOR"+obj[idx].source;
+}
+
+output=output+ "</td><td>"
+if(obj[idx].hasOwnProperty("author_name")) {
+output=output + obj[idx].author_name ;
+}
+
+output=output+ "</td><td>"
+if(obj[idx].hasOwnProperty("created_at")) {
+output=output  + obj[idx].created_at;
+}
+output=output +"</td></tr>";
+}
+}
+}
+}
+
+output += "</table> </div> </center>";
+if(output  === undefined || output == "undefined"  || output == "" || typeof(output) == "undefined" || output=="undefined  " ) {
+console.log("no webmention output")
+document.getElementById("webmentionList").textContent="No mentions or pingbacks yet";
+} else {
+document.getElementById("webmentionList").innerHTML = output;
+if(document.getElementById("webmentionList").textContent == "undefined"||document.getElementById("webmentionList").textContent == "undefined  " ) { document.getElementById("webmentionList").textContent="No mentions or pingbacks yet"; }
+}
+}
+}
+
+xmlhttp.open("GET", webmentiond_endpoint + "/full?target="+window.location.href, true);
+xmlhttp.send();
+}
+document.addEventListener("DOMContentLoaded", function(event) {
+loadJSONDoc();
+});
+</script>
+
+
+
+
+
+<footer class="site-footer">
+
+
+<section class="copyright">
+
+
+
+<img src="https://hcxi2.2ix.ch/thefoundation.github.io/static/img/logo.jpg" width="42" height="42" class="site-logo" loading="lazy" alt="Avatar">
+
+
+
+
+&copy;
+
+2023 the fØund4ŧ¹°n
+
+<link href="mailto:thefoundation@tmpauth.aleeas.com" rel="me">
+
+</section>
+
+
+<section class="powerby">
+
+... <br/>
+
+</section>
+</footer>
+<script>
+
+function touchScreenDetected() {
+return ("ontouchstart" in document.documentElement);
+}
+
+function mobileUserAgentDetected() {
+const toMatch = [
+/Android/i,
+/Skyfire//i,
+/TeaShark//i,
+/Teleca /i,
+/uZardWeb/i,
+/BlackBerry/i,
+/MOT-L/i,
+/R MIB//i,
+/Nokia/i,
+/Symbian/i,
+/Doris/i,
+/Dorothy/i,
+/Fennec/i,
+/Iris/i,
+/Minimo/i,
+/Kindle/i,
+/SAMSUNG/i,
+/SonyEriccson/i,
+/NetFront//i,
+/Android/i,
+/webOS/i,
+/iPhone/i,
+/iPad/i,
+/iPod/i,
+/PalmSource/i,
+/BOLT//i,
+/Windows Phone/i,
+/IEMobile/i,
+/Windows Phone/i,
+/Opera Mini/i,
+/Opera Mobi/i,
+/Windows Phone/i
+
+];
+
+return toMatch.some((toMatchItem) => {
+return navigator.userAgent.match(toMatchItem);
+});
+}
+
+function mobileScreenDetected() {
+if ( ( window.innerWidth >= 800 )
+
+) {
+return false;
+} else { return true; };
+}
+let timeout;
+
+function lazyLoader() {
+if( mobileScreenDetected() || touchScreenDetected() || mobileUserAgentDetected()  ) {
+var lazyBlockers="";
+if(mobileScreenDetected())     { lazyBlockers="small_res_screen"; }
+if(touchScreenDetected())      { lazyBlockers=lazyBlockers+" touchScreenDetected"; }
+if(mobileUserAgentDetected())  { lazyBlockers=lazyBlockers+" mobileUserAgentDetected"; }
+console.log("lazy_loader not starting ... reason:" + lazyBlockers)
+} else {
+console.log("lazy_loader started!");
+const imgtags=document.getElementsByTagName("img");
+
+for (var i = 0; i < imgtags.length; i++) {
+if ( imgtags[i].dataset.src != undefined && imgtags[i].dataset.src != imgtags[i].src ) {
+console.log("queuing lazy img #"+i+" : "+imgtags[i].dataset.src);
+
+myLocalXHR = new XMLHttpRequest();
+myLocalXHR.imgtag=imgtags[i];
+myLocalXHR.responseType = 'blob';
+myLocalXHR.sourceURL=imgtags[i].dataset.src;
+myLocalXHR.onreadystatechange = function() {
+var imgtag , sourceURL;
+if (this.readyState == 4 && this.status == 200) {
+
+
+
+
+console.log("replacing "+this.sourceURL+"type "+this.getResponseHeader('content-type'));
+var tmpurl=window.URL.createObjectURL(this.response);
+this.imgtag.src=tmpurl;
+this.imgtag.dataset.src=tmpurl
+}
+};
+myLocalXHR.open("GET", imgtags[i].dataset.src , true);
+myLocalXHR.send();
+
+}
+}
+}
+}
+
+function startLazyLoader() {
+timeout = setTimeout(lazyLoader, 23 );
+}
+
+startLazyLoader();
+
+
+
+
+</script>
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+
+<div class="pswp__bg"></div>
+
+
+<div class="pswp__scroll-wrap">
+
+
+<div class="pswp__container">
+<div class="pswp__item"></div>
+<div class="pswp__item"></div>
+<div class="pswp__item"></div>
+</div>
+
+
+<div class="pswp__ui pswp__ui--hidden">
+
+<div class="pswp__top-bar">
+
+
+
+<div class="pswp__counter"></div>
+
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+<button class="pswp__button pswp__button--share" title="Share"></button>
+
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+
+
+<div class="pswp__preloader">
+<div class="pswp__preloader__icn">
+<div class="pswp__preloader__cut">
+<div class="pswp__preloader__donut"></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class="pswp__share-tooltip"></div>
+</div>
+
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+
+<div class="pswp__caption">
+<div class="pswp__caption__center"></div>
+</div>
+
+</div>
+
+</div>
+
+</div><script   src="/assets/cdn_jsdelivr_net/npm/photoswipe_VERSION_4.1.3/dist/photoswipe.min.js" defer="true"   integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="  crossorigin="anonymous"      > </script><script   src="/assets/cdn_jsdelivr_net/npm/photoswipe_VERSION_4.1.3/dist/photoswipe-ui-default.min.js" defer="true"   integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="  crossorigin="anonymous"      > </script><link rel="stylesheet"                 href="/assets/cdn_jsdelivr_net/npm/photoswipe_VERSION_4.1.3/dist/default-skin/default-skin.min.css"   crossorigin="anonymous"  ><link rel="stylesheet"                 href="/assets/cdn_jsdelivr_net/npm/photoswipe_VERSION_4.1.3/dist/photoswipe.min.css"   crossorigin="anonymous"  >
+
+</main>
+</div>
+<script   src="/assets/cdn_jsdelivr_net/npm/node-vibrant_VERSION_3.1.6/dist/vibrant.min.js" defer="false"   integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="  crossorigin="anonymous"      > </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+(function () {
+const customFont = document.createElement('link');
+customFont.href = "/assets/fonts_googleapis_com/css2_family_Lato_wght_VERSION_300_400_700_display_swap.css";
+
+customFont.type = "text/css";
+customFont.rel = "stylesheet";
+
+document.head.appendChild(customFont);
+}());
+</script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OctoberCMS on the fØund4ŧ¹°n</title>
+    <link>https://the-foundation.is-a-p.ro.eu.org/tags/octobercms/</link>
+    <description>Recent content in OctoberCMS on the fØund4ŧ¹°n</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 20 Jan 2022 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://the-foundation.is-a-p.ro.eu.org/tags/octobercms/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Oh OctoberCMS and the leading slash again</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_21_oh_octobercms_and_the_leading_slash_again/</link>
+      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_21_oh_octobercms_and_the_leading_slash_again/</guid>
+      <description>&lt;h2 id=&#34;failed-code-500-again--ocotobercms-refuses-to-load-and-you-might-be-out-of-guesees-again&#34;&gt;//failed: Code 500 again .. Ocotobercms refuses to load and you might be out of guesees again&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s first review the possible Problems known:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Problem&lt;/th&gt;
+&lt;th&gt;Measure&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;cache and config not reloaded during deployment&lt;/td&gt;
+&lt;td&gt;issue &lt;code&gt;php artisan config:cache;php artisan cache:clear&lt;/code&gt; first when working on pages&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;resources include begin with &lt;code&gt;/&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;you changed all the asset includes under &lt;code&gt;themes/YOURTHEME/partials&lt;/code&gt; to &lt;strong&gt;NOT&lt;/strong&gt; begin with slashes like &lt;code&gt;/   storage&lt;/code&gt; since that confuses many webservers , especially &lt;code&gt;chroot()&lt;/code&gt;-ed ones like Plesk&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;resources/views&lt;/code&gt; missing&lt;/td&gt;
+&lt;td&gt;you created the empty folder &lt;code&gt;resources/views&lt;/code&gt; since it might lead to the open_basedir message&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;.htaccess woes&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;you checked your &lt;code&gt;.htaccess&lt;/code&gt; to have  a proper &lt;code&gt;RewriteBase&lt;/code&gt; and the correct webroot if you set it fixed&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;but-the-almost-beloved--open_basedir-restriction--message-pops-up-again&#34;&gt;But the almost &amp;ldquo;beloved&amp;rdquo;  &lt;code&gt;open_basedir restriction &lt;/code&gt; message pops up again&lt;/h2&gt;
+&lt;p&gt;Dowtime hurts and if you did not setup some monitoring you not notice since may be cleared &lt;code&gt;randomly&lt;/code&gt; ..&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h3 id=&#34;it-is-always-a-good-idea-to-check-storagelogssystemlog&#34;&gt;it is always a good idea to check &lt;code&gt;storage/logs/system.log&lt;/code&gt;&lt;/h3&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;since your webserver-log does not tell everything and it&amp;rsquo;s log might be cut due to php-fpm, check the file logs or maybe the database as well for potential errors&lt;/p&gt;
+&lt;h3 id=&#34;fixed&#34;&gt;&lt;code&gt;//fixed&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_21_oh_octobercms_and_the_leading_slash_again/imgs/octoslash-fix.png&#34;
+	width=&#34;885&#34;
+	height=&#34;334&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;No slash for OctoberCMS favicon partial  &amp;hellip; pain arises again&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;264&#34;
+		data-flex-basis=&#34;635px&#34;
+	
+&gt;&lt;/p&gt;
+</description> 
+    </item>
+    
+  </channel>
+</rss>

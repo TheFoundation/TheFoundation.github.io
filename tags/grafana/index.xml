@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>grafana on the fØund4ŧ¹°n</title>
+    <link>https://the-foundation.is-a-p.ro.eu.org/tags/grafana/</link>
+    <description>Recent content in grafana on the fØund4ŧ¹°n</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 23 Jun 2019 23:50:42 +0000</lastBuildDate>
+    
+	<atom:link href="https://the-foundation.is-a-p.ro.eu.org/tags/grafana/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Adding webdav to docker-compose grafana stack for image previews</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2019_06_23_adding_webdav_to_docker_grafana_for_image_previews/</link>
+      <pubDate>Sun, 23 Jun 2019 23:50:42 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2019_06_23_adding_webdav_to_docker_grafana_for_image_previews/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s quite easy since Grafana containers already have the respecting parameters
+you only need 3 files and 1 crontab entry.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2019_06_23_adding_webdav_to_docker_grafana_for_image_previews/imgs/graf_msg.png&#34;
+	width=&#34;720&#34;
+	height=&#34;1280&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Grafana CPU Graph example with webDAV-Rendering&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;56&#34;
+		data-flex-basis=&#34;135px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;modify your docker-compose.yml like this&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;  grafana-render:
+    hostname: grafana-render
+    image: grafana/grafana-image-renderer:latest
+    ports:
+      - &amp;#34;127.0.0.1:8081:8081&amp;#34;
+
+#        - ./data/graphite.htpasswd:/etc/nginx/.htpasswd
+  grafana:
+#    image: grafana/grafana:4.2.0
+    image: grafana/grafana:4.6.5
+    ports:
+      - &amp;#34;127.0.0.1:3000:3000&amp;#34;
+    volumes:
+      - ./data/grafana:/var/lib/grafana
+#    links:
+#        - graphite
+    environment:
+      - GF_EXTERNAL_IMAGE_STORAGE_PROVIDER=webdav
+      - GF_EXTERNAL_IMAGE_STORAGE_PUBLIC_URL=https://my.domain.lan/grafana-uploads/media
+      - GF_EXTERNAL_IMAGE_STORAGE_PUBLICURL=https://my.domain.lan/grafana-uploads/media
+      - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_PUBLICURL=https://my.domain.lan/grafana-uploads/media
+      - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_PUBLIC_URL=https://my.domain.lan/grafana-uploads/media
+      - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_URL=http://webdav.my.domain.lan/media
+      - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_USERNAME=grafana
+      - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_PASSWORD=PassSharedGrafanaWebdav_CHANGE_ME
+      - GF_RENDERING_SERVER_URL=http://grafana-render:8081/render
+      - GF_SERVER_ROOT_URL=https://my.domain.lan
+      - GF_SECURITY_ADMIN_PASSWORD=N0B0dyKnows_You_SHOULD_CHANGE_ME
+      - GF_SMTP_ENABLED=true
+      - GF_SMTP_HOST=smtp.mydomain.lan
+      - GF_SMTP_USER=sensors@mydomain.lan
+      - GF_SMTP_PASSWORD=mySMTP_PASSWORD_You_SHOULD_CHANGE_ME
+      - GF_LOG_FILTERS=rendering:debug
+
+    restart: unless-stopped
+
+  webdav.my.domain.lan:
+    restart: unless-stopped
+    hostname: webdav.my.domain.lan
+    container_name: webdav.my.domain.lan
+    build:
+      context: ./
+#      dockerfile: Dockerfile-alternate
+      dockerfile: Dockerfile.webdav
+    ports:
+      - &amp;#34;127.0.0.1:8008:80&amp;#34;
+    volumes:
+      - &amp;#34;/opt/docker-compose/general/myproject_services/my.domain.lan/uploads/grafana-uploads/:/media&amp;#34;
+    environment:
+      USERNAME: grafana
+      PASSWORD: PassSharedGrafanaWebdav_CHANGE_ME
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;create  Dockerfile.webdav&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;FROM thefoundation/upgraded-operating-systems:ubuntu-bionic
+RUN ln -s /usr/share/zoneinfo/Europe/Berlin
+RUN apt-get update &amp;amp;&amp;amp; apt-get install -y nginx nginx-extras apache2-utils
+
+VOLUME /media
+EXPOSE 80
+COPY webdav.conf /etc/nginx/conf.d/default.conf
+RUN rm /etc/nginx/sites-enabled/*
+
+COPY entrypoint-webdav.sh /
+RUN chmod +x entrypoint-webdav.sh
+CMD /entrypoint-webdav.sh &amp;amp;&amp;amp; nginx -g &amp;#34;daemon off;&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;create entrypoint-webdav.sh&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#!/bin/bash
+
+if [[ -n &amp;#34;$USERNAME&amp;#34; ]] &amp;amp;&amp;amp; [[ -n &amp;#34;$PASSWORD&amp;#34; ]]
+then
+    htpasswd -bc /etc/nginx/htpasswd $USERNAME $PASSWORD
+    echo Done.
+else
+    echo Using no auth.
+    sed -i &amp;#39;s%auth_basic &amp;#34;Restricted&amp;#34;;% %g&amp;#39; /etc/nginx/conf.d/default.conf
+    sed -i &amp;#39;s%auth_basic_user_file htpasswd;% %g&amp;#39; /etc/nginx/conf.d/default.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;find the folder of your webdav-images ( &lt;code&gt;docker-compose config&lt;/code&gt; ) and add a cron entry&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#Grafana webDAV cleanup
+15 */2  * * *   find /opt/docker-compose/general/my_services/my.grafana.lan/uploads/grafana-uploads/media -type f -name &amp;#34;*.png&amp;#34; -mtime +2 -delete &amp;amp;&amp;gt;/dev/null || true
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;setup your grafana to include the images&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;have fun
+&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2019_06_23_adding_webdav_to_docker_grafana_for_image_previews/imgs/grafna_cpu.png&#34;
+	width=&#34;717&#34;
+	height=&#34;419&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Grafana CPU Graph example with webDAV-Rendering&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;171&#34;
+		data-flex-basis=&#34;410px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description> 
+    </item>
+    
+  </channel>
+</rss>

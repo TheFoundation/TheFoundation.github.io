@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SRI on the fØund4ŧ¹°n</title>
+    <link>https://the-foundation.is-a-p.ro.eu.org/tags/sri/</link>
+    <description>Recent content in SRI on the fØund4ŧ¹°n</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 15 Mar 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://the-foundation.is-a-p.ro.eu.org/tags/sri/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mastering Hugo template whitespaces on external scripts integrity tags</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2020_03_15_mastering_hugo_template_whitespaces_on_external_scripts_integrity_tags/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2020_03_15_mastering_hugo_template_whitespaces_on_external_scripts_integrity_tags/</guid>
+      <description>&lt;p&gt;Since SRI(Subresource Integrity)-Checks are used more and more , Hugo also supports this,
+but unfortunately the space character can become a problem in multi-line template files.&lt;/p&gt;
+&lt;p&gt;you may find your template having a file themes/THEMENAME/data/external.yaml
+that looks like e.g.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Vibrant:
+    - src: /assets/cdn_jsdelivr_net/npm/node-vibrant_VERSION_3.1.5/dist/vibrant.min.js
+      integrity: sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=
+      type: script
+
+PhotoSwipe:
+    - src: /assets/cdn_jsdelivr_net/npm/photoswipe_VERSION_4.1.3/dist/photoswipe.min.js
+      integrity: sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=
+      type: script
+      defer: true
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;the-problem---no-space-between-attributes&#34;&gt;The Problem - &lt;code&gt;no Space between attributes&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;The Problem  arising with the renderer not rendering spaces looks like a complain from Firefox &lt;code&gt;no Space between attributes&lt;/code&gt; in source code view, or external javascript failing to load ..&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2020_03_15_mastering_hugo_template_whitespaces_on_external_scripts_integrity_tags/imgs/hugospaceFAIL.png&#34;
+	width=&#34;768&#34;
+	height=&#34;136&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Failed Renderer&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;564&#34;
+		data-flex-basis=&#34;1355px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;so the resulting html is &lt;code&gt;invalid&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;     &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;            &lt;span class=&#34;na&#34;&gt;integrity&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=&amp;#34;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/assets/cdn_jsdelivr_net/npm/node-vibrant_VERSION_3.1.5/dist/vibrant.min.js&amp;#34;&lt;/span&gt;            &lt;span class=&#34;na&#34;&gt;crossorigin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;anonymous&amp;#34;&lt;/span&gt;   &lt;span class=&#34;na&#34;&gt;defer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;false&amp;#34;&lt;/span&gt;   &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;            &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;text/javascript&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/ts/main.js&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;defer&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;( you clearly see that e.g. the &lt;code&gt;src=&lt;/code&gt; part is missing spaces )&lt;/p&gt;
+&lt;p&gt;Here  the trick was to create the file &lt;code&gt;layouts/partials/helper/external.html&lt;/code&gt; and use  a &lt;code&gt;&amp;quot;&lt;/code&gt; after the &lt;code&gt;{{- with .integrity -}}&lt;/code&gt; and leave the tag before &amp;ldquo;unclosed&amp;rdquo;:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{{- $List := index .Context.Site.Data.external .Namespace -}}
+{{- with $List -}}
+    {{- range . -}}
+        {{- if eq .type &amp;#34;script&amp;#34; -}}
+        &amp;lt;script   src=&amp;#34;{{ .src }}&amp;#34; defer=&amp;#34;{{ default false .defer }}
+          {{- with .integrity -}}&amp;#34;   integrity=&amp;#34;{{ . }}&amp;#34;  crossorigin=&amp;#34;anonymous&amp;#34;      &amp;gt; &amp;lt;/script&amp;gt;
+          {{- else -}}&amp;#34;  crossorigin=&amp;#34;anonymous&amp;#34;      &amp;gt;            &amp;lt;/script&amp;gt;
+          {{- end -}}
+        {{- else if eq .type &amp;#34;style&amp;#34; -}}
+            &amp;lt;link rel=&amp;#34;stylesheet&amp;#34;                 href=&amp;#34;{{ .src }}
+            {{- with .integrity -}}&amp;#34;                 integrity=&amp;#34;{{ . }}&amp;#34;     crossorigin=&amp;#34;anonymous&amp;#34;  &amp;gt;
+            {{- else -}}&amp;#34;   crossorigin=&amp;#34;anonymous&amp;#34;  &amp;gt;
+            {{- end -}}
+        {{- else -}}
+            {{- errorf &amp;#34;Error: unknown external resource type: %s&amp;#34; .type -}}
+        {{- end -}}
+    {{- end -}}
+{{- else -}}
+    {{- errorf &amp;#34;Error: external resource &amp;#39;%s&amp;#39; is not found&amp;#34; .Namespace -}}
+{{- end -}}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;So the renderer does what it should and finally puts the right spaces:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;   &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/assets/cdn_jsdelivr_net/npm/node-vibrant_VERSION_3.1.5/dist/vibrant.min.js&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;defer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;false&amp;#34;&lt;/span&gt;   &lt;span class=&#34;na&#34;&gt;integrity&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=&amp;#34;&lt;/span&gt;  &lt;span class=&#34;na&#34;&gt;crossorigin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;anonymous&amp;#34;&lt;/span&gt;      &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;text/javascript&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/ts/main.js&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;defer&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2020_03_15_mastering_hugo_template_whitespaces_on_external_scripts_integrity_tags/imgs/hugospaceOK.png&#34;
+	width=&#34;1838&#34;
+	height=&#34;168&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;OK Renderer&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1094&#34;
+		data-flex-basis=&#34;2625px&#34;
+	
+&gt;&lt;/p&gt;
+</description> 
+    </item>
+    
+  </channel>
+</rss>

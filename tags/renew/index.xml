@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>renew on the fØund4ŧ¹°n</title>
+    <link>https://the-foundation.is-a-p.ro.eu.org/tags/renew/</link>
+    <description>Recent content in renew on the fØund4ŧ¹°n</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 11 Mar 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://the-foundation.is-a-p.ro.eu.org/tags/renew/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The Google Blackhole: Forced renewal of certificates with nginx-letsencrypt-docker</title>
+      <link>https://the-foundation.is-a-p.ro.eu.org/posts/2021_03_21_docker_nginx_force_renew_letsencrypt/</link>
+      <pubDate>Thu, 11 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-foundation.is-a-p.ro.eu.org/posts/2021_03_21_docker_nginx_force_renew_letsencrypt/</guid>
+      <description>&lt;p&gt;So when somebody believes his or her favourite scam site,&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;e.g   &lt;!-- raw HTML omitted --&gt;LinkedIn.___ does not index my page&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;and they ask op to renew a certificate &amp;hellip; but the only thing known
+is that docker-nginx-letsencrypt (jwilder) does a renewal for all &amp;ldquo;due&amp;rdquo; certificates ( 21 days or less left )&lt;/p&gt;
+&lt;p&gt;it is one of this &amp;ldquo;0 hits on google.com&amp;rdquo; days ..&lt;/p&gt;
+&lt;p&gt;until now &amp;hellip;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it nginx-letsencrypt /bin/bash /app/force_renew
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;is your friend  in that case ;)&lt;/p&gt;
+</description> 
+    </item>
+    
+  </channel>
+</rss>
