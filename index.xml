@@ -719,8 +719,8 @@ REPLACESTRING=fonts.gstatic.com:fonts.your-domain.lan,fonts.googleapis.com:fonts
 &lt;/thead&gt;
 &lt;/table&gt;
 &lt;ul&gt;
-&lt;li&gt;( if the gooreplacer does not load &lt;a class=&#34;link&#34; href=&#34;/assets/at_alicdn_com/t/font_148784_v4ggb6wrjmkotj4i.woff&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;/assets/at_alicdn_com/t/font_148784_v4ggb6wrjmkotj4i.woff&lt;/a&gt; from the settings page , you may rewrite it as well )&lt;/li&gt;
+&lt;li&gt;( if the gooreplacer does not load &lt;a class=&#34;link&#34; href=&#34;https://at.alicdn.com/t/font_148784_v4ggb6wrjmkotj4i.woff&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://at.alicdn.com/t/font_148784_v4ggb6wrjmkotj4i.woff&lt;/a&gt; from the settings page , you may rewrite it as well )&lt;/li&gt;
 &lt;li&gt;setup a replacement like below (there is a trailing slash at the target url )
 &lt;img src=&#34;https://the-foundation.is-a-p.ro.eu.org/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/imgs/gooreplacer-fonts.jpg&#34;
 	width=&#34;1593&#34;
