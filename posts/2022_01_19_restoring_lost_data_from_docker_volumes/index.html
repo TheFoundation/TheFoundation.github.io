@@ -698,7 +698,7 @@ if(obj[idx].hasOwnProperty("status")) {
 if(obj[idx].status == "approved") {
 
 output += "<tr><td>";
-if(obj[idx].hasOwnProperty("favicon")) {
+if(obj[idx].hasOwnProperty("favicon") && obj[idx].favicon != "data:image/png;base64," ) {
 output=output+'<img style="max-width: 99px;max-height: 99px;" src="'+obj[idx].favicon +'">';
 }
 output=output+ ' </td> <td> <a href="'
