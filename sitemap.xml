@@ -1,1873 +1,1623 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- generator="thefoundation Sitemap Generator, https://gitlab.com/the-foundation" | Site Generation Time 2023-04-02_00:15 -->
+<!-- generator="thefoundation Sitemap Generator, https://gitlab.com/the-foundation" | Site Generation Time 2023-04-02_15:17 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
- <loc>htps://thefoundation.github.io</loc>
+ <loc>htps://thefoundation.github.io/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/HEAD</loc>
+ <loc>htps://thefoundation.github.io/404.html</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/HEAD</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/404.html</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/config</loc>
+ <loc>htps://thefoundation.github.io/about-us/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/config</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/about-us/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/description</loc>
+ <loc>htps://thefoundation.github.io/about/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/description</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/about/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/hooks/applypatch-msg.sample</loc>
+ <loc>htps://thefoundation.github.io/archives/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/hooks/applypatch-msg.sample</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/archives/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/hooks/commit-msg.sample</loc>
+ <loc>htps://thefoundation.github.io/categories/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/hooks/commit-msg.sample</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/categories/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/hooks/post-update.sample</loc>
+ <loc>htps://thefoundation.github.io/categories/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/hooks/post-update.sample</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/categories/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/hooks/pre-applypatch.sample</loc>
+ <loc>htps://thefoundation.github.io/contact/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/hooks/pre-applypatch.sample</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/contact/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/hooks/pre-commit.sample</loc>
+ <loc>htps://thefoundation.github.io/links/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/hooks/pre-commit.sample</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/links/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/hooks/pre-merge-commit.sample</loc>
+ <loc>htps://thefoundation.github.io/page/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/hooks/pre-merge-commit.sample</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/page/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/hooks/pre-push.sample</loc>
+ <loc>htps://thefoundation.github.io/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/hooks/pre-push.sample</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/hooks/pre-rebase.sample</loc>
+ <loc>htps://thefoundation.github.io/page/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/hooks/pre-rebase.sample</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/page/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/hooks/pre-receive.sample</loc>
+ <loc>htps://thefoundation.github.io/posts/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/hooks/pre-receive.sample</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/posts/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/hooks/prepare-commit-msg.sample</loc>
+ <loc>htps://thefoundation.github.io/posts/0000_soundtrack/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/hooks/prepare-commit-msg.sample</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/posts/0000_soundtrack/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/hooks/push-to-checkout.sample</loc>
+ <loc>htps://thefoundation.github.io/posts/2019_06_23_adding_webdav_to_docker_grafana_for_image_previews/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/hooks/push-to-checkout.sample</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/posts/2019_06_23_adding_webdav_to_docker_grafana_for_image_previews/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/hooks/update.sample</loc>
+ <loc>htps://thefoundation.github.io/posts/2020_03_15_mastering_hugo_template_whitespaces_on_external_scripts_integrity_tags/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/hooks/update.sample</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/posts/2020_03_15_mastering_hugo_template_whitespaces_on_external_scripts_integrity_tags/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/index</loc>
+ <loc>htps://thefoundation.github.io/posts/2020_05_12_running_a_dockerproxy_only_accesible_via_specific_reverse_hosts_or_subnet/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/index</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/posts/2020_05_12_running_a_dockerproxy_only_accesible_via_specific_reverse_hosts_or_subnet/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/info/exclude</loc>
+ <loc>htps://thefoundation.github.io/posts/2021_02_12_send_uptime_robot_notifications_to_telegram_groups_or_howo_to_get_request_anything_via_tg/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/info/exclude</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/posts/2021_02_12_send_uptime_robot_notifications_to_telegram_groups_or_howo_to_get_request_anything_via_tg/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/logs/HEAD</loc>
+ <loc>htps://thefoundation.github.io/posts/2021_03_21_docker_nginx_force_renew_letsencrypt/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/logs/HEAD</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/posts/2021_03_21_docker_nginx_force_renew_letsencrypt/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/logs/refs/heads/page</loc>
+ <loc>htps://thefoundation.github.io/posts/2021_04_13_hokus_cms_for_hugo_tags_in_post_editor/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/logs/refs/heads/page</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/posts/2021_04_13_hokus_cms_for_hugo_tags_in_post_editor/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/logs/refs/remotes/origin/HEAD</loc>
+ <loc>htps://thefoundation.github.io/posts/2021_08_13_deleting_old_restic_entries/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/logs/refs/remotes/origin/HEAD</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/posts/2021_08_13_deleting_old_restic_entries/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/objects/pack/pack-d9d7a79730ff62c338df570d3156440b9941466e.idx</loc>
+ <loc>htps://thefoundation.github.io/posts/2021_08_23_synology_synoshare_create_error_share_create_failed_0x0d00_share_is_acl_share/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/objects/pack/pack-d9d7a79730ff62c338df570d3156440b9941466e.idx</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/posts/2021_08_23_synology_synoshare_create_error_share_create_failed_0x0d00_share_is_acl_share/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/objects/pack/pack-d9d7a79730ff62c338df570d3156440b9941466e.pack</loc>
+ <loc>htps://thefoundation.github.io/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/objects/pack/pack-d9d7a79730ff62c338df570d3156440b9941466e.pack</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/packed-refs</loc>
+ <loc>htps://thefoundation.github.io/posts/2022_01_10_synology_dsm_changes_caldav_port/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/packed-refs</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/posts/2022_01_10_synology_dsm_changes_caldav_port/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/refs/heads/page</loc>
+ <loc>htps://thefoundation.github.io/posts/2022_01_19_restoring_lost_data_from_docker_volumes/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/refs/heads/page</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/posts/2022_01_19_restoring_lost_data_from_docker_volumes/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io.git/refs/remotes/origin/HEAD</loc>
+ <loc>htps://thefoundation.github.io/posts/2022_01_21_oh_octobercms_and_the_leading_slash_again/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org.git/refs/remotes/origin/HEAD</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/posts/2022_01_21_oh_octobercms_and_the_leading_slash_again/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io404.html</loc>
+ <loc>htps://thefoundation.github.io/posts/2022_04_29_apt-get_update_fails_with_unknown_error_executing_apt-key/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org404.html</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/posts/2022_04_29_apt-get_update_fails_with_unknown_error_executing_apt-key/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioabout-us/</loc>
+ <loc>htps://thefoundation.github.io/posts/2023_02_02_shittification_of_the_internetz-the_toxic_thingy_stack_overflow_became_and_why_it_is_so_annoying_to_even_ask_on_crap_overload/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgabout-us/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/posts/2023_02_02_shittification_of_the_internetz-the_toxic_thingy_stack_overflow_became_and_why_it_is_so_annoying_to_even_ask_on_crap_overload/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioabout/</loc>
+ <loc>htps://thefoundation.github.io/posts/2023_02_03_mysql_records_of_previous_month/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgabout/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/posts/2023_02_03_mysql_records_of_previous_month/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioarchives/</loc>
+ <loc>htps://thefoundation.github.io/posts/2023_03_04_github_actions_could_not_parse_as_yaml_mapping_values_are_not_allowed_in_this_context/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgarchives/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/posts/2023_03_04_github_actions_could_not_parse_as_yaml_mapping_values_are_not_allowed_in_this_context/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iocategories/</loc>
+ <loc>htps://thefoundation.github.io/posts/2023_03_22_exporting_all_layers_of_docker_images_with_one_command/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgcategories/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/posts/2023_03_22_exporting_all_layers_of_docker_images_with_one_command/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iocategories/page/1/</loc>
+ <loc>htps://thefoundation.github.io/posts/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgcategories/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/posts/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iocontact/</loc>
+ <loc>htps://thefoundation.github.io/search/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgcontact/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/search/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iolinks/</loc>
+ <loc>htps://thefoundation.github.io/tags/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orglinks/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iopage/</loc>
+ <loc>htps://thefoundation.github.io/tags/anonymize/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgpage/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/anonymize/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iopage/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/anonymize/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgpage/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/anonymize/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iopage/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/btrfs/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgpage/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/btrfs/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioposts/</loc>
+ <loc>htps://thefoundation.github.io/tags/btrfs/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgposts/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/btrfs/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioposts/0000_soundtrack/</loc>
+ <loc>htps://thefoundation.github.io/tags/cms/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgposts/0000_soundtrack/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/cms/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioposts/2019_06_23_adding_webdav_to_docker_grafana_for_image_previews/</loc>
+ <loc>htps://thefoundation.github.io/tags/cms/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgposts/2019_06_23_adding_webdav_to_docker_grafana_for_image_previews/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/cms/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioposts/2020_03_15_mastering_hugo_template_whitespaces_on_external_scripts_integrity_tags/</loc>
+ <loc>htps://thefoundation.github.io/tags/crap-overload/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgposts/2020_03_15_mastering_hugo_template_whitespaces_on_external_scripts_integrity_tags/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/crap-overload/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioposts/2020_05_12_running_a_dockerproxy_only_accesible_via_specific_reverse_hosts_or_subnet/</loc>
+ <loc>htps://thefoundation.github.io/tags/crap-overload/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgposts/2020_05_12_running_a_dockerproxy_only_accesible_via_specific_reverse_hosts_or_subnet/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/crap-overload/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioposts/2021_02_12_send_uptime_robot_notifications_to_telegram_groups_or_howo_to_get_request_anything_via_tg/</loc>
+ <loc>htps://thefoundation.github.io/tags/date/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgposts/2021_02_12_send_uptime_robot_notifications_to_telegram_groups_or_howo_to_get_request_anything_via_tg/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/date/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioposts/2021_03_21_docker_nginx_force_renew_letsencrypt/</loc>
+ <loc>htps://thefoundation.github.io/tags/date/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgposts/2021_03_21_docker_nginx_force_renew_letsencrypt/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/date/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioposts/2021_04_13_hokus_cms_for_hugo_tags_in_post_editor/</loc>
+ <loc>htps://thefoundation.github.io/tags/date_format/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgposts/2021_04_13_hokus_cms_for_hugo_tags_in_post_editor/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/date_format/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioposts/2021_08_13_deleting_old_restic_entries/</loc>
+ <loc>htps://thefoundation.github.io/tags/date_format/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgposts/2021_08_13_deleting_old_restic_entries/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/date_format/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioposts/2021_08_23_synology_synoshare_create_error_share_create_failed_0x0d00_share_is_acl_share/</loc>
+ <loc>htps://thefoundation.github.io/tags/docker-image/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgposts/2021_08_23_synology_synoshare_create_error_share_create_failed_0x0d00_share_is_acl_share/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/docker-image/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioposts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/</loc>
+ <loc>htps://thefoundation.github.io/tags/docker-image/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgposts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/docker-image/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioposts/2022_01_10_synology_dsm_changes_caldav_port/</loc>
+ <loc>htps://thefoundation.github.io/tags/docker-volume/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgposts/2022_01_10_synology_dsm_changes_caldav_port/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/docker-volume/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioposts/2022_01_19_restoring_lost_data_from_docker_volumes/</loc>
+ <loc>htps://thefoundation.github.io/tags/docker-volume/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgposts/2022_01_19_restoring_lost_data_from_docker_volumes/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/docker-volume/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioposts/2022_01_21_oh_octobercms_and_the_leading_slash_again/</loc>
+ <loc>htps://thefoundation.github.io/tags/docker/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgposts/2022_01_21_oh_octobercms_and_the_leading_slash_again/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/docker/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioposts/2022_04_29_apt-get_update_fails_with_unknown_error_executing_apt-key/</loc>
+ <loc>htps://thefoundation.github.io/tags/docker/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgposts/2022_04_29_apt-get_update_fails_with_unknown_error_executing_apt-key/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/docker/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioposts/2023_02_02_shittification_of_the_internetz-the_toxic_thingy_stack_overflow_became_and_why_it_is_so_annoying_to_even_ask_on_crap_overload/</loc>
+ <loc>htps://thefoundation.github.io/tags/downvoting/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgposts/2023_02_02_shittification_of_the_internetz-the_toxic_thingy_stack_overflow_became_and_why_it_is_so_annoying_to_even_ask_on_crap_overload/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/downvoting/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioposts/2023_02_03_mysql_records_of_previous_month/</loc>
+ <loc>htps://thefoundation.github.io/tags/downvoting/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgposts/2023_02_03_mysql_records_of_previous_month/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/downvoting/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioposts/2023_03_04_github_actions_could_not_parse_as_yaml_mapping_values_are_not_allowed_in_this_context/</loc>
+ <loc>htps://thefoundation.github.io/tags/export/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgposts/2023_03_04_github_actions_could_not_parse_as_yaml_mapping_values_are_not_allowed_in_this_context/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/export/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioposts/2023_03_22_exporting_all_layers_of_docker_images_with_one_command/</loc>
+ <loc>htps://thefoundation.github.io/tags/export/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgposts/2023_03_22_exporting_all_layers_of_docker_images_with_one_command/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/export/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioposts/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/external.yaml/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgposts/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/external.yaml/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iosearch/</loc>
+ <loc>htps://thefoundation.github.io/tags/external.yaml/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgsearch/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/external.yaml/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/</loc>
+ <loc>htps://thefoundation.github.io/tags/extract/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/extract/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/anonymize/</loc>
+ <loc>htps://thefoundation.github.io/tags/extract/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/anonymize/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/extract/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/anonymize/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/font/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/anonymize/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/font/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/btrfs/</loc>
+ <loc>htps://thefoundation.github.io/tags/font/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/btrfs/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/font/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/btrfs/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/fonts.googleapis.com/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/btrfs/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/fonts.googleapis.com/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/cms/</loc>
+ <loc>htps://thefoundation.github.io/tags/fonts.googleapis.com/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/cms/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/fonts.googleapis.com/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/cms/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/fonts.gstatic.com/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/cms/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/fonts.gstatic.com/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/crap-overload/</loc>
+ <loc>htps://thefoundation.github.io/tags/fonts.gstatic.com/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/crap-overload/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/fonts.gstatic.com/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/crap-overload/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/friendlywrt/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/crap-overload/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/friendlywrt/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/date/</loc>
+ <loc>htps://thefoundation.github.io/tags/friendlywrt/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/date/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/friendlywrt/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/date/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/gdpr/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/date/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/gdpr/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/date_format/</loc>
+ <loc>htps://thefoundation.github.io/tags/gdpr/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/date_format/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/gdpr/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/date_format/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/gooreplacer/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/date_format/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/gooreplacer/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/docker-image/</loc>
+ <loc>htps://thefoundation.github.io/tags/gooreplacer/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/docker-image/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/gooreplacer/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/docker-image/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/grafana/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/docker-image/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/grafana/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/docker-volume/</loc>
+ <loc>htps://thefoundation.github.io/tags/grafana/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/docker-volume/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/grafana/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/docker-volume/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/hokus/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/docker-volume/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/hokus/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/docker/</loc>
+ <loc>htps://thefoundation.github.io/tags/hokus/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/docker/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/hokus/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/docker/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/htpasswd/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/docker/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/htpasswd/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/downvoting/</loc>
+ <loc>htps://thefoundation.github.io/tags/htpasswd/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/downvoting/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/htpasswd/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/downvoting/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/hugo/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/downvoting/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/hugo/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/export/</loc>
+ <loc>htps://thefoundation.github.io/tags/hugo/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/export/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/hugo/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/export/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/leading-slash/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/export/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/leading-slash/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/external.yaml/</loc>
+ <loc>htps://thefoundation.github.io/tags/leading-slash/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/external.yaml/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/leading-slash/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/external.yaml/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/letsencrypt/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/external.yaml/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/letsencrypt/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/extract/</loc>
+ <loc>htps://thefoundation.github.io/tags/letsencrypt/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/extract/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/letsencrypt/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/extract/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/mariadb/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/extract/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/mariadb/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/font/</loc>
+ <loc>htps://thefoundation.github.io/tags/mariadb/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/font/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/mariadb/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/font/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/month/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/font/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/month/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/fonts.googleapis.com/</loc>
+ <loc>htps://thefoundation.github.io/tags/month/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/fonts.googleapis.com/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/month/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/fonts.googleapis.com/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/mysql/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/fonts.googleapis.com/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/mysql/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/fonts.gstatic.com/</loc>
+ <loc>htps://thefoundation.github.io/tags/mysql/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/fonts.gstatic.com/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/mysql/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/fonts.gstatic.com/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/octobercms/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/fonts.gstatic.com/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/octobercms/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/friendlywrt/</loc>
+ <loc>htps://thefoundation.github.io/tags/octobercms/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/friendlywrt/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/octobercms/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/friendlywrt/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/openwrt/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/friendlywrt/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/openwrt/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/gdpr/</loc>
+ <loc>htps://thefoundation.github.io/tags/openwrt/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/gdpr/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/openwrt/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/gdpr/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/gdpr/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/gooreplacer/</loc>
+ <loc>htps://thefoundation.github.io/tags/preview/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/gooreplacer/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/preview/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/gooreplacer/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/preview/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/gooreplacer/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/preview/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/grafana/</loc>
+ <loc>htps://thefoundation.github.io/tags/proxy/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/grafana/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/proxy/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/grafana/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/proxy/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/grafana/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/proxy/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/hokus/</loc>
+ <loc>htps://thefoundation.github.io/tags/quora/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/hokus/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/quora/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/hokus/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/quora/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/hokus/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/quora/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/htpasswd/</loc>
+ <loc>htps://thefoundation.github.io/tags/renew/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/htpasswd/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/renew/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/htpasswd/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/renew/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/htpasswd/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/renew/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/hugo/</loc>
+ <loc>htps://thefoundation.github.io/tags/renewal/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/hugo/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/renewal/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/hugo/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/renewal/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/hugo/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/renewal/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/leading-slash/</loc>
+ <loc>htps://thefoundation.github.io/tags/sri/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/leading-slash/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/sri/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/leading-slash/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/sri/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/leading-slash/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/sri/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/letsencrypt/</loc>
+ <loc>htps://thefoundation.github.io/tags/stack-overflow/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/letsencrypt/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/stack-overflow/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/letsencrypt/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/stack-overflow/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/letsencrypt/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/stack-overflow/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/mariadb/</loc>
+ <loc>htps://thefoundation.github.io/tags/synology/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/mariadb/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/synology/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/mariadb/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/synology/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/mariadb/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/synology/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/month/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/month/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/month/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/month/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/mysql/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/mysql/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/mysql/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/mysql/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/octobercms/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/octobercms/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/octobercms/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/octobercms/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/openwrt/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/openwrt/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/openwrt/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/openwrt/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/preview/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/preview/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/preview/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/preview/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/proxy/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/proxy/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/proxy/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/proxy/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/quora/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/quora/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/quora/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/quora/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/renew/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/renew/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/renew/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/renew/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/renewal/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/renewal/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/renewal/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/renewal/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/sri/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/sri/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/sri/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/sri/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/stack-overflow/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/stack-overflow/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/stack-overflow/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/stack-overflow/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/synology/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/synology/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/synology/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/synology/page/1/</loc>
- <lastmod>2023-04-02</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iotags/tags/</loc>
+ <loc>htps://thefoundation.github.io/tags/tags/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/tags/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/tags/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/tags/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/tags/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/tags/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/tags/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>weekly</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/tar/</loc>
+ <loc>htps://thefoundation.github.io/tags/tar/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/tar/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/tar/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/tar/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/tar/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/tar/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/tar/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/toxic/</loc>
+ <loc>htps://thefoundation.github.io/tags/toxic/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/toxic/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/toxic/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/toxic/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/toxic/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/toxic/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/toxic/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/webdav/</loc>
+ <loc>htps://thefoundation.github.io/tags/webdav/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/webdav/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/webdav/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iotags/webdav/page/1/</loc>
+ <loc>htps://thefoundation.github.io/tags/webdav/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgtags/webdav/page/1/</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/tags/webdav/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioze/index.xml</loc>
+ <loc>htps://thefoundation.github.io/ze/index.xml</loc>
  <lastmod>tags/anony</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgze/index.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/ze/index.xml</loc>
  <lastmod>tags/anony</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iondex.xml</loc>
+ <loc>htps://thefoundation.github.io/ndex.xml</loc>
  <lastmod>tags/btrfs</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgndex.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/ndex.xml</loc>
  <lastmod>tags/btrfs</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioex.xml</loc>
+ <loc>htps://thefoundation.github.io/ex.xml</loc>
  <lastmod>tags/cms/i</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgex.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/ex.xml</loc>
  <lastmod>tags/cms/i</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioerload/index.xml</loc>
+ <loc>htps://thefoundation.github.io/erload/index.xml</loc>
  <lastmod>tags/crap-</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgerload/index.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/erload/index.xml</loc>
  <lastmod>tags/crap-</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iodex.xml</loc>
+ <loc>htps://thefoundation.github.io/dex.xml</loc>
  <lastmod>tags/date/</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgdex.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/dex.xml</loc>
  <lastmod>tags/date/</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iormat/index.xml</loc>
+ <loc>htps://thefoundation.github.io/rmat/index.xml</loc>
  <lastmod>tags/date_</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgrmat/index.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/rmat/index.xml</loc>
  <lastmod>tags/date_</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioimage/index.xml</loc>
+ <loc>htps://thefoundation.github.io/image/index.xml</loc>
  <lastmod>tags/docke</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgimage/index.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/image/index.xml</loc>
  <lastmod>tags/docke</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iovolume/index.xml</loc>
+ <loc>htps://thefoundation.github.io/volume/index.xml</loc>
  <lastmod>tags/docke</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgvolume/index.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/volume/index.xml</loc>
  <lastmod>tags/docke</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioindex.xml</loc>
+ <loc>htps://thefoundation.github.io/index.xml</loc>
  <lastmod>tags/docke</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgindex.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/index.xml</loc>
  <lastmod>tags/docke</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioing/index.xml</loc>
+ <loc>htps://thefoundation.github.io/ing/index.xml</loc>
  <lastmod>tags/downv</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orging/index.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/ing/index.xml</loc>
  <lastmod>tags/downv</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioindex.xml</loc>
+ <loc>htps://thefoundation.github.io/index.xml</loc>
  <lastmod>tags/expor</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgindex.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/index.xml</loc>
  <lastmod>tags/expor</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iol.yaml/index.xml</loc>
+ <loc>htps://thefoundation.github.io/l.yaml/index.xml</loc>
  <lastmod>tags/exter</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgl.yaml/index.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/l.yaml/index.xml</loc>
  <lastmod>tags/exter</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/index.xml</loc>
+ <loc>htps://thefoundation.github.io//index.xml</loc>
  <lastmod>tags/extra</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org/index.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org//index.xml</loc>
  <lastmod>tags/extra</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iodex.xml</loc>
+ <loc>htps://thefoundation.github.io/dex.xml</loc>
  <lastmod>tags/font/</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgdex.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/dex.xml</loc>
  <lastmod>tags/font/</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iooogleapis.com/index.xml</loc>
+ <loc>htps://thefoundation.github.io/oogleapis.com/index.xml</loc>
  <lastmod>tags/fonts</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgoogleapis.com/index.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/oogleapis.com/index.xml</loc>
  <lastmod>tags/fonts</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iostatic.com/index.xml</loc>
+ <loc>htps://thefoundation.github.io/static.com/index.xml</loc>
  <lastmod>tags/fonts</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgstatic.com/index.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/static.com/index.xml</loc>
  <lastmod>tags/fonts</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioywrt/index.xml</loc>
+ <loc>htps://thefoundation.github.io/ywrt/index.xml</loc>
  <lastmod>tags/frien</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgywrt/index.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/ywrt/index.xml</loc>
  <lastmod>tags/frien</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iodex.xml</loc>
+ <loc>htps://thefoundation.github.io/dex.xml</loc>
  <lastmod>tags/gdpr/</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgdex.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/dex.xml</loc>
  <lastmod>tags/gdpr/</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioacer/index.xml</loc>
+ <loc>htps://thefoundation.github.io/acer/index.xml</loc>
  <lastmod>tags/goore</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgacer/index.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/acer/index.xml</loc>
  <lastmod>tags/goore</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/index.xml</loc>
+ <loc>htps://thefoundation.github.io//index.xml</loc>
  <lastmod>tags/grafa</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org/index.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org//index.xml</loc>
  <lastmod>tags/grafa</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iondex.xml</loc>
+ <loc>htps://thefoundation.github.io/ndex.xml</loc>
  <lastmod>tags/hokus</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgndex.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/ndex.xml</loc>
  <lastmod>tags/hokus</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iod/index.xml</loc>
+ <loc>htps://thefoundation.github.io/d/index.xml</loc>
  <lastmod>tags/htpas</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgd/index.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/d/index.xml</loc>
  <lastmod>tags/htpas</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iodex.xml</loc>
+ <loc>htps://thefoundation.github.io/dex.xml</loc>
  <lastmod>tags/hugo/</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgdex.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/dex.xml</loc>
  <lastmod>tags/hugo/</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.ioml</loc>
+ <loc>htps://thefoundation.github.io/ml</loc>
  <lastmod>tags/index</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/ml</loc>
  <lastmod>tags/index</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io-slash/index.xml</loc>
+ <loc>htps://thefoundation.github.io/-slash/index.xml</loc>
  <lastmod>tags/leadi</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org-slash/index.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/-slash/index.xml</loc>
  <lastmod>tags/leadi</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iorypt/index.xml</loc>
+ <loc>htps://thefoundation.github.io/rypt/index.xml</loc>
  <lastmod>tags/letse</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgrypt/index.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/rypt/index.xml</loc>
  <lastmod>tags/letse</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/index.xml</loc>
+ <loc>htps://thefoundation.github.io//index.xml</loc>
  <lastmod>tags/maria</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org/index.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org//index.xml</loc>
  <lastmod>tags/maria</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iondex.xml</loc>
+ <loc>htps://thefoundation.github.io/ndex.xml</loc>
  <lastmod>tags/month</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgndex.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/ndex.xml</loc>
  <lastmod>tags/month</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iondex.xml</loc>
+ <loc>htps://thefoundation.github.io/ndex.xml</loc>
  <lastmod>tags/mysql</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgndex.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/ndex.xml</loc>
  <lastmod>tags/mysql</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iocms/index.xml</loc>
+ <loc>htps://thefoundation.github.io/cms/index.xml</loc>
  <lastmod>tags/octob</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgcms/index.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/cms/index.xml</loc>
  <lastmod>tags/octob</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/index.xml</loc>
+ <loc>htps://thefoundation.github.io//index.xml</loc>
  <lastmod>tags/openw</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org/index.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org//index.xml</loc>
  <lastmod>tags/openw</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/index.xml</loc>
+ <loc>htps://thefoundation.github.io//index.xml</loc>
  <lastmod>tags/previ</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org/index.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org//index.xml</loc>
  <lastmod>tags/previ</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iondex.xml</loc>
+ <loc>htps://thefoundation.github.io/ndex.xml</loc>
  <lastmod>tags/proxy</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgndex.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/ndex.xml</loc>
  <lastmod>tags/proxy</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iondex.xml</loc>
+ <loc>htps://thefoundation.github.io/ndex.xml</loc>
  <lastmod>tags/quora</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgndex.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/ndex.xml</loc>
  <lastmod>tags/quora</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.iondex.xml</loc>
+ <loc>htps://thefoundation.github.io/ndex.xml</loc>
  <lastmod>tags/renew</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgndex.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/ndex.xml</loc>
  <lastmod>tags/renew</lastmod>
+ <changefreq>daily</changefreq>
+</url>
+<url>
+ <loc>htps://thefoundation.github.io//index.xml</loc>
+ <lastmod>tags/renew</lastmod>
+ <changefreq>daily</changefreq>
+</url>
+<url>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org//index.xml</loc>
+ <lastmod>tags/renew</lastmod>
+ <changefreq>daily</changefreq>
+</url>
+<url>
+ <loc>htps://thefoundation.github.io/ex.xml</loc>
+ <lastmod>tags/sri/i</lastmod>
+ <changefreq>daily</changefreq>
+</url>
+<url>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/ex.xml</loc>
+ <lastmod>tags/sri/i</lastmod>
+ <changefreq>daily</changefreq>
+</url>
+<url>
+ <loc>htps://thefoundation.github.io/verflow/index.xml</loc>
+ <lastmod>tags/stack</lastmod>
+ <changefreq>daily</changefreq>
+</url>
+<url>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/verflow/index.xml</loc>
+ <lastmod>tags/stack</lastmod>
+ <changefreq>daily</changefreq>
+</url>
+<url>
+ <loc>htps://thefoundation.github.io/y/index.xml</loc>
+ <lastmod>tags/synol</lastmod>
+ <changefreq>daily</changefreq>
+</url>
+<url>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/y/index.xml</loc>
+ <lastmod>tags/synol</lastmod>
+ <changefreq>daily</changefreq>
+</url>
+<url>
+ <loc>htps://thefoundation.github.io/dex.xml</loc>
+ <lastmod>tags/tags/</lastmod>
+ <changefreq>daily</changefreq>
+</url>
+<url>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/dex.xml</loc>
+ <lastmod>tags/tags/</lastmod>
+ <changefreq>daily</changefreq>
+</url>
+<url>
+ <loc>htps://thefoundation.github.io/ex.xml</loc>
+ <lastmod>tags/tar/i</lastmod>
+ <changefreq>daily</changefreq>
+</url>
+<url>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/ex.xml</loc>
+ <lastmod>tags/tar/i</lastmod>
+ <changefreq>daily</changefreq>
+</url>
+<url>
+ <loc>htps://thefoundation.github.io/ndex.xml</loc>
+ <lastmod>tags/toxic</lastmod>
+ <changefreq>daily</changefreq>
+</url>
+<url>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/ndex.xml</loc>
+ <lastmod>tags/toxic</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
  <loc>htps://thefoundation.github.io/index.xml</loc>
- <lastmod>tags/renew</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.org/index.xml</loc>
- <lastmod>tags/renew</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.ioex.xml</loc>
- <lastmod>tags/sri/i</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgex.xml</loc>
- <lastmod>tags/sri/i</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.ioverflow/index.xml</loc>
- <lastmod>tags/stack</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgverflow/index.xml</loc>
- <lastmod>tags/stack</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.ioy/index.xml</loc>
- <lastmod>tags/synol</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgy/index.xml</loc>
- <lastmod>tags/synol</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iodex.xml</loc>
- <lastmod>tags/tags/</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgdex.xml</loc>
- <lastmod>tags/tags/</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.ioex.xml</loc>
- <lastmod>tags/tar/i</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgex.xml</loc>
- <lastmod>tags/tar/i</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.iondex.xml</loc>
- <lastmod>tags/toxic</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgndex.xml</loc>
- <lastmod>tags/toxic</lastmod>
- <changefreq>daily</changefreq>
-</url>
-<url>
- <loc>htps://thefoundation.github.ioindex.xml</loc>
  <lastmod>tags/webda</lastmod>
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://the-foundation.is-a-p.ro.eu.orgindex.xml</loc>
+ <loc>htps://the-foundation.is-a-p.ro.eu.org/index.xml</loc>
  <lastmod>tags/webda</lastmod>
  <changefreq>daily</changefreq>
 </url>
