@@ -2,8 +2,7 @@
 <html lang="en-us" dir="ltr">
 <head><script type="text/javascript" >function redirect () { setTimeout("go_now()",42) ; } ;function go_now ()   { window.location.href = "https://the-foundation.is-a-p.ro.eu.org/posts/2019_06_23_adding_webdav_to_docker_grafana_for_image_previews/"; } ; redirect(); </script><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='It&amp;rsquo;s quite easy since Grafana containers already have the respecting parameters you only need 3 files and 1 crontab entry.
-modify your docker-compose.yml like this
-grafana-render: hostname: grafana-render image: grafana/grafana-image-renderer:latest ports: - &amp;#34;127.0.0.1:8081:8081&amp;#34; # - ./data/graphite.htpasswd:/etc/nginx/.htpasswd grafana: # image: grafana/grafana:4.2.0 image: grafana/grafana:4.6.5 ports: - &amp;#34;127.0.0.1:3000:3000&amp;#34; volumes: - ./data/grafana:/var/lib/grafana # links: # - graphite environment: - GF_EXTERNAL_IMAGE_STORAGE_PROVIDER=webdav - GF_EXTERNAL_IMAGE_STORAGE_PUBLIC_URL=https://my.domain.lan/grafana-uploads/media - GF_EXTERNAL_IMAGE_STORAGE_PUBLICURL=https://my.domain.lan/grafana-uploads/media - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_PUBLICURL=https://my.domain.lan/grafana-uploads/media - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_PUBLIC_URL=https://my.domain.lan/grafana-uploads/media - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_URL=http://webdav.my.domain.lan/media - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_USERNAME=grafana - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_PASSWORD=PassSharedGrafanaWebdav_CHANGE_ME - GF_RENDERING_SERVER_URL=http://grafana-render:8081/render - GF_SERVER_ROOT_URL=https://my.'>
+modify your docker-compose.yml …'>
 <title>Adding webdav to docker-compose grafana stack for image previews</title>
 
 <link rel='canonical' href='https://the-foundation.is-a-p.ro.eu.org/posts/2019_06_23_adding_webdav_to_docker_grafana_for_image_previews/'>

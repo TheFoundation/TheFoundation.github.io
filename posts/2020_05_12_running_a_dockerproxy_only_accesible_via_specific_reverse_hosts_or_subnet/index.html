@@ -2,8 +2,7 @@
 <html lang="en-us" dir="ltr">
 <head><script type="text/javascript" >function redirect () { setTimeout("go_now()",42) ; } ;function go_now ()   { window.location.href = "https://the-foundation.is-a-p.ro.eu.org/posts/2020_05_12_running_a_dockerproxy_only_accesible_via_specific_reverse_hosts_or_subnet/"; } ; redirect(); </script><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Since Registry consumes a lot of data and may be rate limited in the future , you might run your own proxy , but you should secure it properly..
-Example docker-compose.yml
-version: &amp;#39;3&amp;#39; services: dockerproxy: build: . container_name: ${APP_URL} hostname: ${APP_URL} restart: unless-stopped networks: - default - dockerproxy volumes: - ./apache-block.conf:/etc/apache2/conf.d/apache-block.conf # - ./store.php:/var/www/html/store.php:consistent # - ./wiki/:/var/www/html:consistent ports: - 5000:80 environment: - LETSENCRYPT_EMAIL=${MAIL_ADMINISTRATOR} - LETSENCRYPT_HOST=${APP_URL} - VIRTUAL_HOST=${APP_URL} - VIRTUAL_PORT=80 - VIRTUAL_PROTO=http dockerproxyregistry: image: registry:2.'>
+Example …'>
 <title>Running a dockerproxy only accesible via specific reverse hosts or subnets</title>
 
 <link rel='canonical' href='https://the-foundation.is-a-p.ro.eu.org/posts/2020_05_12_running_a_dockerproxy_only_accesible_via_specific_reverse_hosts_or_subnet/'>

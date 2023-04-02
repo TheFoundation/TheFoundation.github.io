@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
 <head><script type="text/javascript" >function redirect () { setTimeout("go_now()",42) ; } ;function go_now ()   { window.location.href = "https://the-foundation.is-a-p.ro.eu.org/posts/2020_03_15_mastering_hugo_template_whitespaces_on_external_scripts_integrity_tags/"; } ; redirect(); </script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Since SRI(Subresource Integrity)-Checks are used more and more , Hugo also supports this, but unfortunately the space character can become a problem in multi-line template files.
-you may find your template having a file themes/THEMENAME/data/external.yaml that looks like e.g.
-Vibrant: - src: /assets/cdn_jsdelivr_net/npm/node-vibrant_VERSION_3.1.5/dist/vibrant.min.js integrity: sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g= type: script PhotoSwipe: - src: /assets/cdn_jsdelivr_net/npm/photoswipe_VERSION_4.1.3/dist/photoswipe.min.js integrity: sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo= type: script defer: true ... The Problem - no Space between attributes The Problem arising with the renderer not rendering spaces looks like a complain from Firefox no Space between attributes in source code view, or external javascript failing to load .'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Since SRI(Subresource Integrity)-Checks are used more and more , Hugo also supports this, but unfortunately the space character can become a problem in …'>
 <title>Mastering Hugo template whitespaces on external scripts integrity tags</title>
 
 <link rel='canonical' href='https://the-foundation.is-a-p.ro.eu.org/posts/2020_03_15_mastering_hugo_template_whitespaces_on_external_scripts_integrity_tags/'>
