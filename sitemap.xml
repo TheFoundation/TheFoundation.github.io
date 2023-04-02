@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- generator="thefoundation Sitemap Generator, https://gitlab.com/the-foundation" | Site Generation Time 2023-04-02_17:22 -->
+<!-- generator="thefoundation Sitemap Generator, https://gitlab.com/the-foundation" | Site Generation Time 2023-04-02_17:24 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
- <loc>htps://thefoundation.github.io/</loc>
+ <loc>https://thefoundation.github.io/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -12,7 +12,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/404.html</loc>
+ <loc>https://thefoundation.github.io/404.html</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -22,7 +22,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/about-us/</loc>
+ <loc>https://thefoundation.github.io/about-us/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -32,7 +32,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/about/</loc>
+ <loc>https://thefoundation.github.io/about/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -42,7 +42,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/archives/</loc>
+ <loc>https://thefoundation.github.io/archives/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -52,7 +52,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/categories/</loc>
+ <loc>https://thefoundation.github.io/categories/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -62,7 +62,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/categories/page/1/</loc>
+ <loc>https://thefoundation.github.io/categories/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -72,7 +72,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/contact/</loc>
+ <loc>https://thefoundation.github.io/contact/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -82,7 +82,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/links/</loc>
+ <loc>https://thefoundation.github.io/links/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -92,7 +92,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/page/</loc>
+ <loc>https://thefoundation.github.io/page/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -102,7 +102,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/page/1/</loc>
+ <loc>https://thefoundation.github.io/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -112,7 +112,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/page/page/1/</loc>
+ <loc>https://thefoundation.github.io/page/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -122,7 +122,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/posts/</loc>
+ <loc>https://thefoundation.github.io/posts/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -132,7 +132,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/posts/0000_soundtrack/</loc>
+ <loc>https://thefoundation.github.io/posts/0000_soundtrack/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -142,7 +142,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/posts/2019_06_23_adding_webdav_to_docker_grafana_for_image_previews/</loc>
+ <loc>https://thefoundation.github.io/posts/2019_06_23_adding_webdav_to_docker_grafana_for_image_previews/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -152,7 +152,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/posts/2020_03_15_mastering_hugo_template_whitespaces_on_external_scripts_integrity_tags/</loc>
+ <loc>https://thefoundation.github.io/posts/2020_03_15_mastering_hugo_template_whitespaces_on_external_scripts_integrity_tags/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -162,7 +162,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/posts/2020_05_12_running_a_dockerproxy_only_accesible_via_specific_reverse_hosts_or_subnet/</loc>
+ <loc>https://thefoundation.github.io/posts/2020_05_12_running_a_dockerproxy_only_accesible_via_specific_reverse_hosts_or_subnet/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -172,7 +172,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/posts/2021_02_12_send_uptime_robot_notifications_to_telegram_groups_or_howo_to_get_request_anything_via_tg/</loc>
+ <loc>https://thefoundation.github.io/posts/2021_02_12_send_uptime_robot_notifications_to_telegram_groups_or_howo_to_get_request_anything_via_tg/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -182,7 +182,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/posts/2021_03_21_docker_nginx_force_renew_letsencrypt/</loc>
+ <loc>https://thefoundation.github.io/posts/2021_03_21_docker_nginx_force_renew_letsencrypt/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -192,7 +192,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/posts/2021_04_13_hokus_cms_for_hugo_tags_in_post_editor/</loc>
+ <loc>https://thefoundation.github.io/posts/2021_04_13_hokus_cms_for_hugo_tags_in_post_editor/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -202,7 +202,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/posts/2021_08_13_deleting_old_restic_entries/</loc>
+ <loc>https://thefoundation.github.io/posts/2021_08_13_deleting_old_restic_entries/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -212,7 +212,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/posts/2021_08_23_synology_synoshare_create_error_share_create_failed_0x0d00_share_is_acl_share/</loc>
+ <loc>https://thefoundation.github.io/posts/2021_08_23_synology_synoshare_create_error_share_create_failed_0x0d00_share_is_acl_share/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -222,7 +222,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/</loc>
+ <loc>https://thefoundation.github.io/posts/2022_01_01_creating_a_gdpr_compliant_google_fonts_proxy/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -232,7 +232,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/posts/2022_01_10_synology_dsm_changes_caldav_port/</loc>
+ <loc>https://thefoundation.github.io/posts/2022_01_10_synology_dsm_changes_caldav_port/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -242,7 +242,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/posts/2022_01_19_restoring_lost_data_from_docker_volumes/</loc>
+ <loc>https://thefoundation.github.io/posts/2022_01_19_restoring_lost_data_from_docker_volumes/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -252,7 +252,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/posts/2022_01_21_oh_octobercms_and_the_leading_slash_again/</loc>
+ <loc>https://thefoundation.github.io/posts/2022_01_21_oh_octobercms_and_the_leading_slash_again/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -262,7 +262,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/posts/2022_04_29_apt-get_update_fails_with_unknown_error_executing_apt-key/</loc>
+ <loc>https://thefoundation.github.io/posts/2022_04_29_apt-get_update_fails_with_unknown_error_executing_apt-key/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -272,7 +272,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/posts/2023_02_02_shittification_of_the_internetz-the_toxic_thingy_stack_overflow_became_and_why_it_is_so_annoying_to_even_ask_on_crap_overload/</loc>
+ <loc>https://thefoundation.github.io/posts/2023_02_02_shittification_of_the_internetz-the_toxic_thingy_stack_overflow_became_and_why_it_is_so_annoying_to_even_ask_on_crap_overload/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -282,7 +282,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/posts/2023_02_03_mysql_records_of_previous_month/</loc>
+ <loc>https://thefoundation.github.io/posts/2023_02_03_mysql_records_of_previous_month/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -292,7 +292,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/posts/2023_03_04_github_actions_could_not_parse_as_yaml_mapping_values_are_not_allowed_in_this_context/</loc>
+ <loc>https://thefoundation.github.io/posts/2023_03_04_github_actions_could_not_parse_as_yaml_mapping_values_are_not_allowed_in_this_context/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -302,7 +302,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/posts/2023_03_22_exporting_all_layers_of_docker_images_with_one_command/</loc>
+ <loc>https://thefoundation.github.io/posts/2023_03_22_exporting_all_layers_of_docker_images_with_one_command/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -312,7 +312,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/posts/page/1/</loc>
+ <loc>https://thefoundation.github.io/posts/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -322,7 +322,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/search/</loc>
+ <loc>https://thefoundation.github.io/search/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -332,7 +332,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/</loc>
+ <loc>https://thefoundation.github.io/tags/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -342,7 +342,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/anonymize/</loc>
+ <loc>https://thefoundation.github.io/tags/anonymize/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -352,7 +352,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/anonymize/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/anonymize/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -362,7 +362,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/btrfs/</loc>
+ <loc>https://thefoundation.github.io/tags/btrfs/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -372,7 +372,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/btrfs/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/btrfs/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -382,7 +382,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/cms/</loc>
+ <loc>https://thefoundation.github.io/tags/cms/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -392,7 +392,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/cms/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/cms/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -402,7 +402,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/crap-overload/</loc>
+ <loc>https://thefoundation.github.io/tags/crap-overload/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -412,7 +412,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/crap-overload/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/crap-overload/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -422,7 +422,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/date/</loc>
+ <loc>https://thefoundation.github.io/tags/date/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -432,7 +432,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/date/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/date/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -442,7 +442,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/date_format/</loc>
+ <loc>https://thefoundation.github.io/tags/date_format/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -452,7 +452,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/date_format/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/date_format/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -462,7 +462,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/docker-image/</loc>
+ <loc>https://thefoundation.github.io/tags/docker-image/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -472,7 +472,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/docker-image/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/docker-image/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -482,7 +482,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/docker-volume/</loc>
+ <loc>https://thefoundation.github.io/tags/docker-volume/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -492,7 +492,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/docker-volume/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/docker-volume/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -502,7 +502,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/docker/</loc>
+ <loc>https://thefoundation.github.io/tags/docker/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -512,7 +512,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/docker/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/docker/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -522,7 +522,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/downvoting/</loc>
+ <loc>https://thefoundation.github.io/tags/downvoting/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -532,7 +532,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/downvoting/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/downvoting/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -542,7 +542,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/export/</loc>
+ <loc>https://thefoundation.github.io/tags/export/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -552,7 +552,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/export/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/export/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -562,7 +562,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/external.yaml/</loc>
+ <loc>https://thefoundation.github.io/tags/external.yaml/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -572,7 +572,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/external.yaml/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/external.yaml/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -582,7 +582,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/extract/</loc>
+ <loc>https://thefoundation.github.io/tags/extract/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -592,7 +592,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/extract/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/extract/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -602,7 +602,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/font/</loc>
+ <loc>https://thefoundation.github.io/tags/font/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -612,7 +612,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/font/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/font/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -622,7 +622,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/fonts.googleapis.com/</loc>
+ <loc>https://thefoundation.github.io/tags/fonts.googleapis.com/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -632,7 +632,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/fonts.googleapis.com/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/fonts.googleapis.com/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -642,7 +642,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/fonts.gstatic.com/</loc>
+ <loc>https://thefoundation.github.io/tags/fonts.gstatic.com/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -652,7 +652,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/fonts.gstatic.com/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/fonts.gstatic.com/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -662,7 +662,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/friendlywrt/</loc>
+ <loc>https://thefoundation.github.io/tags/friendlywrt/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -672,7 +672,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/friendlywrt/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/friendlywrt/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -682,7 +682,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/gdpr/</loc>
+ <loc>https://thefoundation.github.io/tags/gdpr/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -692,7 +692,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/gdpr/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/gdpr/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -702,7 +702,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/gooreplacer/</loc>
+ <loc>https://thefoundation.github.io/tags/gooreplacer/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -712,7 +712,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/gooreplacer/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/gooreplacer/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -722,7 +722,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/grafana/</loc>
+ <loc>https://thefoundation.github.io/tags/grafana/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -732,7 +732,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/grafana/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/grafana/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -742,7 +742,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/hokus/</loc>
+ <loc>https://thefoundation.github.io/tags/hokus/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -752,7 +752,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/hokus/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/hokus/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -762,7 +762,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/htpasswd/</loc>
+ <loc>https://thefoundation.github.io/tags/htpasswd/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -772,7 +772,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/htpasswd/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/htpasswd/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -782,7 +782,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/hugo/</loc>
+ <loc>https://thefoundation.github.io/tags/hugo/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -792,7 +792,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/hugo/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/hugo/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -802,7 +802,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/leading-slash/</loc>
+ <loc>https://thefoundation.github.io/tags/leading-slash/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -812,7 +812,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/leading-slash/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/leading-slash/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -822,7 +822,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/letsencrypt/</loc>
+ <loc>https://thefoundation.github.io/tags/letsencrypt/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -832,7 +832,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/letsencrypt/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/letsencrypt/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -842,7 +842,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/mariadb/</loc>
+ <loc>https://thefoundation.github.io/tags/mariadb/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -852,7 +852,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/mariadb/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/mariadb/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -862,7 +862,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/month/</loc>
+ <loc>https://thefoundation.github.io/tags/month/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -872,7 +872,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/month/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/month/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -882,7 +882,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/mysql/</loc>
+ <loc>https://thefoundation.github.io/tags/mysql/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -892,7 +892,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/mysql/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/mysql/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -902,7 +902,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/octobercms/</loc>
+ <loc>https://thefoundation.github.io/tags/octobercms/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -912,7 +912,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/octobercms/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/octobercms/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -922,7 +922,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/openwrt/</loc>
+ <loc>https://thefoundation.github.io/tags/openwrt/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -932,7 +932,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/openwrt/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/openwrt/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -942,7 +942,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -952,7 +952,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/preview/</loc>
+ <loc>https://thefoundation.github.io/tags/preview/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -962,7 +962,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/preview/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/preview/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -972,7 +972,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/proxy/</loc>
+ <loc>https://thefoundation.github.io/tags/proxy/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -982,7 +982,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/proxy/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/proxy/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -992,7 +992,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/quora/</loc>
+ <loc>https://thefoundation.github.io/tags/quora/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -1002,7 +1002,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/quora/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/quora/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -1012,7 +1012,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/renew/</loc>
+ <loc>https://thefoundation.github.io/tags/renew/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -1022,7 +1022,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/renew/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/renew/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -1032,7 +1032,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/renewal/</loc>
+ <loc>https://thefoundation.github.io/tags/renewal/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -1042,7 +1042,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/renewal/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/renewal/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -1052,7 +1052,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/sri/</loc>
+ <loc>https://thefoundation.github.io/tags/sri/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -1062,7 +1062,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/sri/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/sri/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -1072,7 +1072,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/stack-overflow/</loc>
+ <loc>https://thefoundation.github.io/tags/stack-overflow/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -1082,7 +1082,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/stack-overflow/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/stack-overflow/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -1092,7 +1092,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/synology/</loc>
+ <loc>https://thefoundation.github.io/tags/synology/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -1102,7 +1102,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/synology/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/synology/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -1112,7 +1112,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/tags/</loc>
+ <loc>https://thefoundation.github.io/tags/tags/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>weekly</changefreq>
 </url>
@@ -1122,7 +1122,7 @@
  <changefreq>weekly</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/tags/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/tags/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>weekly</changefreq>
 </url>
@@ -1132,7 +1132,7 @@
  <changefreq>weekly</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/tar/</loc>
+ <loc>https://thefoundation.github.io/tags/tar/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -1142,7 +1142,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/tar/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/tar/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -1152,7 +1152,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/toxic/</loc>
+ <loc>https://thefoundation.github.io/tags/toxic/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -1162,7 +1162,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/toxic/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/toxic/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -1172,7 +1172,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/webdav/</loc>
+ <loc>https://thefoundation.github.io/tags/webdav/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
@@ -1182,7 +1182,7 @@
  <changefreq>daily</changefreq>
 </url>
 <url>
- <loc>htps://thefoundation.github.io/tags/webdav/page/1/</loc>
+ <loc>https://thefoundation.github.io/tags/webdav/page/1/</loc>
  <lastmod>2023-04-02</lastmod>
  <changefreq>daily</changefreq>
 </url>
