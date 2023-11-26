@@ -7,7 +7,7 @@ modify your docker-compose.yml …'>
 
 <link rel='canonical' href='https://the-foundation.is-a-p.ro.eu.org/posts/2019_06_23_adding_webdav_to_docker_grafana_for_image_previews/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Adding webdav to docker-compose grafana stack for image previews'>
+<link rel="stylesheet" href="/scss/style.min.abbd69b2908fdfcd5179898beaafd374514a86538d81639ddd2c58c06ae54e40.css"><meta property='og:title' content='Adding webdav to docker-compose grafana stack for image previews'>
 <meta property='og:description' content='It&amp;rsquo;s quite easy since Grafana containers already have the respecting parameters you only need 3 files and 1 crontab entry.
 modify your docker-compose.yml like this
 grafana-render: hostname: grafana-render image: grafana/grafana-image-renderer:latest ports: - &amp;#34;127.0.0.1:8081:8081&amp;#34; # - ./data/graphite.htpasswd:/etc/nginx/.htpasswd grafana: # image: grafana/grafana:4.2.0 image: grafana/grafana:4.6.5 ports: - &amp;#34;127.0.0.1:3000:3000&amp;#34; volumes: - ./data/grafana:/var/lib/grafana # links: # - graphite environment: - GF_EXTERNAL_IMAGE_STORAGE_PROVIDER=webdav - GF_EXTERNAL_IMAGE_STORAGE_PUBLIC_URL=https://my.domain.lan/grafana-uploads/media - GF_EXTERNAL_IMAGE_STORAGE_PUBLICURL=https://my.domain.lan/grafana-uploads/media - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_PUBLICURL=https://my.domain.lan/grafana-uploads/media - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_PUBLIC_URL=https://my.domain.lan/grafana-uploads/media - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_URL=http://webdav.my.domain.lan/media - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_USERNAME=grafana - GF_EXTERNAL_IMAGE_STORAGE_WEBDAV_PASSWORD=PassSharedGrafanaWebdav_CHANGE_ME - GF_RENDERING_SERVER_URL=http://grafana-render:8081/render - GF_SERVER_ROOT_URL=https://my.'>
@@ -414,6 +414,26 @@ title="Twitter"
 
 
 <span>Links</span>
+</a>
+</li>
+
+
+
+<li >
+<a href='/whoami/' >
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path stroke="none" d="M0 0h24v24H0z"/>
+<path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+<path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+
+<span>whoami</span>
 </a>
 </li>
 

@@ -7,7 +7,7 @@ tons of space .. computation time during backup &amp;hellip; clarity since …'>
 
 <link rel='canonical' href='https://the-foundation.is-a-p.ro.eu.org/posts/2021_08_13_deleting_old_restic_entries/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Deleting old restic snapshots'>
+<link rel="stylesheet" href="/scss/style.min.abbd69b2908fdfcd5179898beaafd374514a86538d81639ddd2c58c06ae54e40.css"><meta property='og:title' content='Deleting old restic snapshots'>
 <meta property='og:description' content='Sometimes restic does not correctly apply the forget policy And that might waste
 tons of space .. computation time during backup &amp;hellip; clarity since terminal goes a bit crazy with 3000&#43; lines The fix is not so easy&amp;hellip; forgetlist=&amp;#34;&amp;#34;;restic unlock; restic snapshots|grep &amp;#34;[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]&amp;#34;|sed &amp;#39;s/ &#43;/ /g&amp;#39;|cut -d&amp;#34; &amp;#34; -f1-3|while read line;do id=${line/ *}; shotdate=$(echo &amp;#34;$line&amp;#34;|cut -d&amp;#34; &amp;#34; -f2,3) ; shotepoch=$(date -u -d &amp;#34;$shotdate&amp;#34; &#43;%s) ; shotagesec=$(($(date -u &#43;%s )-$shotepoch)); echo -n &amp;#34;SNAP: $shotdate ( $shotagesec ) &amp;#34;; [[ $shotagesec -ge $((86400*90)) ]] &amp;amp;&amp;amp; { echo -n &amp;#34;forget $id |&amp;#34; ;forgetlist=&amp;#34;$forgetlist $id&amp;#34; ; echo &amp;#34;$forgetlist&amp;#34; &amp;gt; /dev/shm/.'>
 <meta property='og:url' content='https://the-foundation.is-a-p.ro.eu.org/posts/2021_08_13_deleting_old_restic_entries/'>
@@ -412,6 +412,26 @@ title="Twitter"
 
 
 <span>Links</span>
+</a>
+</li>
+
+
+
+<li >
+<a href='/whoami/' >
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path stroke="none" d="M0 0h24v24H0z"/>
+<path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+<path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+
+<span>whoami</span>
 </a>
 </li>
 
