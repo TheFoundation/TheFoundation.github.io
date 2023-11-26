@@ -1391,7 +1391,7 @@ else
       <guid>https://the-foundation.is-a-p.ro.eu.org/posts/0000_soundtrack/</guid>
       <description>
 
-&lt;br&gt;&lt;div id=&#34;target&#34;&gt; &lt;img  src=&#34;https://i.ytimg.com/vi_webp/ryH5cga0yUI/sddefault.webp&#34; width=&#34;560&#34; height=&#34;315&#34;  &gt; &lt;/div&gt;
+&lt;br&gt;&lt;div id=&#34;target&#34;&gt; &lt;img  src=&#34;/assets/i_ytimg_com/vi_webp/ryH5cga0yUI/sddefault.webp&#34; width=&#34;560&#34; height=&#34;315&#34;  &gt; &lt;/div&gt;
 &lt;br&gt;alternatives:
 &lt;br&gt;http://www.myvideo.de/musik/kate-nash/foundations-video-m-4610518
 &lt;br&gt;https://de.screen.yahoo.com/musik/foundations-044634217.html
@@ -1404,7 +1404,7 @@ window.setTimeout(function() {
 document.getElementById(&#34;target&#34;).innerHTML=&#39;&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/ryH5cga0yUI&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;&#39;; } ,423);
 
 
-//document.getElementsByTagName(&#34;iframe&#34;)[0].parentNode.innerHTML = &#39;&lt;img src=&#34;https://i.ytimg.com/vi_webp/ryH5cga0yUI/sddefault.webp&#34; width=&#34;560&#34; height=&#34;315&#34;  &gt; &#39;
+//document.getElementsByTagName(&#34;iframe&#34;)[0].parentNode.innerHTML = &#39;&lt;img src=&#34;/assets/i_ytimg_com/vi_webp/ryH5cga0yUI/sddefault.webp&#34; width=&#34;560&#34; height=&#34;315&#34;  &gt; &#39;
 console.log(&#39;#TheFoundation , Nit3 R1d4z Undah Cowabanga&#39;)
 &lt;/script&gt;
 
@@ -1471,7 +1471,13 @@ console.log(&#39;#TheFoundation , Nit3 R1d4z Undah Cowabanga&#39;)
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://the-foundation.is-a-p.ro.eu.org/whoami/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;
+      <description>
+
+&lt;iframe src=&#34;https://ifconfig.co/&#34;&gt;&lt;/iframe&gt;
+&lt;br&gt;
+&lt;iframe src=&#34;https://test-ipv6.cz/ipv6widget/?skin=cz.nic&amp;tests=ipv6&amp;tests=dnssec-rsa-ecdsa&amp;speed=ipv4&#34;&gt;&lt;/iframe&gt;
+
+
 </description> 
     </item>
     
