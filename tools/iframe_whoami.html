@@ -1,0 +1,269 @@
+<center><div id="framestatusholder" style="min-height: 15px;max-height: 23px; overflow-y: scroll;">
+    <div id="framestatus">
+    ...
+
+    </div>
+
+</div>
+<br>
+<center>
+<h2>Attention: loading external pages will possibly set cookies and other stuff, use on your own risk</h2><br>
+<button id="click_all">LOAD ALL IFRAMES</button>
+</center>
+<hr>
+<div id="txtip" style="min-height:120px;">
+   
+</div>
+<br>
+
+<div id="frameholder" style="width:100%;min-heigt:444px;display: flex;flex-wrap: wrap">
+<iframe id="dummyiframe" src="loading.html"></iframe>
+</div>
+
+
+<script>
+    
+function myallclick(){
+            setInterval(function () {
+              var buttons = document.getElementsByClassName('frameloader');
+               for(var i = 0; i < buttons.length; i++)  
+                  buttons[i].click();
+            }, 2000); 
+    }
+
+
+   document.getElementById("click_all").onclick = function() {
+             const myTimeout = setTimeout(myallclick, 2345);
+
+ };
+ 
+const scrollToBottom = (id) => {
+    const element = document.getElementById(id);
+    element.scrollTop = element.scrollHeight;
+}
+
+txtlist=[ "http://monip.org","https://twin.sh/api/v1/ip","http://ip-api.com/line?fields=query" ]
+
+framelist=[
+"http://whatismyip.akamai.com/advanced",
+"https://ifconfig.co/json",  
+"https://cloudflare.com/cdn-cgi/trace",
+"https://test-ipv6.cz/ipv6widget/?skin=cz.nic&tests=ipv6&tests=dnssec-rsa-ecdsa&speed=ipv4",
+"https://ipv6-test.com/",
+"https://www.dnsleaktest.com/",
+//"https://browserleaks.com/dns",
+//"https://www.expressvpn.com/de/dns-leak-test",
+"https://surfshark.com/en/dns-leak-test",
+"https://www.wieistmeineip.ch/ipv6-test/",
+//"https://www.dein-ip-check.de/ipv6test",
+//"https://dnsleak.com/",
+//"https://www.perfect-privacy.com/de/tests/dns-leaktest",
+"https://dnsleaktest.org/",
+"https://ip6.nl/",
+"https://showip.io/",
+"https://showip.net/",
+//"https://www.everyware.ch/show-my-ip-003-040306-de.php",
+//"https://nordvpn.com/de/what-is-my-ip/",
+//"https://whatismyipaddress.com/",
+"https://www.showmyip.com/" ,
+//"https://test-ipv6.is/" ,
+"https://wieistmeineip.scc.kit.edu/" ,
+"https://ipv6test.google.com/"];
+console.log("loading providers");
+
+let timeout;
+
+function iframeLoader() {
+///if( mobileScreenDetected() || touchScreenDetected() || mobileUserAgentDetected()  ) {
+///  var lazyBlockers="";
+///  if(mobileScreenDetected())     { lazyBlockers="small_res_screen"; }
+///  if(touchScreenDetected())      { lazyBlockers=lazyBlockers+" touchScreenDetected"; }
+///  if(mobileUserAgentDetected())  { lazyBlockers=lazyBlockers+" mobileUserAgentDetected"; }
+///  console.log("iframe_loader not starting ... reason:" + lazyBlockers)
+///  } else {
+  console.log("iframe_loader started!");
+  //const imgtags=document.getElementsByTagName("img");
+  
+  for (var i = 0; i < framelist.length; i++) {
+    if ( framelist[i] != undefined ) {
+
+      myLocalXHR = new XMLHttpRequest();
+      let domain = (new URL(framelist[i]));
+      domain = domain.hostname;
+      let tagname=domain.replaceAll('.', '_')
+      console.log("queuing iframe #"+(i+1)+" : "+framelist[i]+ " @ " + tagname );
+
+      //console.log(domain); 
+      myLocalXHR.frmtag=tagname;
+      myLocalXHR.responseType = 'blob';
+      myLocalXHR.sourceURL=framelist[i];
+      myLocalXHR.onreadystatechange = function() {
+          var frmtag , sourceURL;
+          var prepend=""
+          var mybr = document.createElement("br");
+          var curfrmtag=this.frmtag
+          console.log("readyState"+this.readyState+" | status: "+this.status+"for "+this.sourceURL);
+          console.log("frmtag: "+curfrmtag);
+
+          if (this.readyState == 4 && this.status == 200 && curfrmtag != "nordvpn_com") {
+             var curcont=this.response;
+             
+             var logmsg=prepend+"generating framepre for "+this.sourceURL+" |type: "+this.getResponseHeader('content-type')+" |readyState: "+this.readyState+" | status: "+this.status+" | tag: "+this.frmtag+" ";
+             document.getElementById("framestatus").textContent=logmsg;
+             //document.getElementById("framestatus").textContent+=logmsg;
+             //document.getElementById("framestatus").appendChild(mybr);
+             //scrollToBottom("framestatus");
+
+             console.log(logmsg);
+             //tagname="asd";
+             //targdomain="asd.local"
+             
+             var mydiv = document.createElement("div");
+             mydiv.style.width = "222px";
+             mydiv.style.height = "222px";
+             mydiv.style.background = "rgba(255,1,0,0.7)";
+             mydiv.style.borderRadius = "15px 50px";
+             //mydiv.style.color = "white";
+             //mydiv.innerHTML = '<button class="frameloader" id="load_'+myLocalXHR.frmtag+'">load '+this.sourceURL+"</button>";
+             mydiv.innerHTML = '<h4>click to load:</h4><code>'+this.sourceURL+'</code><br>';
+             // Adding a button, cause why not!
+             var mybutton = document.createElement("Button");
+             var textForButton = document.createTextNode("load"+'\npage from '+curfrmtag);
+             mydiv.setAttribute('id', 'load_'+curfrmtag)
+
+             mybutton.appendChild(textForButton);
+             mybutton.addEventListener("click", function(){
+                 document.getElementById('load_'+curfrmtag).outerHTML = "";
+                 //alert("Hi!");
+                 myrealdiv=document.createElement("div");
+                 myrealdiv.style.width = "400px";
+                 
+                 myrealdiv.style.height = "444px";
+                 myrealdiv.style.background = "rgba(255,42,0,0.1)";
+                 myrealdiv.innerHTML = '<center><iframe  style="border-radius: 42px 23px;min-height :444px;min-width: 444px ;height:100%;width:100%; -ms-zoom: 0.75;   -moz-transform: scale(0.75);   -moz-transform-origin: 0 0;   -o-transform: scale(0.75);   -o-transform-origin: 0 0;   -webkit-transform: scale(0.75);   -webkit-transform-origin: 0 0;" id="frame_'+curfrmtag+'" ></iframe></center>';
+                 myrealdiv.setAttribute('id', 'cont_'+curfrmtag)
+                 
+                 var curtag= 'load_'+curfrmtag;
+                 console.log("add_frm: "+curfrmtag);
+                 document.getElementById("frameholder").appendChild(myrealdiv);
+                 console.log("sel_frm: "+curfrmtag);
+                 //var iFrameWindow = document.getElementById('frame_'+curfrmtag).contentWindow || document.getElementById('frame_'+curfrmtag).documentWindow;
+                 //console.log("sel_frm_doc: "+curfrmtag);
+                 //var iframeDoc = iFrameWindow.document;
+                 //console.log("opn_frm: "+curfrmtag);
+                 //iframeDoc.open();
+                 //console.log("put_frm: "+curfrmtag);
+                 //iframeDoc.write(curcont);
+                 //console.log("cls_frm: "+curfrmtag);
+                 //iframeDoc.close();
+                 document.getElementById('frame_'+curfrmtag).src = URL.createObjectURL(curcont);
+
+             });
+             mydiv.appendChild(mybutton);
+             
+             document.getElementById("frameholder").appendChild(mydiv);
+             
+             //var tmpurl=window.URL.createObjectURL(this.response);
+             //this.imgtag.src=tmpurl;
+             //this.imgtag.dataset.src=tmpurl
+
+          } else {
+              
+              // XHR prevents loading or something else
+            if (
+               this.readyState == 4 && ( // request complete
+                    this.status == 403 || ( this.status <= 500 && this.status > 199 ) || ( this.status == 0  ) 
+                    ) 
+                ) {
+                  var curcont=this.response;
+                  var localurl=this.sourceURL;
+                // a situation where the thingy doesnt load , but a passive generator will be created
+                             
+                  var logmsg=prepend+"generating passive_framepre for "+this.sourceURL+" |type: "+this.getResponseHeader('content-type')+" |readyState: "+this.readyState+" | status: "+this.status+" | tag: "+this.frmtag+" ";
+                  document.getElementById("framestatus").textContent=logmsg;
+                  //document.getElementById("framestatus").textContent+=logmsg;
+                  //document.getElementById("framestatus").appendChild(mybr);
+                  //scrollToBottom("framestatus");
+                  console.log(logmsg);
+                  
+             var mydiv = document.createElement("div");
+             mydiv.style.width = "222px";
+             mydiv.style.height = "222px";
+             mydiv.style.background = "rgba(255,1,0,0.7)";
+             mydiv.style.borderRadius = "15px 50px";
+             //mydiv.style.color = "white";
+             //mydiv.innerHTML = '<button class="frameloader" id="load_'+myLocalXHR.frmtag+'">load '+this.sourceURL+"</button>";
+             mydiv.innerHTML = '<h4>click to load:</h4><code>'+this.sourceURL+'</code><br>';
+             // Adding a button, cause why not!
+             var mybutton = document.createElement("Button");
+             mybutton.classList.add("frameloader")
+             var textForButton = document.createTextNode("load"+'\npage from '+curfrmtag);
+             mydiv.setAttribute('id', 'load_'+curfrmtag)
+
+             mybutton.appendChild(textForButton);
+             mybutton.addEventListener("click", function(){
+                 document.getElementById('load_'+curfrmtag).outerHTML = "";
+                 //alert("Hi!");
+                 myrealdiv=document.createElement("div");
+                 myrealdiv.style.width = "400px";
+                 
+                 myrealdiv.style.height = "444px";
+                 myrealdiv.style.background = "rgba(255,42,0,0.1)";
+                 myrealdiv.innerHTML = '<center><iframe  style="border-radius: 42px 23px;min-height :444px;min-width: 444px ;height:100%;width:100%; -ms-zoom: 0.75;   -moz-transform: scale(0.75);   -moz-transform-origin: 0 0;   -o-transform: scale(0.75);   -o-transform-origin: 0 0;   -webkit-transform: scale(0.75);   -webkit-transform-origin: 0 0;" id="frame_'+curfrmtag+'" ></iframe></center>';
+                 myrealdiv.setAttribute('id', 'cont_'+curfrmtag)
+                 
+                 var curtag= 'load_'+curfrmtag;
+                 console.log("add_frm: "+curfrmtag);
+                 document.getElementById("frameholder").appendChild(myrealdiv);
+                 console.log("sel_frm: "+curfrmtag);
+                 //var iFrameWindow = document.getElementById('frame_'+curfrmtag).contentWindow || document.getElementById('frame_'+curfrmtag).documentWindow;
+                 //console.log("sel_frm_doc: "+curfrmtag);
+                 //var iframeDoc = iFrameWindow.document;
+                 //console.log("opn_frm: "+curfrmtag);
+                 //iframeDoc.open();
+                 //console.log("put_frm: "+curfrmtag);
+                 //iframeDoc.write(curcont);
+                 //console.log("cls_frm: "+curfrmtag);
+                 //iframeDoc.close();
+                 document.getElementById('frame_'+curfrmtag).src = localurl;
+             });
+             mydiv.appendChild(mybutton);
+             
+             document.getElementById("frameholder").appendChild(mydiv);
+             
+             } else {
+                if ( this.readyState < 4 ) { 
+                    var logmsg="still loading"
+                    }
+                else {
+                  prepend="error: not"
+                  var logmsg=prepend+"generating passive_framepre for "+this.sourceURL+" |type: "+this.getResponseHeader('content-type')+" |readyState: "+this.readyState+" | status: "+this.status+" | tag: "+this.frmtag+" ";
+                  document.getElementById("framestatus").textContent=logmsg;
+                  //document.getElementById("framestatus").textContent+=logmsg;
+                  //document.getElementById("framestatus").appendChild(mybr);
+                  //scrollToBottom("framestatus");
+                  console.log(logmsg);         
+                }
+                
+              }
+       } // end readystate4status200
+      };
+      
+      myLocalXHR.open("GET", framelist[i] , true);
+      myLocalXHR.send();
+      
+    }
+  }
+//} // end else loading
+}
+
+function startiframeLoader() {
+  timeout = setTimeout(iframeLoader, 23 );
+}
+
+startiframeLoader();
+document.getElementById('dummyiframe').outerHTML = "";
+
+</script>
+<br>
+</center>

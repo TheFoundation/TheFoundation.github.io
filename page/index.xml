@@ -96,9 +96,7 @@
       <guid>https://the-foundation.is-a-p.ro.eu.org/whoami/</guid>
       <description>
 
-&lt;iframe src=&#34;https://ifconfig.co/&#34;&gt;&lt;/iframe&gt;
-&lt;br&gt;
-&lt;iframe src=&#34;https://test-ipv6.cz/ipv6widget/?skin=cz.nic&amp;tests=ipv6&amp;tests=dnssec-rsa-ecdsa&amp;speed=ipv4&#34;&gt;&lt;/iframe&gt;
+&lt;iframe style=&#34;width:100%;height: 100%;&#34; src=&#34;https://the-foundation.is-a-p.ro.eu.org/tools/iframe_whoami.html.html&#34;&gt;&lt;/iframe&gt;
 
 
 </description> 
