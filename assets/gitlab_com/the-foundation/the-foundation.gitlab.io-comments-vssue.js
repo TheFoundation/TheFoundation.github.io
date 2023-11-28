@@ -9,13 +9,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <title>The Foundation / The Foundation.Gitlab.Io Comments Vssue.Js · GitLab</title>
-<script nonce="/Z+ET7pHKoqfQmT2JiAEJQ==">
+<script nonce="tmjYVkZ8fqQdt6R2yMTK3A==">
 //<![CDATA[
 window.gon={};gon.features={"blobBlameInfo":false,"highlightJsWorker":true,"removeMonitorMetrics":true,"explainCodeChat":false,"serviceDeskCustomEmail":true,"issueEmailParticipants":false,"pageSpecificStyles":false,"workItems":true,"workItemsMvc":false,"workItemsMvc2":false,"linkedWorkItems":true};gon.licensed_features={"remoteDevelopment":true};
 //]]>
 </script>
 
-<script nonce="/Z+ET7pHKoqfQmT2JiAEJQ==">
+<script nonce="tmjYVkZ8fqQdt6R2yMTK3A==">
 //<![CDATA[
 var gl = window.gl || {};
 gl.startup_calls = {"/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/refs/main/logs_tree/?format=json\u0026offset=0":{},"/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/blob/main/README.md?format=json\u0026viewer=rich":{}};
@@ -38,7 +38,7 @@ if (gl.startup_calls && window.fetch) {
   });
 }
 if (gl.startup_graphql_calls && window.fetch) {
-  const headers = {"X-CSRF-Token":"1Ajnjb1zllqSjRSegVzmGpcsJSyiE2x9GEHbJgWLaLKeCPCLyS04y37Bxt8WRL6KESuOtRnDBfZCIcJ8iFd7MA","x-gitlab-feature-category":"groups_and_projects"};
+  const headers = {"X-CSRF-Token":"ibBZe6tXsvhAapZQoI2CU-BKeWRA5PfrnVmKNdAlhm6Pu76FrsC3jTi7WpRKGBWNsNy436lSW2aKYKQu4wuChw","x-gitlab-feature-category":"groups_and_projects"};
   const url = `https://gitlab.com/api/graphql`
 
   const opts = {
@@ -67,57 +67,56 @@ if (gl.startup_graphql_calls && window.fetch) {
 <link rel="stylesheet" href="/assets/themes/theme_light_gray-dbc6017558e90a964387598e83f7f44937bb330917dc2f3b6bc3b4e5df0d2a07.css" />
 
 <link rel="stylesheet" href="/assets/application-343cb41fd7769c235288c478b11042e9fd1f49d7e6b71f572df4a30878275ed0.css" media="all" />
-<link rel="stylesheet" href="/assets/page_bundles/project-e92530a19b30aa0437f3f894f42876fa2f115dd6e8576e568dee8d57429b0aed.css" media="all" /><link rel="stylesheet" href="/assets/page_bundles/tree-f6d6069fc478c6f7631a961ef1c149fc1885bb5819d7e93642830f3f2bded7d7.css" media="all" /><link rel="stylesheet" href="/assets/page_bundles/projects-8859fda14430424b55d5775ee86b6d191413eef6db9eda491d4f4aabd6835fc4.css" media="all" />
+<link rel="stylesheet" href="/assets/page_bundles/project-e9ab3bf6e11b73e54f07654f9869b6ab9e43d95ef8fccb080350e9471c5f74fe.css" media="all" /><link rel="stylesheet" href="/assets/page_bundles/tree-f6d6069fc478c6f7631a961ef1c149fc1885bb5819d7e93642830f3f2bded7d7.css" media="all" /><link rel="stylesheet" href="/assets/page_bundles/projects-8859fda14430424b55d5775ee86b6d191413eef6db9eda491d4f4aabd6835fc4.css" media="all" />
 <link rel="stylesheet" href="/assets/application_utilities-16e034c5239432e388778232b5ea24a5cbea382850858934930553027b48d54f.css" media="all" />
 
 
 <link rel="stylesheet" href="/assets/fonts-115c4704cb8c77e2fdf3fd0243eebf164e2e9b54bbab7bf6a4c14868b865ddf8.css" media="all" />
 <link rel="stylesheet" href="/assets/highlight/themes/white-96f127bcbdab3caa86a6cc73183496a2fa61f5fdac1f3b410eaf990adbc6ea3b.css" media="all" />
 
-<script src="/assets/webpack/runtime.2e1d7ec3.bundle.js" defer="defer" nonce="/Z+ET7pHKoqfQmT2JiAEJQ=="></script>
-<script src="/assets/webpack/main.8601d73c.chunk.js" defer="defer" nonce="/Z+ET7pHKoqfQmT2JiAEJQ=="></script>
-<script src="/assets/webpack/tracker.bd1baf0d.chunk.js" defer="defer" nonce="/Z+ET7pHKoqfQmT2JiAEJQ=="></script>
-<script src="/assets/webpack/analytics.91542184.chunk.js" defer="defer" nonce="/Z+ET7pHKoqfQmT2JiAEJQ=="></script>
-<script nonce="/Z+ET7pHKoqfQmT2JiAEJQ==">
+<script src="/assets/webpack/runtime.1d69e0d3.bundle.js" defer="defer" nonce="tmjYVkZ8fqQdt6R2yMTK3A=="></script>
+<script src="/assets/webpack/main.b423e10e.chunk.js" defer="defer" nonce="tmjYVkZ8fqQdt6R2yMTK3A=="></script>
+<script src="/assets/webpack/tracker.85c6f715.chunk.js" defer="defer" nonce="tmjYVkZ8fqQdt6R2yMTK3A=="></script>
+<script src="/assets/webpack/analytics.d83adbcf.chunk.js" defer="defer" nonce="tmjYVkZ8fqQdt6R2yMTK3A=="></script>
+<script nonce="tmjYVkZ8fqQdt6R2yMTK3A==">
 //<![CDATA[
 window.snowplowOptions = {"namespace":"gl","hostname":"snowplow.trx.gitlab.net","cookieDomain":".gitlab.com","appId":"gitlab","formTracking":true,"linkClickTracking":true}
 
 gl = window.gl || {};
-gl.snowplowStandardContext = {"schema":"iglu:com.gitlab/gitlab_standard/jsonschema/1-0-9","data":{"environment":"production","source":"gitlab-rails","plan":"free","extra":{"new_nav":true},"user_id":null,"is_gitlab_team_member":null,"namespace_id":4170095,"project_id":32909927,"context_generated_at":"2023-11-27T01:52:10.210Z"}}
+gl.snowplowStandardContext = {"schema":"iglu:com.gitlab/gitlab_standard/jsonschema/1-0-9","data":{"environment":"production","source":"gitlab-rails","plan":"free","extra":{"new_nav":true},"user_id":null,"is_gitlab_team_member":null,"namespace_id":4170095,"project_id":32909927,"context_generated_at":"2023-11-28T19:50:36.501Z"}}
 gl.snowplowPseudonymizedPageUrl = "https://gitlab.com/namespace4170095/project32909927";
 
 
 //]]>
 </script>
-<link rel="preload" href="/assets/application_utilities-16e034c5239432e388778232b5ea24a5cbea382850858934930553027b48d54f.css" as="style" type="text/css" nonce="V8bLCvd+WWKz0n5h3KxZbA==">
-<link rel="preload" href="/assets/application-343cb41fd7769c235288c478b11042e9fd1f49d7e6b71f572df4a30878275ed0.css" as="style" type="text/css" nonce="V8bLCvd+WWKz0n5h3KxZbA==">
-<link rel="preload" href="/assets/highlight/themes/white-96f127bcbdab3caa86a6cc73183496a2fa61f5fdac1f3b410eaf990adbc6ea3b.css" as="style" type="text/css" nonce="V8bLCvd+WWKz0n5h3KxZbA==">
+<link rel="preload" href="/assets/application_utilities-16e034c5239432e388778232b5ea24a5cbea382850858934930553027b48d54f.css" as="style" type="text/css" nonce="G4XDGWbA/4IFMUIclx2Jsw==">
+<link rel="preload" href="/assets/application-343cb41fd7769c235288c478b11042e9fd1f49d7e6b71f572df4a30878275ed0.css" as="style" type="text/css" nonce="G4XDGWbA/4IFMUIclx2Jsw==">
+<link rel="preload" href="/assets/highlight/themes/white-96f127bcbdab3caa86a6cc73183496a2fa61f5fdac1f3b410eaf990adbc6ea3b.css" as="style" type="text/css" nonce="G4XDGWbA/4IFMUIclx2Jsw==">
 <link crossorigin="" href="https://snowplow.trx.gitlab.net" rel="preconnect">
 <link as="font" crossorigin="" href="/assets/gitlab-sans/GitLabSans-1e0a5107ea3bbd4be93e8ad2c503467e43166cd37e4293570b490e0812ede98b.woff2" rel="preload">
 <link as="font" crossorigin="" href="/assets/gitlab-sans/GitLabSans-Italic-38eaf1a569a54ab28c58b92a4a8de3afb96b6ebc250cf372003a7b38151848cc.woff2" rel="preload">
 <link as="font" crossorigin="" href="/assets/gitlab-mono/GitLabMono-08d2c5e8ff8fd3d2d6ec55bc7713380f8981c35f9d2df14e12b835464d6e8f23.woff2" rel="preload">
 <link as="font" crossorigin="" href="/assets/gitlab-mono/GitLabMono-Italic-38e58d8df29485a20c550da1d0111e2c2169f6dcbcf894f2cd3afbdd97bcc588.woff2" rel="preload">
-<link rel="preload" href="/assets/fonts-115c4704cb8c77e2fdf3fd0243eebf164e2e9b54bbab7bf6a4c14868b865ddf8.css" as="style" type="text/css" nonce="V8bLCvd+WWKz0n5h3KxZbA==">
+<link rel="preload" href="/assets/fonts-115c4704cb8c77e2fdf3fd0243eebf164e2e9b54bbab7bf6a4c14868b865ddf8.css" as="style" type="text/css" nonce="G4XDGWbA/4IFMUIclx2Jsw==">
 
 
 
-<script src="/assets/webpack/sentry.ad24c670.chunk.js" defer="defer" nonce="/Z+ET7pHKoqfQmT2JiAEJQ=="></script>
+<script src="/assets/webpack/sentry.39228720.chunk.js" defer="defer" nonce="tmjYVkZ8fqQdt6R2yMTK3A=="></script>
 
 
-<script src="/assets/webpack/commons-pages.projects.learn_gitlab.show-pages.search.show-super_sidebar.48cb43f0.chunk.js" defer="defer" nonce="/Z+ET7pHKoqfQmT2JiAEJQ=="></script>
-<script src="/assets/webpack/commons-pages.search.show-super_sidebar.762beb7e.chunk.js" defer="defer" nonce="/Z+ET7pHKoqfQmT2JiAEJQ=="></script>
-<script src="/assets/webpack/super_sidebar.e6a6f51e.chunk.js" defer="defer" nonce="/Z+ET7pHKoqfQmT2JiAEJQ=="></script>
-<script src="/assets/webpack/shortcutsBundle.31e63f9d.chunk.js" defer="defer" nonce="/Z+ET7pHKoqfQmT2JiAEJQ=="></script>
-<script src="/assets/webpack/commons-pages.groups.boards-pages.groups.details-pages.groups.epic_boards-pages.groups.show-pages.gr-c65ce8d6.64678dd5.chunk.js" defer="defer" nonce="/Z+ET7pHKoqfQmT2JiAEJQ=="></script>
-<script src="/assets/webpack/commons-pages.admin.runners.show-pages.clusters.agents.dashboard-pages.explore.catalog-pages.groups.-6b038e88.fa452e74.chunk.js" defer="defer" nonce="/Z+ET7pHKoqfQmT2JiAEJQ=="></script>
-<script src="/assets/webpack/commons-pages.admin.subscriptions.show-pages.groups.security.policies.edit-pages.groups.security.pol-6bfecbfa.39e3ea89.chunk.js" defer="defer" nonce="/Z+ET7pHKoqfQmT2JiAEJQ=="></script>
-<script src="/assets/webpack/commons-pages.projects.blob.show-pages.projects.show-pages.projects.snippets.edit-pages.projects.sni-42df7d4c.bf3bd430.chunk.js" defer="defer" nonce="/Z+ET7pHKoqfQmT2JiAEJQ=="></script>
-<script src="/assets/webpack/commons-pages.projects.blob.show-pages.projects.show-pages.projects.snippets.show-pages.projects.tre-c684fcf6.1dfed251.chunk.js" defer="defer" nonce="/Z+ET7pHKoqfQmT2JiAEJQ=="></script>
-<script src="/assets/webpack/commons-pages.groups.show-pages.projects.blob.show-pages.projects.show-pages.projects.tree.show.a03d8ab2.chunk.js" defer="defer" nonce="/Z+ET7pHKoqfQmT2JiAEJQ=="></script>
-<script src="/assets/webpack/commons-pages.groups.details-pages.groups.show-pages.profiles.notifications.show-pages.projects.show.7d87a266.chunk.js" defer="defer" nonce="/Z+ET7pHKoqfQmT2JiAEJQ=="></script>
-<script src="/assets/webpack/commons-pages.projects.blob.show-pages.projects.show-pages.projects.tree.show.bcfa8171.chunk.js" defer="defer" nonce="/Z+ET7pHKoqfQmT2JiAEJQ=="></script>
-<script src="/assets/webpack/commons-pages.projects.show-pages.projects.tree.show.ff40c484.chunk.js" defer="defer" nonce="/Z+ET7pHKoqfQmT2JiAEJQ=="></script>
-<script src="/assets/webpack/pages.projects.show.79c9ef91.chunk.js" defer="defer" nonce="/Z+ET7pHKoqfQmT2JiAEJQ=="></script>
+<script src="/assets/webpack/commons-pages.projects.learn_gitlab.show-pages.search.show-super_sidebar.48cb43f0.chunk.js" defer="defer" nonce="tmjYVkZ8fqQdt6R2yMTK3A=="></script>
+<script src="/assets/webpack/super_sidebar.349640da.chunk.js" defer="defer" nonce="tmjYVkZ8fqQdt6R2yMTK3A=="></script>
+<script src="/assets/webpack/shortcutsBundle.b744a648.chunk.js" defer="defer" nonce="tmjYVkZ8fqQdt6R2yMTK3A=="></script>
+<script src="/assets/webpack/commons-pages.groups.boards-pages.groups.details-pages.groups.epic_boards-pages.groups.show-pages.gr-c65ce8d6.b7a98b72.chunk.js" defer="defer" nonce="tmjYVkZ8fqQdt6R2yMTK3A=="></script>
+<script src="/assets/webpack/commons-pages.admin.runners.show-pages.clusters.agents.dashboard-pages.explore.catalog-pages.groups.-6b038e88.fa452e74.chunk.js" defer="defer" nonce="tmjYVkZ8fqQdt6R2yMTK3A=="></script>
+<script src="/assets/webpack/commons-pages.admin.subscriptions.show-pages.groups.security.policies.edit-pages.groups.security.pol-6bfecbfa.39e3ea89.chunk.js" defer="defer" nonce="tmjYVkZ8fqQdt6R2yMTK3A=="></script>
+<script src="/assets/webpack/commons-pages.projects.blob.show-pages.projects.show-pages.projects.snippets.edit-pages.projects.sni-42df7d4c.bf3bd430.chunk.js" defer="defer" nonce="tmjYVkZ8fqQdt6R2yMTK3A=="></script>
+<script src="/assets/webpack/commons-pages.projects.blob.show-pages.projects.show-pages.projects.snippets.show-pages.projects.tre-c684fcf6.7a50c579.chunk.js" defer="defer" nonce="tmjYVkZ8fqQdt6R2yMTK3A=="></script>
+<script src="/assets/webpack/commons-pages.groups.show-pages.projects.blob.show-pages.projects.show-pages.projects.tree.show.a03d8ab2.chunk.js" defer="defer" nonce="tmjYVkZ8fqQdt6R2yMTK3A=="></script>
+<script src="/assets/webpack/commons-pages.groups.details-pages.groups.show-pages.profiles.notifications.show-pages.projects.show.7d87a266.chunk.js" defer="defer" nonce="tmjYVkZ8fqQdt6R2yMTK3A=="></script>
+<script src="/assets/webpack/commons-pages.projects.blob.show-pages.projects.show-pages.projects.tree.show.cb802f97.chunk.js" defer="defer" nonce="tmjYVkZ8fqQdt6R2yMTK3A=="></script>
+<script src="/assets/webpack/commons-pages.projects.show-pages.projects.tree.show.355c3369.chunk.js" defer="defer" nonce="tmjYVkZ8fqQdt6R2yMTK3A=="></script>
+<script src="/assets/webpack/pages.projects.show.3625a0db.chunk.js" defer="defer" nonce="tmjYVkZ8fqQdt6R2yMTK3A=="></script>
 <meta content="object" property="og:type">
 <meta content="GitLab" property="og:site_name">
 <meta content="The Foundation / The Foundation.Gitlab.Io Comments Vssue.Js · GitLab" property="og:title">
@@ -132,8 +131,8 @@ gl.snowplowPseudonymizedPageUrl = "https://gitlab.com/namespace4170095/project32
 <meta content="/assets/gitlab_com/assets/twitter_card-570ddb06edf56a2312253c5872489847a0f385112ddbcd71ccfa1570febab5d2.jpg" property="twitter:image">
 
 <meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="-vev3CF7Xh39Ju-HDLW1CEgwyW9O3q0Grlji8n4-0XGw97jaVSXwjBFqPcabre2Yzjdi9vUOxI30OPuo8-LC8w" />
-<meta name="csp-nonce" content="/Z+ET7pHKoqfQmT2JiAEJQ==" />
+<meta name="csrf-token" content="I2zHZ5P3hhHYfSpQzSUJh8-wFDhTDA-Twncf7RRGzS0lZyCZlmCDZKCs5pQnsJ5ZnybVg7q6ox7VTjH2J2jJxA" />
+<meta name="csp-nonce" content="tmjYVkZ8fqQdt6R2yMTK3A==" />
 <meta name="action-cable-url" content="/-/cable" />
 <link href="/-/manifest.json" rel="manifest">
 <link rel="icon" type="image/png" href="/assets/favicon-72a2cad5025aa931d6ea56c3201d1f18e68a8cd39788c7c80d5b2b82aa5143ef.png" id="favicon" data-original-href="/assets/favicon-72a2cad5025aa931d6ea56c3201d1f18e68a8cd39788c7c80d5b2b82aa5143ef.png" />
@@ -150,7 +149,7 @@ gl.snowplowPseudonymizedPageUrl = "https://gitlab.com/namespace4170095/project32
 
 <body class="tab-width-8 gl-browser-firefox gl-platform-firefox_os" data-find-file="/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/find_file/main" data-group="the-foundation" data-group-full-path="the-foundation" data-namespace-id="4170095" data-page="projects:show" data-page-type-id="the-foundation.gitlab.io-comments-vssue.js" data-project="the-foundation.gitlab.io-comments-vssue.js" data-project-id="32909927">
 
-<script nonce="/Z+ET7pHKoqfQmT2JiAEJQ==">
+<script nonce="tmjYVkZ8fqQdt6R2yMTK3A==">
 //<![CDATA[
 gl = window.gl || {};
 gl.client = {"isFirefox":true,"isFirefox Os":true};
@@ -399,57 +398,18 @@ Find file
 </span>
 
 </a><div class="gl-display-inline-block" data-options="{&quot;project_path&quot;:&quot;the-foundation/the-foundation.gitlab.io-comments-vssue.js&quot;,&quot;ref&quot;:&quot;main&quot;,&quot;is_fork&quot;:false,&quot;needs_to_fork&quot;:true,&quot;gitpod_enabled&quot;:false,&quot;is_blob&quot;:false,&quot;show_edit_button&quot;:false,&quot;show_web_ide_button&quot;:false,&quot;show_gitpod_button&quot;:false,&quot;show_pipeline_editor_button&quot;:false,&quot;web_ide_url&quot;:&quot;/-/ide/project/the-foundation/the-foundation.gitlab.io-comments-vssue.js/edit/main&quot;,&quot;edit_url&quot;:&quot;&quot;,&quot;pipeline_editor_url&quot;:&quot;/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/ci/editor?branch_name=main&quot;,&quot;gitpod_url&quot;:&quot;https://gitpod.io/#/assets/gitlab_com/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/tree/main/&quot;,&quot;user_preferences_gitpod_path&quot;:&quot;/-/profile/preferences#user_gitpod_enabled&quot;,&quot;user_profile_enable_gitpod_path&quot;:&quot;/-/profile?user%5Bgitpod_enabled%5D=true&quot;,&quot;new_workspace_path&quot;:&quot;/-/remote_development/workspaces/new&quot;,&quot;project_id&quot;:32909927,&quot;fork_path&quot;:&quot;/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/forks/new&quot;,&quot;fork_modal_id&quot;:null}" data-web-ide-promo-popover-img="/assets/web-ide-promo-popover-9e59939b3b450a7ea385a520971151abb09ddad46141c333d6dcc783b9b91522.svg" id="js-tree-web-ide-link"></div>
-<div class="project-action-button dropdown gl-dropdown inline">
-<button class="gl-button btn btn-md btn-default dropdown-toggle gl-dropdown-toggle dropdown-icon-only has-tooltip" title="Download" data-toggle="dropdown" aria-label="Download" data-display="static" data-testid="download-source-code-button" type="button"><span class="gl-button-text">
-<svg class="s16 gl-icon dropdown-icon" data-testid="download-icon"><use href="/assets/icons-33d285b77c0f9173f577e26a550fb6463b9913e368ebfcdbb54022aff27051db.svg#download"></use></svg>
-<span class="sr-only">Select Archive Format</span>
-<svg class="s16 gl-icon dropdown-chevron" data-testid="chevron-down-icon"><use href="/assets/icons-33d285b77c0f9173f577e26a550fb6463b9913e368ebfcdbb54022aff27051db.svg#chevron-down"></use></svg>
-
-</span>
-
-</button><div class="dropdown-menu dropdown-menu-right" role="menu">
-<section>
-<h5 class="m-0 dropdown-bold-header">Download source code</h5>
-<div class="dropdown-menu-content">
-<div class="btn-group ml-0 w-100">
-<a rel="nofollow" download="" class="gl-button btn btn-sm btn-confirm " href="/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.zip"><span class="gl-button-text">
-zip
-</span>
-
-</a>
-<a rel="nofollow" download="" class="gl-button btn btn-sm btn-default " href="/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.tar.gz"><span class="gl-button-text">
-tar.gz
-</span>
-
-</a>
-<a rel="nofollow" download="" class="gl-button btn btn-sm btn-default " href="/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.tar.bz2"><span class="gl-button-text">
-tar.bz2
-</span>
-
-</a>
-<a rel="nofollow" download="" class="gl-button btn btn-sm btn-default " href="/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.tar"><span class="gl-button-text">
-tar
-</span>
-
-</a>
-</div>
-
-</div>
-</section>
-<div class="js-directory-downloads" data-links="[{&quot;text&quot;:&quot;zip&quot;,&quot;path&quot;:&quot;/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.zip&quot;},{&quot;text&quot;:&quot;tar.gz&quot;,&quot;path&quot;:&quot;/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.tar.gz&quot;},{&quot;text&quot;:&quot;tar.bz2&quot;,&quot;path&quot;:&quot;/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.tar.bz2&quot;},{&quot;text&quot;:&quot;tar&quot;,&quot;path&quot;:&quot;/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.tar&quot;}]"></div>
-</div>
-</div><div class="project-clone-holder d-none d-md-inline-block">
+<div class="project-code-holder d-none d-md-inline-block">
 <div class="git-clone-holder js-git-clone-holder">
 <button id="clone-dropdown" class="gl-button btn btn-md btn-confirm clone-dropdown-btn" data-toggle="dropdown" data-qa-selector="clone_dropdown" type="button"><span class="gl-button-text">
-<span class="gl-mr-2 js-clone-dropdown-label">
-Clone
+<span class="js-clone-dropdown-label">
+Code
 </span>
 <svg class="s16 icon" data-testid="chevron-down-icon"><use href="/assets/icons-33d285b77c0f9173f577e26a550fb6463b9913e368ebfcdbb54022aff27051db.svg#chevron-down"></use></svg>
 
 </span>
 
-</button><ul class="dropdown-menu dropdown-menu-large dropdown-menu-selectable clone-options-dropdown dropdown-menu-right" data-qa-selector="clone_dropdown_content">
-<li class="gl-px-4!">
+</button><ul class="dropdown-menu dropdown-menu-large clone-options-dropdown dropdown-menu-right" data-qa-selector="clone_dropdown_content">
+<li class="gl-dropdown-item js-clone-links gl-px-4!">
 <label class="label-bold">
 Clone with SSH
 </label>
@@ -463,7 +423,7 @@ Clone with SSH
 </div>
 </div>
 </li>
-<li class="pt-2 gl-px-4!">
+<li class="pt-2 gl-dropdown-item js-clone-links gl-px-4!">
 <label class="label-bold">
 Clone with HTTPS
 </label>
@@ -479,7 +439,7 @@ Clone with HTTPS
 </li>
 
 <li class="divider mt-2"></li>
-<li class="pt-2 gl-dropdown-item">
+<li class="pt-2 gl-dropdown-item js-clone-links">
 <label class="label-bold gl-px-4!">
 Open in your IDE
 </label>
@@ -503,11 +463,59 @@ IntelliJ IDEA (SSH)
 IntelliJ IDEA (HTTPS)
 </div>
 </a>
+<li class="divider mt-2"></li>
+<li class="gl-dropdown-item">
+<h5 class="m-0 dropdown-bold-header">Download source code</h5>
+<a class="dropdown-item open-with-link" download="" href="/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.zip" rel="nofollow">
+<div class="gl-dropdown-item-text-wrapper">zip</div>
+</a>
+<a class="dropdown-item open-with-link" download="" href="/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.tar.gz" rel="nofollow">
+<div class="gl-dropdown-item-text-wrapper">tar.gz</div>
+</a>
+<a class="dropdown-item open-with-link" download="" href="/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.tar.bz2" rel="nofollow">
+<div class="gl-dropdown-item-text-wrapper">tar.bz2</div>
+</a>
+<a class="dropdown-item open-with-link" download="" href="/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.tar" rel="nofollow">
+<div class="gl-dropdown-item-text-wrapper">tar</div>
+</a>
+
+</li>
+<div class="js-directory-downloads" data-links="[{&quot;text&quot;:&quot;zip&quot;,&quot;path&quot;:&quot;/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.zip&quot;},{&quot;text&quot;:&quot;tar.gz&quot;,&quot;path&quot;:&quot;/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.tar.gz&quot;},{&quot;text&quot;:&quot;tar.bz2&quot;,&quot;path&quot;:&quot;/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.tar.bz2&quot;},{&quot;text&quot;:&quot;tar&quot;,&quot;path&quot;:&quot;/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.tar&quot;}]"></div>
+
 </li>
 </ul>
 </div>
 
-</div></div><div class="project-clone-holder d-block d-md-none mt-sm-2 mt-md-0 ml-md-2">
+</div></div><div class="project-code-holder d-block d-md-none mt-sm-2 mt-md-0 ml-md-2">
+<div class="project-action-button dropdown gl-dropdown inline">
+<button class="gl-button btn btn-md btn-default dropdown-toggle gl-dropdown-toggle dropdown-icon-only has-tooltip" title="Download" data-toggle="dropdown" aria-label="Download" data-display="static" data-testid="download-source-code-button" type="button"><span class="gl-button-text">
+<svg class="s16 gl-icon dropdown-icon" data-testid="download-icon"><use href="/assets/icons-33d285b77c0f9173f577e26a550fb6463b9913e368ebfcdbb54022aff27051db.svg#download"></use></svg>
+<span class="sr-only">Select Archive Format</span>
+<svg class="s16 gl-icon dropdown-chevron" data-testid="chevron-down-icon"><use href="/assets/icons-33d285b77c0f9173f577e26a550fb6463b9913e368ebfcdbb54022aff27051db.svg#chevron-down"></use></svg>
+
+</span>
+
+</button><ul class="dropdown-menu dropdown-menu-right" role="menu">
+<li class="gl-dropdown-item">
+<h5 class="m-0 dropdown-bold-header">Download source code</h5>
+<a class="dropdown-item open-with-link" download="" href="/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.zip" rel="nofollow">
+<div class="gl-dropdown-item-text-wrapper">zip</div>
+</a>
+<a class="dropdown-item open-with-link" download="" href="/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.tar.gz" rel="nofollow">
+<div class="gl-dropdown-item-text-wrapper">tar.gz</div>
+</a>
+<a class="dropdown-item open-with-link" download="" href="/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.tar.bz2" rel="nofollow">
+<div class="gl-dropdown-item-text-wrapper">tar.bz2</div>
+</a>
+<a class="dropdown-item open-with-link" download="" href="/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.tar" rel="nofollow">
+<div class="gl-dropdown-item-text-wrapper">tar</div>
+</a>
+
+</li>
+<div class="js-directory-downloads" data-links="[{&quot;text&quot;:&quot;zip&quot;,&quot;path&quot;:&quot;/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.zip&quot;},{&quot;text&quot;:&quot;tar.gz&quot;,&quot;path&quot;:&quot;/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.tar.gz&quot;},{&quot;text&quot;:&quot;tar.bz2&quot;,&quot;path&quot;:&quot;/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.tar.bz2&quot;},{&quot;text&quot;:&quot;tar&quot;,&quot;path&quot;:&quot;/the-foundation/the-foundation.gitlab.io-comments-vssue.js/-/archive/main/the-foundation.gitlab.io-comments-vssue.js-main.tar&quot;}]"></div>
+
+</ul>
+</div>
 <div class="btn-group mobile-git-clone js-mobile-git-clone btn-block">
 <button class="gl-button btn btn-md btn-confirm clone-dropdown-btn js-clone-dropdown-label" title="Copy" aria-label="Copy" aria-live="polite" data-toggle="tooltip" data-placement="bottom" data-container="body" data-button-text="Copy HTTPS clone URL" data-size="medium" data-category="primary" data-variant="confirm" data-hide-button-icon="true" data-clipboard-text="/assets/gitlab_com/the-foundation/the-foundation.gitlab.io-comments-vssue.js.git" type="button"><span class="gl-button-text">
 Copy HTTPS clone URL
@@ -518,10 +526,10 @@ Copy HTTPS clone URL
 <svg class="s16 dropdown-btn-icon icon" data-testid="chevron-down-icon"><use href="/assets/icons-33d285b77c0f9173f577e26a550fb6463b9913e368ebfcdbb54022aff27051db.svg#chevron-down"></use></svg>
 </button>
 <ul class="dropdown-menu dropdown-menu-selectable dropdown-menu-right clone-options-dropdown" data-dropdown>
-<li>
+<li class="js-clone-links">
 <a class="copy ssh clone url-selector is-active" href="git@gitlab.com:the-foundation/the-foundation.gitlab.io-comments-vssue.js.git" data-clone-type="ssh"><strong class="dropdown-menu-inner-title">Copy SSH clone URL</strong><span class="dropdown-menu-inner-content">git@gitlab.com:the-foundation/the-foundation.gitlab.io-comments-vssue.js.git</span></a>
 </li>
-<li>
+<li class="js-clone-links">
 <a class="copy https clone url-selector " href="/assets/gitlab_com/the-foundation/the-foundation.gitlab.io-comments-vssue.js.git" data-clone-type="http"><strong class="dropdown-menu-inner-title">Copy HTTPS clone URL</strong><span class="dropdown-menu-inner-content">https://gitlab.com/the-foundation/the-foundation.gitlab.io-comments-vssue.js.git</span></a>
 </li>
 
@@ -557,7 +565,7 @@ Copy HTTPS clone URL
 
 
 
-<script nonce="/Z+ET7pHKoqfQmT2JiAEJQ==">
+<script nonce="tmjYVkZ8fqQdt6R2yMTK3A==">
 //<![CDATA[
 if ('loading' in HTMLImageElement.prototype) {
   document.querySelectorAll('img.lazy').forEach(img => {
@@ -578,7 +586,7 @@ if ('loading' in HTMLImageElement.prototype) {
 
 //]]>
 </script>
-<script nonce="/Z+ET7pHKoqfQmT2JiAEJQ==">
+<script nonce="tmjYVkZ8fqQdt6R2yMTK3A==">
 //<![CDATA[
 gl = window.gl || {};
 gl.experiments = {};
